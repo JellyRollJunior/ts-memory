@@ -1,24 +1,44 @@
-import { tile } from "./types";
-import { GameTile } from "./gameTile";
+import { useEffect, useState } from 'react';
+import type { Tile } from './types.ts';
+import { GameTile } from './gameTile.tsx';
 
-const createTile = (src: string): tile => {
+const createTile = (src: string): Tile => {
   return {
     id: crypto.randomUUID(),
     src,
-  }
-}
+  };
+};
 
 const Gameboard = ({ card = 9 }) => {
-  const cardArray = new Array(card).fill(0);
+  const [gameTiles, setGameTiles] = useState<Tile[]>([] as Tile[]);
+
+  const fetchSrc = async (numSrc: number): Promise<string[]> => {
+    let i = 0;
+    return Array(numSrc)
+      .fill('')
+      .map((): string => '' + i++);
+  };
+
+  useEffect(() => {
+    const initGameBoard = async (): Promise<void> => {
+      const srcArray = await fetchSrc(card);
+      const tiles = [];
+      for (const src of srcArray) {
+        tiles.push(createTile(src));
+      }
+      setGameTiles(tiles);
+    };
+
+    initGameBoard();
+  }, [card]);
 
   return (
     <div className="max-w-3xl">
-      {/* extract title from gameboard (make gameboard only the game buttons portion) */}
       <h1 className="text-center text-3xl font-bold text-slate-700">
         Typescript Memory!
       </h1>
       <ul className="grid grid-cols-3">
-        {cardArray.map(
+        {gameTiles.map(
           (): React.JSX.Element => (
             <GameTile />
           )

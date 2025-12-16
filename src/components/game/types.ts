@@ -1,6 +1,6 @@
-type tile = {
+type Tile = {
     id: string;
     src: string;
 };
 
-export type { tile };
+export type { Tile };
