@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import type { Tile } from './types.ts';
 import { GameTile } from './gameTile.tsx';
 
@@ -34,13 +34,15 @@ const Gameboard = ({ card = 9 }) => {
 
   return (
     <div className="max-w-3xl">
-      <h1 className="text-center text-3xl font-bold text-slate-700">
+      <h1 className="text-center text-3xl font-bold text-slate-700 mt-12">
         Typescript Memory!
       </h1>
-      <ul className="grid grid-cols-3">
+      <ul className="grid grid-cols-3 mt-5 border border-black">
         {gameTiles.map(
-          (): React.JSX.Element => (
-            <GameTile />
+          (data): React.JSX.Element => (
+            <Fragment key={data.id}>
+              <GameTile data={data} />
+            </Fragment>
           )
         )}
       </ul>
