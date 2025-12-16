@@ -1,4 +1,4 @@
-import { Gameboard } from "./components/gameboard";
+import { Gameboard } from "./components/game/gameboard";
 
 function App() {
   return (
