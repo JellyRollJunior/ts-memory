@@ -26,19 +26,20 @@ const clickTile = (
   id: string,
   board: Tile[]
 ): { state: GameState; board: Tile[] } => {
+  let updatedState = state;
+  let updatedBoard = board;
   if (state == 'PLAYING') {
     const tile = board.find((tile) => tile.id == id);
-    if (tile) {
+    if (tile && !tile.clicked) {
       tile.clicked = true;
+      updatedBoard = tile ? [tile, ...board.filter((tile) => tile.id != id)] : board;
+    } else if (tile && tile.clicked) {
+      updatedState = "LOSE"
     }
-    return {
-      state,
-      board: tile ? [tile, ...board.filter((tile) => tile.id != id)] : board,
-    };
   }
   return {
-    state,
-    board,
+    state: updatedState,
+    board: updatedBoard,
   };
 };
 
@@ -72,6 +73,7 @@ const Gameboard = ({ card = 9 }) => {
       <h1 className="mt-12 text-center text-3xl font-bold text-slate-700">
         Typescript Memory!
       </h1>
+      <h2 className='text-center'>{gameState}</h2>
       <ul className="mt-5 grid grid-cols-3 border border-black">
         {shuffleArray(gameTiles).map(
           (data): React.JSX.Element => (
