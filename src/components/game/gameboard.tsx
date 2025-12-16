@@ -13,6 +13,11 @@ const shuffleArray = <Type,>(inputArray: Type[]): Type[] => {
   return array;
 };
 
+type GameData = {
+  state: GameState;
+  board: Tile[];
+};
+
 const createTile = (src: string): Tile => {
   return {
     id: crypto.randomUUID(),
@@ -21,11 +26,7 @@ const createTile = (src: string): Tile => {
   };
 };
 
-const clickTile = (
-  state: GameState,
-  id: string,
-  board: Tile[]
-): { state: GameState; board: Tile[] } => {
+const makeMove = (state: GameState, id: string, board: Tile[]): GameData => {
   let updatedState = state;
   let updatedBoard = board;
   if (state == 'PLAYING') {
@@ -45,18 +46,10 @@ const clickTile = (
   };
 };
 
-const verifyWin = (state: GameState, board: Tile[]): boolean => {
-  if (state == 'PLAYING') {
-    return (
-      board.length ==
-      board.reduce(
-        (count: number, tile: Tile) =>
-          (count = tile.clicked ? count + 1 : count),
-        0
-      )
-    );
-  }
-  return false;
+const verifyWin = (state: GameState, board: Tile[]): GameData => {
+  const updatedState =
+    board.filter((tile) => tile.clicked).length == board.length ? 'WIN' : state;
+  return { state: updatedState, board };
 };
 
 const Gameboard = ({ card = 9 }) => {
@@ -84,15 +77,12 @@ const Gameboard = ({ card = 9 }) => {
     initGameBoard();
   }, [card]);
 
-  const updateGameState = (tileId: string): void => {
+  const onClickTile = (tileId: string): void => {
     if (gameState == 'PLAYING') {
-      const gameData = clickTile(gameState, tileId, gameTiles);
-      if (verifyWin(gameData.state, gameData.board)) {
-        setGameState('WIN');
-      } else {
-        setGameState(gameData.state);
-      }
-      setGameTiles(gameData.board);
+      const gameData = makeMove(gameState, tileId, gameTiles);
+      const winVerifiedGameData = verifyWin(gameData.state, gameData.board);
+      setGameState(winVerifiedGameData.state);
+      setGameTiles(winVerifiedGameData.board);
     }
   };
 
@@ -106,7 +96,7 @@ const Gameboard = ({ card = 9 }) => {
         {shuffleArray(gameTiles).map(
           (data): React.JSX.Element => (
             <Fragment key={data.id}>
-              <GameTile data={data} onClick={() => updateGameState(data.id)} />
+              <GameTile data={data} onClick={() => onClickTile(data.id)} />
             </Fragment>
           )
         )}
