@@ -22,20 +22,28 @@ const createTile = (src: string): Tile => {
 };
 
 const clickTile = (
+  state: GameState,
   id: string,
   board: Tile[]
 ): { state: GameState; board: Tile[] } => {
-  const tile = board.find((tile) => tile.id == id);
-  if (tile) {
-    tile.clicked = true;
+  if (state == 'PLAYING') {
+    const tile = board.find((tile) => tile.id == id);
+    if (tile) {
+      tile.clicked = true;
+    }
+    return {
+      state,
+      board: tile ? [tile, ...board.filter((tile) => tile.id != id)] : board,
+    };
   }
   return {
-    state: 'PLAYING',
-    board: tile ? [tile, ...board.filter((tile) => tile.id != id)] : board,
+    state,
+    board,
   };
 };
 
 const Gameboard = ({ card = 9 }) => {
+  const [gameState, setGameState] = useState<GameState>('NONE');
   const [gameTiles, setGameTiles] = useState<Tile[]>([] as Tile[]);
 
   const fetchSrc = async (numSrc: number): Promise<string[]> => {
@@ -53,6 +61,7 @@ const Gameboard = ({ card = 9 }) => {
         tiles.push(createTile(src));
       }
       setGameTiles(tiles);
+      setGameState('PLAYING');
     };
 
     initGameBoard();
@@ -67,9 +76,16 @@ const Gameboard = ({ card = 9 }) => {
         {shuffleArray(gameTiles).map(
           (data): React.JSX.Element => (
             <Fragment key={data.id}>
-              <GameTile data={data} onClick={() => {
-                setGameTiles(clickTile(data.id, gameTiles).board)
-              }} />
+              <GameTile
+                data={data}
+                onClick={() => {
+                  if (gameState == 'PLAYING') {
+                    const gameData = clickTile(gameState, data.id, gameTiles);
+                    setGameState(gameData.state);
+                    setGameTiles(gameData.board);
+                  }
+                }}
+              />
             </Fragment>
           )
         )}
