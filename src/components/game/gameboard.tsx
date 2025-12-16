@@ -32,15 +32,31 @@ const clickTile = (
     const tile = board.find((tile) => tile.id == id);
     if (tile && !tile.clicked) {
       tile.clicked = true;
-      updatedBoard = tile ? [tile, ...board.filter((tile) => tile.id != id)] : board;
+      updatedBoard = tile
+        ? [tile, ...board.filter((tile) => tile.id != id)]
+        : board;
     } else if (tile && tile.clicked) {
-      updatedState = "LOSE"
+      updatedState = 'LOSE';
     }
   }
   return {
     state: updatedState,
     board: updatedBoard,
   };
+};
+
+const verifyWin = (state: GameState, board: Tile[]): boolean => {
+  if (state == 'PLAYING') {
+    return (
+      board.length ==
+      board.reduce(
+        (count: number, tile: Tile) =>
+          (count = tile.clicked ? count + 1 : count),
+        0
+      )
+    );
+  }
+  return false;
 };
 
 const Gameboard = ({ card = 9 }) => {
@@ -68,26 +84,29 @@ const Gameboard = ({ card = 9 }) => {
     initGameBoard();
   }, [card]);
 
+  const updateGameState = (tileId: string): void => {
+    if (gameState == 'PLAYING') {
+      const gameData = clickTile(gameState, tileId, gameTiles);
+      if (verifyWin(gameData.state, gameData.board)) {
+        setGameState('WIN');
+      } else {
+        setGameState(gameData.state);
+      }
+      setGameTiles(gameData.board);
+    }
+  };
+
   return (
     <div className="max-w-3xl">
       <h1 className="mt-12 text-center text-3xl font-bold text-slate-700">
         Typescript Memory!
       </h1>
-      <h2 className='text-center'>{gameState}</h2>
+      <h2 className="text-center">{gameState}</h2>
       <ul className="mt-5 grid grid-cols-3 border border-black">
         {shuffleArray(gameTiles).map(
           (data): React.JSX.Element => (
             <Fragment key={data.id}>
-              <GameTile
-                data={data}
-                onClick={() => {
-                  if (gameState == 'PLAYING') {
-                    const gameData = clickTile(gameState, data.id, gameTiles);
-                    setGameState(gameData.state);
-                    setGameTiles(gameData.board);
-                  }
-                }}
-              />
+              <GameTile data={data} onClick={() => updateGameState(data.id)} />
             </Fragment>
           )
         )}
