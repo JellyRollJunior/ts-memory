@@ -1,14 +1,6 @@
 import { Fragment, useEffect, useState } from 'react';
-import type { Tile } from './types.ts';
+import type { GameState, Tile } from './types.ts';
 import { GameTile } from './gameTile.tsx';
-
-const createTile = (src: string): Tile => {
-  return {
-    id: crypto.randomUUID(),
-    src,
-    clicked: false,
-  };
-};
 
 const shuffleArray = <Type,>(inputArray: Type[]): Type[] => {
   const array = structuredClone(inputArray);
@@ -19,6 +11,28 @@ const shuffleArray = <Type,>(inputArray: Type[]): Type[] => {
     array[j] = temp;
   }
   return array;
+};
+
+const createTile = (src: string): Tile => {
+  return {
+    id: crypto.randomUUID(),
+    src,
+    clicked: false,
+  };
+};
+
+const clickTile = (
+  id: string,
+  board: Tile[]
+): { state: GameState; board: Tile[] } => {
+  const tile = board.find((tile) => tile.id == id);
+  if (tile) {
+    tile.clicked = true;
+  }
+  return {
+    state: 'PLAYING',
+    board: tile ? [tile, ...board.filter((tile) => tile.id != id)] : board,
+  };
 };
 
 const Gameboard = ({ card = 9 }) => {
@@ -53,7 +67,9 @@ const Gameboard = ({ card = 9 }) => {
         {shuffleArray(gameTiles).map(
           (data): React.JSX.Element => (
             <Fragment key={data.id}>
-              <GameTile data={data} />
+              <GameTile data={data} onClick={() => {
+                setGameTiles(clickTile(data.id, gameTiles).board)
+              }} />
             </Fragment>
           )
         )}
