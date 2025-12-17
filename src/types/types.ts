@@ -6,4 +6,9 @@ type Tile = {
     clicked: boolean;
 };
 
-export type { GameState, Tile };
+type GameData = {
+  state: GameState;
+  board: Tile[];
+};
+
+export type { GameState, Tile, GameData };

@@ -1,4 +1,4 @@
-import type { Tile } from './types.ts';
+import type { Tile } from '../types/types.ts';
 
 type AppProps = {
   data: Tile,
