@@ -1,5 +1,16 @@
 import type { GameData, GameState, Tile } from '../types/types.ts';
 
+const shuffleArray = <Type,>(inputArray: Type[]): Type[] => {
+  const array = structuredClone(inputArray);
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+};
+
 const createTile = (src: string): Tile => {
     return {
         id: crypto.randomUUID(),
@@ -23,12 +34,12 @@ const initGame = async (size: number): Promise<GameData> => {
         tiles.push(createTile(src));
     }
     return {
-        state: "PLAYING",
+        state: 'PLAYING',
         board: tiles,
-    }
+    };
 };
 
-const makeMove = (state: GameState, id: string, board: Tile[]): GameData => {
+const selectTile = (id: string, state: GameState, board: Tile[]): GameData => {
     let updatedState = state;
     let updatedBoard = board;
     if (state == 'PLAYING') {
@@ -56,7 +67,14 @@ const verifyWin = (state: GameState, board: Tile[]): GameData => {
     return { state: updatedState, board };
 };
 
+const makeMove = (id: string, state: GameState, board: Tile[]): GameData => {
+    const {state: updatedState, board: updatedBoard} = selectTile(id, state, board);
+    const winVerifiedGameData = gameController.verifyWin(updatedState, updatedBoard);
+    return winVerifiedGameData;
+};
+
 const gameController = {
+    shuffleArray,
     initGame,
     makeMove,
     verifyWin,
