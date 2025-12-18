@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { createResponseError } from './responseError';
 const GIPHY_API_KEY = import.meta.env.VITE_GIPHY_API_KEY;
 
 const giphyArray = z.object({
@@ -27,7 +28,7 @@ const requestGifs = async (search: string, limit = 12): Promise<z.infer<typeof g
     const json = await response.json();
     // handle response
     if (!response.ok) {
-        // throw error
+        throw createResponseError(Number(json.status), json.name, json.message);
     }
     // validate response ZOD
     console.log(json);

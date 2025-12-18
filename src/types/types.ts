@@ -11,4 +11,10 @@ type GameData = {
   board: Tile[];
 };
 
-export type { GameState, Tile, GameData };
+/* Errors */
+type ResponseError = Error & {
+    status: number;
+    name: string;
+};
+
+export type { GameState, Tile, GameData, ResponseError };
