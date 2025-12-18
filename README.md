@@ -11,3 +11,4 @@
     - parsing api error response with ZOD
     - ZOD default / catch values
     - ZOD transform to modify shape of response object
+    - ZOD infer type using schema

@@ -1,10 +1,10 @@
 import { z } from 'zod';
-import { giphyArrayschema } from '../schemas/giphy.schema';
+import { giphyArraySchema } from '../schemas/giphy.schema';
 import { apiErrorSchema } from '../schemas/apiError.schema';
 import { createResponseError } from './responseError';
 const GIPHY_API_KEY = import.meta.env.VITE_GIPHY_API_KEY;
 
-const requestGifs = async (search: string, limit = 12): Promise<z.infer<typeof giphyArrayschema>> => {
+const requestGifs = async (search: string, limit = 12): Promise<z.infer<typeof giphyArraySchema>> => {
     // build url + options
     const baseURL = 'https://api.giphy.com/v1/gifs/search';
     const options = {
@@ -22,7 +22,7 @@ const requestGifs = async (search: string, limit = 12): Promise<z.infer<typeof g
         throw createResponseError(Number(apiError.status), apiError.name, apiError.message);
     }
     // validate response ZOD
-    const parsed = giphyArrayschema.parse(json);
+    const parsed = giphyArraySchema.parse(json);
     console.log(parsed)
     return parsed;
 };

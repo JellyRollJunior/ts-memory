@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 /* parse array of gif URLs */
-const giphyArrayschema = z
+const giphyArraySchema = z
     .object({
         data: z.array(
             z.object({
@@ -17,4 +17,4 @@ const giphyArrayschema = z
         response.data.map((gif) => gif.images.original.url)
     );
 
-export { giphyArrayschema };
+export { giphyArraySchema };
