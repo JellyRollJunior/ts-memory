@@ -3,7 +3,9 @@ import { Gameboard } from "./components/gameboard";
 function App() {
   return (
     <div className="flex min-h-screen min-w-screen flex-col items-center">
-      <Gameboard />
+      <main className="mx-3">
+        <Gameboard />
+      </main>
     </div>
   );
 }

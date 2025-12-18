@@ -1,1 +1,5 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+@theme {
+  --color-sand-beige: #b4aa82;
+}
