@@ -1,7 +1,7 @@
 import type { GameState, Tile } from '../types/types.ts';
 import { Fragment, useEffect, useState } from 'react';
 import { gameController } from '../game/gameController.ts';
-import { GameTile } from './gameTile.tsx';
+import { GameTile } from './gameTiles.tsx';
 import { useGiphy } from '../hooks/useGiphy.ts';
 
 const Gameboard = ({ numTiles = 12 }) => {
@@ -31,11 +31,10 @@ const Gameboard = ({ numTiles = 12 }) => {
 
   return (
     <div className="w-full max-w-3xl">
-      <h1 className="mt-12 text-center text-3xl font-bold text-slate-700">
-        Typescript Memory!
-      </h1>
       <h2 className="text-center">{gameState}</h2>
-      <ul className="mt-5 grid w-full grid-cols-2 gap-2">
+      <ul
+        className="mt-5 grid w-full grid-cols-2 gap-2"
+      >
         {isLoading || error != null
           ? [...Array(numTiles)].map((value, index) => (
               <Fragment key={index}>
@@ -59,7 +58,7 @@ const Gameboard = ({ numTiles = 12 }) => {
                 </Fragment>
               )
             )}
-      </ul>
+      </    ul>
     </div>
   );
 };

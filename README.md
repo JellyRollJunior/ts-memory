@@ -17,8 +17,4 @@
 #### TODO
 - HANDLE ZOD ERROR
 - tests
-
-- make game tiles
-    - loading view
-    - error view
-    - render without game data
+- error gamestate
