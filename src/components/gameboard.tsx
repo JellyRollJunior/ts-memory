@@ -9,7 +9,12 @@ const Gameboard = ({ size = 9 }) => {
 
   useEffect(() => {
     const initGameBoard = async (): Promise<void> => {
-      const init = await gameController.initGame(size);
+      // Fill src w/ dummy data
+      let i = 0;
+      const srcArray = Array(size)
+        .fill('')
+        .map((): string => '' + i++);
+      const init = gameController.initGame(srcArray);
       setGameState(init.state);
       setGameTiles(init.board);
     };

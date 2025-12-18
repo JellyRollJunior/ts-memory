@@ -19,16 +19,7 @@ const createTile = (src: string): Tile => {
     };
 };
 
-// error handling later "try catch"
-const fetchSrc = async (size: number): Promise<string[]> => {
-    let i = 0;
-    return Array(size)
-        .fill('')
-        .map((): string => '' + i++);
-};
-
-const initGame = async (size: number): Promise<GameData> => {
-    const srcArray = await fetchSrc(size);
+const initGame = (srcArray: string[]): GameData => {
     const tiles = [];
     for (const src of srcArray) {
         tiles.push(createTile(src));
