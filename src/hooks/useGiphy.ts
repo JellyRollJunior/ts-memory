@@ -13,11 +13,11 @@ const useGiphy = (query = 'sailor moon', limit = 12) => {
         // abort controller later
         // const abortController = new AbortController();
         const fetchGifs = async () => {
-            setIsLoading(false);
+            setIsLoading(true);
             try {
                 const gifArray = await requestGifs(query, limit);
-                setError(null);
                 setData(gifArray);
+                setError(null);
             } catch (error) {
                 if (isResponseError(error)) {
                     setError(error.message);
@@ -26,6 +26,8 @@ const useGiphy = (query = 'sailor moon', limit = 12) => {
                 } else {
                     setError('Unable to fetch gifs');
                 }
+            } finally {
+                setIsLoading(false);
             }
         };
 

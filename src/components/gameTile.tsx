@@ -15,7 +15,22 @@ const GameTile = ({
   isLoading = false,
   isError = false,
 }: AppProps) => {
-  return !isLoading ? (
+  if (isLoading) {
+    return (
+      <motion.li
+        className="border-sand-beige aspect-square h-full w-full rounded-lg border-5"
+        style={{ backgroundColor: '#e8e5d9' }}
+        animate={{ backgroundColor: '#d9d4c0' }}
+        transition={{
+          repeat: Infinity,
+          repeatType: 'reverse',
+          duration: 0.8,
+          ease: 'easeInOut',
+        }}
+      />
+    );
+  }
+  return (
     <li
       className={`border-sand-beige bg-sand-beige-light aspect-square h-full overflow-hidden rounded-lg border-5`}
     >
@@ -27,18 +42,6 @@ const GameTile = ({
         )}
       </button>
     </li>
-  ) : (
-    <motion.li
-      className="border-sand-beige aspect-square h-full rounded-lg border-5"
-      style={{ backgroundColor: '#e8e5d9' }}
-      animate={{ backgroundColor: '#d9d4c0' }}
-      transition={{
-        repeat: Infinity,
-        repeatType: 'reverse',
-        duration: 0.8,
-        ease: 'easeInOut',
-      }}
-    />
   );
 };
 
