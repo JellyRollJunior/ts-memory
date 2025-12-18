@@ -1,23 +1,25 @@
 import { useEffect, useState } from 'react';
 import { requestGifs } from '../services/request';
 
-const useGiphy = () => {
+const useGiphy = (query = 'sailor moon', limit = 12) => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [data, setData] = useState<null>(null);
 
     useEffect(() => {
-        // fetch data
-        // setData
+
+        // abort controller later
+        // const abortController = new AbortController();
         const fetchGifs = async () => {
-            requestGifs('sailor moon', 12);
+            requestGifs(query, limit);
             setIsLoading(false);
             setError(null);
             setData(null);
         }
 
         fetchGifs();
-    }, []);
+
+    }, [query, limit]);
 
     return { isLoading, error, data };
 };
