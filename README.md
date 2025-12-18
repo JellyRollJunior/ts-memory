@@ -13,3 +13,7 @@
     - ZOD default / catch values
     - ZOD transform to modify shape of response object
     - ZOD infer type using schema
+
+#### TODO
+- HANDLE ZOD ERROR
+- Display gifs

@@ -7,22 +7,19 @@ import { useGiphy } from '../hooks/useGiphy.ts';
 const Gameboard = ({ size = 9 }) => {
   const [gameState, setGameState] = useState<GameState>('NONE');
   const [gameTiles, setGameTiles] = useState<Tile[]>([] as Tile[]);
-  const {isLoading, error, data} = useGiphy();
+  const { isLoading, error, data } = useGiphy('sailor moonr', size);
 
   useEffect(() => {
-    const initGameBoard = async (): Promise<void> => {
-      // Fill src w/ dummy data
-      let i = 0;
-      const srcArray = Array(size)
-        .fill('')
-        .map((): string => '' + i++);
-      const init = gameController.initGame(srcArray);
-      setGameState(init.state);
-      setGameTiles(init.board);
+    const initGameBoard = (): void => {
+      if (data) {
+        const init = gameController.initGame(data);
+        setGameState(init.state);
+        setGameTiles(init.board);
+      }
     };
 
     initGameBoard();
-  }, [size]);
+  }, [data]);
 
   const onClickTile = (tileId: string): void => {
     if (gameState == 'PLAYING') {

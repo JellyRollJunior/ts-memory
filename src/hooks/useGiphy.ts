@@ -20,9 +20,11 @@ const useGiphy = (query = 'sailor moon', limit = 12) => {
                 setData(gifArray);
             } catch (error) {
                 if (isResponseError(error)) {
-                    setError(error.message)
+                    setError(error.message);
+                } else if (error instanceof Error) {
+                    setError(error.message);
                 } else {
-                    setError('Unable to fetch gifs')
+                    setError('Unable to fetch gifs');
                 }
             }
         };
