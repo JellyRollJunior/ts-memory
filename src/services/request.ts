@@ -1,21 +1,10 @@
 import { z } from 'zod';
-import { createResponseError } from './responseError';
+import { giphyArrayschema } from '../schemas/giphy.schema';
 import { apiErrorSchema } from '../schemas/apiError.schema';
+import { createResponseError } from './responseError';
 const GIPHY_API_KEY = import.meta.env.VITE_GIPHY_API_KEY;
 
-const giphyArray = z.object({
-    data: z.array(
-        z.object({
-            images: z.object({
-                original: z.object({
-                    url: z.string(),
-                }),
-            }),
-        })
-    ),
-});
-
-const requestGifs = async (search: string, limit = 12): Promise<z.infer<typeof giphyArray>> => {
+const requestGifs = async (search: string, limit = 12): Promise<z.infer<typeof giphyArrayschema>> => {
     // build url + options
     const baseURL = 'https://api.giphy.com/v1/gifs/search';
     const options = {
@@ -33,9 +22,7 @@ const requestGifs = async (search: string, limit = 12): Promise<z.infer<typeof g
         throw createResponseError(Number(apiError.status), apiError.name, apiError.message);
     }
     // validate response ZOD
-    console.log(json);
-    const parsed = giphyArray.parse(json);
-    console.log(parsed);
+    const parsed = giphyArrayschema.parse(json);
     return parsed;
 };
 
