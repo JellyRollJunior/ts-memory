@@ -2,10 +2,12 @@ import type { GameState, Tile } from '../types/types.ts';
 import { Fragment, useEffect, useState } from 'react';
 import { gameController } from '../game/gameController.ts';
 import { GameTile } from './gameTile.tsx';
+import { useGiphy } from '../hooks/useGiphy.ts';
 
 const Gameboard = ({ size = 9 }) => {
   const [gameState, setGameState] = useState<GameState>('NONE');
   const [gameTiles, setGameTiles] = useState<Tile[]>([] as Tile[]);
+  const {isLoading, error, data} = useGiphy();
 
   useEffect(() => {
     const initGameBoard = async (): Promise<void> => {
