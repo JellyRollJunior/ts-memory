@@ -43,6 +43,7 @@ const Gameboard = ({ tileNumber = 12 }) => {
                 data={data}
                 onClick={() => onClickTile(data.id)}
                 isLoading={isLoading}
+                isError={Boolean(error)}
               />
             </Fragment>
           )
