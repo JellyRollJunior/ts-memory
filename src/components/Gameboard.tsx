@@ -32,9 +32,7 @@ const Gameboard = ({ numTiles = 12 }) => {
   return (
     <div className="w-full max-w-3xl">
       <h2 className="text-center">{gameState}</h2>
-      <ul
-        className="mt-5 grid w-full grid-cols-2 gap-2"
-      >
+      <ul className="mt-5 grid w-full grid-cols-2 gap-2">
         {isLoading || error != null
           ? [...Array(numTiles)].map((value, index) => (
               <Fragment key={index}>
@@ -58,7 +56,7 @@ const Gameboard = ({ numTiles = 12 }) => {
                 </Fragment>
               )
             )}
-      </    ul>
+      </ul>
     </div>
   );
 };

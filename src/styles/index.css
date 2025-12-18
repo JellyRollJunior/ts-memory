@@ -8,6 +8,7 @@
 
 @theme {
   /* Fonts */
+  --font-default: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-junge: 'junge', arial, sans-serif;
 
   /* Colors */
