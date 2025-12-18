@@ -1,9 +1,20 @@
 @import 'tailwindcss';
 
+@font-face {
+  font-family: 'junge';
+  font-weight: normal;
+  src: url(../assets/fonts/junge-regular-webfont.woff2);
+}
+
 @theme {
+  /* Fonts */
+  --font-junge: 'junge', arial, sans-serif;
+
+  /* Colors */
   --color-sand-beige-light: #e8e5d9;
   --color-sand-beige: #b4aa82;
 }
+
 
 @utility site-bg-image {
   background-image: url('../assets/background.png')

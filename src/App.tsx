@@ -1,5 +1,5 @@
-import { Header } from "./components/Header";
-import { Gameboard } from "./components/gameboards";
+import { Header } from "./components/Header.tsx";
+import { Gameboard } from "./components/Gameboard.tsx";
 
 function App() {
   return (

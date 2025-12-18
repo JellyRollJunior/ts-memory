@@ -1,7 +1,7 @@
 import type { GameState, Tile } from '../types/types.ts';
 import { Fragment, useEffect, useState } from 'react';
 import { gameController } from '../game/gameController.ts';
-import { GameTile } from './gameTiles.tsx';
+import { GameTile } from './GameTile.tsx';
 import { useGiphy } from '../hooks/useGiphy.ts';
 
 const Gameboard = ({ numTiles = 12 }) => {
