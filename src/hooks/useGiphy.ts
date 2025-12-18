@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { z } from 'zod';
 import { giphyArraySchema } from '../schemas/giphy.schema';
+import { isResponseError } from '../services/responseError';
 import { requestGifs } from '../services/request';
 
 const useGiphy = (query = 'sailor moon', limit = 12) => {
@@ -12,10 +13,18 @@ const useGiphy = (query = 'sailor moon', limit = 12) => {
         // abort controller later
         // const abortController = new AbortController();
         const fetchGifs = async () => {
-            requestGifs(query, limit);
             setIsLoading(false);
-            setError(null);
-            setData(null);
+            try {
+                const gifArray = await requestGifs(query, limit);
+                setError(null);
+                setData(gifArray);
+            } catch (error) {
+                if (isResponseError(error)) {
+                    setError(error.message)
+                } else {
+                    setError('Unable to fetch gifs')
+                }
+            }
         };
 
         fetchGifs();

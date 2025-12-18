@@ -1,4 +1,4 @@
-import type { ResponseError } from "../types/types";
+import type { ResponseError } from '../types/types';
 
 const createResponseError = (
     status: number,
@@ -11,4 +11,8 @@ const createResponseError = (
     return error;
 };
 
-export { createResponseError };
+const isResponseError = (err: unknown): err is ResponseError => {
+    return err instanceof Error && 'status' in err;
+};
+
+export { createResponseError, isResponseError };

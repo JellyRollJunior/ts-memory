@@ -4,6 +4,7 @@
 - Extending types with `&`
 - Generic function return types
     - returning an array with contents shuffled
+- Type narrowing function
 - ZOD
     - creating basic schema
     - creating object schema
