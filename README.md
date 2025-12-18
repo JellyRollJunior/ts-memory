@@ -16,4 +16,9 @@
 
 #### TODO
 - HANDLE ZOD ERROR
-- Display gifs
+- tests
+
+- make game tiles
+    - loading view
+    - error view
+    - render without game data

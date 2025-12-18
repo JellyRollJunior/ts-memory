@@ -4,10 +4,10 @@ import { gameController } from '../game/gameController.ts';
 import { GameTile } from './gameTile.tsx';
 import { useGiphy } from '../hooks/useGiphy.ts';
 
-const Gameboard = ({ size = 12 }) => {
+const Gameboard = ({ tileNumber = 12 }) => {
   const [gameState, setGameState] = useState<GameState>('NONE');
   const [gameTiles, setGameTiles] = useState<Tile[]>([] as Tile[]);
-  const { isLoading, error, data } = useGiphy('sailor moonr', size);
+  const { isLoading, error, data } = useGiphy('sailor moon', tileNumber);
 
   useEffect(() => {
     const initGameBoard = (): void => {
@@ -30,7 +30,7 @@ const Gameboard = ({ size = 12 }) => {
   };
 
   return (
-    <div className="max-w-3xl w-full">
+    <div className="w-full max-w-3xl">
       <h1 className="mt-12 text-center text-3xl font-bold text-slate-700">
         Typescript Memory!
       </h1>
@@ -39,7 +39,11 @@ const Gameboard = ({ size = 12 }) => {
         {gameController.shuffleArray(gameTiles).map(
           (data): React.JSX.Element => (
             <Fragment key={data.id}>
-              <GameTile data={data} onClick={() => onClickTile(data.id)} />
+              <GameTile
+                data={data}
+                onClick={() => onClickTile(data.id)}
+                isLoading={isLoading}
+              />
             </Fragment>
           )
         )}
