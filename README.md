@@ -20,3 +20,5 @@
 - error gamestate
 - lose modal
 - win modal
+- footer
+- desktop / tablet view
