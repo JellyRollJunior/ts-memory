@@ -18,3 +18,5 @@
 - HANDLE ZOD ERROR
 - tests
 - error gamestate
+- lose modal
+- win modal

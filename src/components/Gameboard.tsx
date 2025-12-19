@@ -7,7 +7,9 @@ import { useGiphy } from '../hooks/useGiphy.ts';
 const Gameboard = ({ numTiles = 12 }) => {
   const [gameState, setGameState] = useState<GameState>('NONE');
   const [gameTiles, setGameTiles] = useState<Tile[]>([] as Tile[]);
+  const [highScore, setHighScore] = useState(0);
   const { isLoading, error, data } = useGiphy('sailor moon', numTiles);
+  const score = gameTiles.filter((tile) => tile.clicked == true).length;
 
   useEffect(() => {
     const initGameBoard = (): void => {
@@ -27,11 +29,18 @@ const Gameboard = ({ numTiles = 12 }) => {
       setGameState(gameData.state);
       setGameTiles(gameData.board);
     }
+    const score = gameTiles.filter((tile) => tile.clicked == true).length;
+    if (score > highScore) {
+      setHighScore(score);
+    }
   };
 
   return (
-    <div className="w-full max-w-3xl">
-      <h2 className="text-center">{gameState}</h2>
+    <div className="w-full max-w-3xl text-sand-beige-dark">
+      <div className="mt-2 grid grid-cols-2 text-blooming-dahlia font-bold">
+        <h2 className='text-center'>High Score: {highScore}</h2>
+        <h2 className='text-center'>Score: {score}</h2>
+      </div>
       <ul className="mt-5 grid w-full grid-cols-2 gap-2">
         {isLoading || error != null
           ? [...Array(numTiles)].map((value, index) => (
