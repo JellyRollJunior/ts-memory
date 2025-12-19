@@ -16,7 +16,6 @@
   --color-sand-beige: #b4aa82;
 }
 
-
 @utility site-bg-image {
-  background-image: url('../assets/background.png')
+  background-image: url('../assets/background.png');
 }

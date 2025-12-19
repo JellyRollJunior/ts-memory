@@ -38,7 +38,7 @@ const Gameboard = ({ numTiles = 12 }) => {
               <Fragment key={index}>
                 <GameTile
                   data={{ id: '', src: '', clicked: false }}
-                  onClick={() => {}}
+                  onClick={() => value}
                   isLoading={isLoading}
                   isError={Boolean(error)}
                 />

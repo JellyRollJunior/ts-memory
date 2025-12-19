@@ -1,11 +1,11 @@
-import { Header } from "./components/Header.tsx";
-import { Gameboard } from "./components/Gameboard.tsx";
+import { Header } from './components/Header.tsx';
+import { Gameboard } from './components/Gameboard.tsx';
 
 function App() {
   return (
-    <div className="min-h-screen min-w-screen flex flex-col">
+    <div className="flex min-h-screen min-w-screen flex-col">
       <Header />
-      <main className="px-3 mx-auto">
+      <main className="flex w-full justify-center px-3">
         <Gameboard />
       </main>
     </div>

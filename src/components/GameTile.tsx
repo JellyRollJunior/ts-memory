@@ -18,7 +18,7 @@ const GameTile = ({
   if (isLoading) {
     return (
       <motion.li
-        className="border-sand-beige aspect-square h-full w-full rounded-lg border-5"
+        className="border-sand-beige aspect-16/11 h-full w-full rounded-3xl border-5"
         style={{ backgroundColor: '#e8e5d9' }}
         animate={{ backgroundColor: '#d9d4c0' }}
         transition={{
@@ -32,7 +32,7 @@ const GameTile = ({
   }
   return (
     <li
-      className={`border-sand-beige bg-sand-beige-light aspect-square h-full overflow-hidden rounded-lg border-5`}
+      className={`border-sand-beige bg-sand-beige-light aspect-16/11 h-full w-full overflow-hidden rounded-3xl border-5`}
     >
       <button className="size-full" onClick={onClick}>
         {!isError ? (
