@@ -5,6 +5,7 @@ import { GameTile } from './GameTile.tsx';
 import { useGiphy } from '../hooks/useGiphy.ts';
 import { WinModal } from './WinModal.tsx';
 import { LoseModal } from './LoseModal.tsx';
+import { RefreshButton } from './RefreshButton.tsx';
 
 const Gameboard = ({ numTiles = 12 }) => {
   const [gameState, setGameState] = useState<GameState>('NONE');
@@ -79,6 +80,11 @@ const Gameboard = ({ numTiles = 12 }) => {
           <h2 className="text-center">High Score: {highScore}</h2>
           <h2 className="text-center">Score: {score}</h2>
         </div>
+        {error && (
+          <div className="mt-3 flex w-full justify-center">
+            <RefreshButton onClick={() => {}} />
+          </div>
+        )}
         <ul className="mt-5 grid w-full grid-cols-2 gap-3">
           {isLoading || error != null
             ? [...Array(numTiles)].map((value, index) => (
