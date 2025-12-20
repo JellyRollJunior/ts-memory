@@ -20,6 +20,8 @@ const useGiphy = (query = 'sailor moon', limit = 12) => {
                 setError(error.message);
             } else if (error instanceof Error) {
                 setError(error.message);
+            } else if (error instanceof z.ZodError) {
+                setError('Error with response schema: ' + z.treeifyError(error))
             } else {
                 setError('Unable to fetch gifs');
             }
@@ -29,8 +31,6 @@ const useGiphy = (query = 'sailor moon', limit = 12) => {
     }, [query, limit]);
 
     useEffect(() => {
-        // abort controller later
-        // const abortController = new AbortController();
         fetchGifs();
     }, [fetchGifs]);
 

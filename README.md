@@ -19,17 +19,18 @@
     - ZOD infer type using schema
 
 # Improvements
+
 - Game tiles
     - loading animation when loading gifs
     - error dead gif animation
 - Modal on losing
 - Cheat mode
+- Refresh button to refetch gifs on error loading gifs
 
 #### TODO
 
-- HANDLE ZOD ERROR
 - tests
 - desktop / tablet view
 - saving leaderboards backend
+
 - abort controller
-- restart / reload button
