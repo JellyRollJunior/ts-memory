@@ -28,7 +28,7 @@ const Gameboard = ({ numTiles = 12 }) => {
 
   // show modals on gamestate change
   useEffect(() => {
-    if (gameState == 'WIN') {
+    if (gameState == 'NONE') {
       const dialog = winModalRef.current;
       if (dialog && !dialog.open) {
         dialog.showModal();

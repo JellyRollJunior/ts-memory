@@ -21,6 +21,9 @@
 - tests
 - error gamestate
 - lose modal
-- win modal
 - desktop / tablet view
 - saving leaderboards backend
+- make footer bottom of screen
+
+- win modal
+    - change mask color to rgb(255, 255, 255, 0.4)
