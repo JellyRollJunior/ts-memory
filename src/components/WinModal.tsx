@@ -8,7 +8,7 @@ type winModalProps = {
 const WinModal = ({ ref }: winModalProps) => {
   return (
     <dialog
-      className="border-sand-beige mx-auto my-auto rounded-2xl border-3"
+      className="border-sand-beige mx-auto my-auto rounded-2xl border-3 backdrop:bg-white/40"
       ref={ref}
     >
       <div className="flex flex-col items-center px-5 pt-2 pb-5">

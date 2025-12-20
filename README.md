@@ -7,6 +7,7 @@
     - returning an array with contents shuffled
 - Type narrowing function
 - Typescript forward refs
+- Styling dialog backdrop with tailwind
 - ZOD
     - creating primitive schema
     - creating object schema
@@ -24,6 +25,3 @@
 - desktop / tablet view
 - saving leaderboards backend
 - make footer bottom of screen
-
-- win modal
-    - change mask color to rgb(255, 255, 255, 0.4)
