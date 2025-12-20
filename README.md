@@ -24,5 +24,4 @@
 - desktop / tablet view
 - saving leaderboards backend
 - abort controller
-- make footer bottom of screen
 

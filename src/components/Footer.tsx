@@ -19,7 +19,7 @@ const IconButton = ({ src, size = 20, link, alt }: iconButtonProps) => {
 
 const Footer = () => {
   return (
-    <footer className="pt-12 text-white md:pt-16">
+    <footer className="pt-12 text-white md:pt-16 mt-auto">
       <div className="h-9 w-full bg-[url(../assets/footer-bg.png)] bg-contain bg-center" />
       <div className="bg-sand-beige pt-3 pb-2">
         <div className="mx-auto flex justify-center gap-5">
