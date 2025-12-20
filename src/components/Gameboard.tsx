@@ -11,7 +11,7 @@ const Gameboard = ({ numTiles = 12 }) => {
   const [gameState, setGameState] = useState<GameState>('NONE');
   const [gameTiles, setGameTiles] = useState<Tile[]>([] as Tile[]);
   const [highScore, setHighScore] = useState(0);
-  const { isLoading, error, data } = useGiphy('sailor moon', numTiles);
+  const { isLoading, error, data, refetchGifs } = useGiphy('sailor moon', numTiles);
   const score = gameTiles.filter((tile) => tile.clicked == true).length;
   const winModalRef = useRef<HTMLDialogElement | null>(null);
   const loseModalRef = useRef<HTMLDialogElement | null>(null);
@@ -82,7 +82,7 @@ const Gameboard = ({ numTiles = 12 }) => {
         </div>
         {error && (
           <div className="mt-3 flex w-full justify-center">
-            <RefreshButton onClick={() => {}} />
+            <RefreshButton onClick={refetchGifs} />
           </div>
         )}
         <ul className="mt-5 grid w-full grid-cols-2 gap-3">
