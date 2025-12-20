@@ -24,4 +24,10 @@
 - lose modal
 - desktop / tablet view
 - saving leaderboards backend
+- abort controller
 - make footer bottom of screen
+
+
+- handle win logic
+    - play again logic
+    - wire UI 

@@ -1,14 +1,14 @@
 import type { GameData, GameState, Tile } from '../types/types.ts';
 
-const shuffleArray = <Type,>(inputArray: Type[]): Type[] => {
-  const array = structuredClone(inputArray);
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    const temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-  }
-  return array;
+const shuffleArray = <Type>(inputArray: Type[]): Type[] => {
+    const array = structuredClone(inputArray);
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
 };
 
 const createTile = (src: string): Tile => {
@@ -59,9 +59,27 @@ const verifyWin = (state: GameState, board: Tile[]): GameData => {
 };
 
 const makeMove = (id: string, state: GameState, board: Tile[]): GameData => {
-    const {state: updatedState, board: updatedBoard} = selectTile(id, state, board);
-    const winVerifiedGameData = gameController.verifyWin(updatedState, updatedBoard);
+    const { state: updatedState, board: updatedBoard } = selectTile(
+        id,
+        state,
+        board
+    );
+    const winVerifiedGameData = gameController.verifyWin(
+        updatedState,
+        updatedBoard
+    );
     return winVerifiedGameData;
+};
+
+const restartGame = (board: Tile[]): GameData => {
+    const unClickedTiles = board.map((tile) => {
+        tile.clicked = false;
+        return tile;
+    });
+    return {
+        state: "PLAYING",
+        board: unClickedTiles,
+    }
 };
 
 const gameController = {
@@ -69,6 +87,7 @@ const gameController = {
     initGame,
     makeMove,
     verifyWin,
+    restartGame,
 };
 
 export { gameController };
