@@ -1,9 +1,10 @@
 import type { GameState, Tile } from '../types/types.ts';
-import { Fragment, useEffect, useRef, useState } from 'react';
+import { Fragment, useEffect, useRef, useState, type RefObject } from 'react';
 import { gameController } from '../game/gameController.ts';
 import { GameTile } from './GameTile.tsx';
 import { useGiphy } from '../hooks/useGiphy.ts';
 import { WinModal } from './WinModal.tsx';
+import { LoseModal } from './LoseModal.tsx';
 
 const Gameboard = ({ numTiles = 12 }) => {
   const [gameState, setGameState] = useState<GameState>('NONE');
@@ -12,6 +13,7 @@ const Gameboard = ({ numTiles = 12 }) => {
   const { isLoading, error, data } = useGiphy('sailor moon', numTiles);
   const score = gameTiles.filter((tile) => tile.clicked == true).length;
   const winModalRef = useRef<HTMLDialogElement | null>(null);
+  const loseModalRef = useRef<HTMLDialogElement | null>(null);
 
   // Init tiles on receiving src data
   useEffect(() => {
@@ -42,30 +44,33 @@ const Gameboard = ({ numTiles = 12 }) => {
     const gameData = gameController.restartGame(gameTiles);
     setGameState(gameData.state);
     setGameTiles(gameData.board);
-  }
+  };
 
   /* MODALS */
+  const openModal = (ref: RefObject<HTMLDialogElement | null>): void => {
+    if (!ref) return;
+    const dialog = ref.current;
+    if (dialog && !dialog.open) {
+      dialog.showModal();
+    }
+  };
+
+  const closeModal = (ref: RefObject<HTMLDialogElement | null>): void => {
+    if (!ref) return;
+    const dialog = ref.current;
+    if (dialog && dialog.open) {
+      dialog.close();
+    }
+  };
+
   useEffect(() => {
     if (gameState == 'WIN') {
-      const dialog = winModalRef.current;
-      if (dialog && !dialog.open) {
-        dialog.showModal();
-      }
+      openModal(winModalRef);
+    }
+    if (gameState == 'LOSE') {
+      openModal(loseModalRef);
     }
   }, [gameState]);
-
-
-  const closeWinModal = (): void => {
-    const dialog = winModalRef.current;
-      if (dialog && dialog.open) {
-        dialog.close();
-      }
-  }
-
-  const handlePlayAgain = (): void => {
-    restartGame();
-    closeWinModal();
-  }
 
   return (
     <>
@@ -102,7 +107,20 @@ const Gameboard = ({ numTiles = 12 }) => {
               )}
         </ul>
       </div>
-      <WinModal ref={winModalRef} handlePlayAgain={handlePlayAgain} />
+      <WinModal
+        ref={winModalRef}
+        handlePlayAgain={() => {
+          restartGame();
+          closeModal(winModalRef);
+        }}
+      />
+      <LoseModal
+        ref={loseModalRef}
+        handlePlayAgain={() => {
+          restartGame();
+          closeModal(loseModalRef);
+        }}
+      />
     </>
   );
 };

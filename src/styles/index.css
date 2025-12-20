@@ -23,3 +23,7 @@
 @utility site-bg-image {
   background-image: url('../assets/background.png');
 }
+
+@utility dialog {
+  @apply border-sand-beige mx-auto my-auto rounded-2xl border-3 backdrop:bg-white/40;
+}

@@ -21,7 +21,6 @@
 - HANDLE ZOD ERROR
 - tests
 - error gamestate
-- lose modal
 - desktop / tablet view
 - saving leaderboards backend
 - abort controller

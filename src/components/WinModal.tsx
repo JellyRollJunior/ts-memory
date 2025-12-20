@@ -8,10 +8,7 @@ type winModalProps = {
 
 const WinModal = ({ ref, handlePlayAgain }: winModalProps) => {
   return (
-    <dialog
-      className="border-sand-beige mx-auto my-auto rounded-2xl border-3 backdrop:bg-white/40"
-      ref={ref}
-    >
+    <dialog className="dialog" ref={ref}>
       <div className="flex flex-col items-center px-5 pt-2 pb-5">
         <img className="mx-auto w-36" src={logo} alt="" />
         <h2 className="text-xl font-bold">Winner!</h2>
@@ -23,7 +20,10 @@ const WinModal = ({ ref, handlePlayAgain }: winModalProps) => {
           <button className="border-blooming-dahlia bg-blooming-dahlia/40 rounded-md border-2 px-5 py-0.5">
             Close
           </button>
-          <button className="border-sand-beige-dark bg-sand-beige/40 rounded-md border-2 px-5 py-0.5" onClick={handlePlayAgain}>
+          <button
+            className="border-sand-beige-dark bg-sand-beige/40 rounded-md border-2 px-5 py-0.5"
+            onClick={handlePlayAgain}
+          >
             Play again
           </button>
         </div>
