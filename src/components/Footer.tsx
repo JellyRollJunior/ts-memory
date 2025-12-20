@@ -25,19 +25,19 @@ const Footer = () => {
         <div className="mx-auto flex justify-center gap-5">
           <IconButton
             src={github}
-            size={42}
+            size={36}
             link="https://github.com/jellyrolljunior"
             alt="JellyRollJunior Github Link"
           />
           <IconButton
             src={linkedin}
-            size={42}
+            size={36}
             link="https://www.linkedin.com/in/jellyrolljunior/"
             alt="Brandon Lin LinkedIn Link"
           />
           <IconButton
             src={instagram}
-            size={42}
+            size={36}
             link="https://www.instagram.com/river.flows__"
             alt="river.flows__ Instagram Link"
           />

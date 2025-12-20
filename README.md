@@ -1,4 +1,5 @@
 # Learning outcomes
+
 - First TS project
 - Typing in JS
 - Typing React component props
@@ -17,11 +18,18 @@
     - ZOD transform to modify shape of response object
     - ZOD infer type using schema
 
+# Improvements
+- Game tiles
+    - loading animation when loading gifs
+    - error dead gif animation
+- Modal on losing
+- Cheat mode
+
 #### TODO
+
 - HANDLE ZOD ERROR
 - tests
-- error gamestate
 - desktop / tablet view
 - saving leaderboards backend
 - abort controller
-
+- restart / reload button
