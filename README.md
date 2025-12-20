@@ -27,7 +27,3 @@
 - abort controller
 - make footer bottom of screen
 
-
-- handle win logic
-    - play again logic
-    - wire UI 

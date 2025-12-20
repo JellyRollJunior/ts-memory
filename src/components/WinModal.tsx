@@ -3,9 +3,10 @@ import logo from '../assets/pretty-guardian-logo.png';
 
 type winModalProps = {
   ref: Ref<HTMLDialogElement>;
+  handlePlayAgain: () => void;
 };
 
-const WinModal = ({ ref }: winModalProps) => {
+const WinModal = ({ ref, handlePlayAgain }: winModalProps) => {
   return (
     <dialog
       className="border-sand-beige mx-auto my-auto rounded-2xl border-3 backdrop:bg-white/40"
@@ -22,7 +23,7 @@ const WinModal = ({ ref }: winModalProps) => {
           <button className="border-blooming-dahlia bg-blooming-dahlia/40 rounded-md border-2 px-5 py-0.5">
             Close
           </button>
-          <button className="border-sand-beige-dark bg-sand-beige/40 rounded-md border-2 px-5 py-0.5">
+          <button className="border-sand-beige-dark bg-sand-beige/40 rounded-md border-2 px-5 py-0.5" onClick={handlePlayAgain}>
             Play again
           </button>
         </div>

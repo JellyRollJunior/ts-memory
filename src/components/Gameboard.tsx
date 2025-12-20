@@ -26,16 +26,6 @@ const Gameboard = ({ numTiles = 12 }) => {
     initGameBoard();
   }, [data]);
 
-  // show modals on gamestate change
-  useEffect(() => {
-    if (gameState == 'WIN') {
-      const dialog = winModalRef.current;
-      if (dialog && !dialog.open) {
-        dialog.showModal();
-      }
-    }
-  }, [gameState]);
-
   const onClickTile = (tileId: string): void => {
     if (gameState == 'PLAYING') {
       const gameData = gameController.makeMove(tileId, gameState, gameTiles);
@@ -47,6 +37,35 @@ const Gameboard = ({ numTiles = 12 }) => {
       setHighScore(score);
     }
   };
+
+  const restartGame = (): void => {
+    const gameData = gameController.restartGame(gameTiles);
+    setGameState(gameData.state);
+    setGameTiles(gameData.board);
+  }
+
+  /* MODALS */
+  useEffect(() => {
+    if (gameState == 'WIN') {
+      const dialog = winModalRef.current;
+      if (dialog && !dialog.open) {
+        dialog.showModal();
+      }
+    }
+  }, [gameState]);
+
+
+  const closeWinModal = (): void => {
+    const dialog = winModalRef.current;
+      if (dialog && dialog.open) {
+        dialog.close();
+      }
+  }
+
+  const handlePlayAgain = (): void => {
+    restartGame();
+    closeWinModal();
+  }
 
   return (
     <>
@@ -83,7 +102,7 @@ const Gameboard = ({ numTiles = 12 }) => {
               )}
         </ul>
       </div>
-      <WinModal ref={winModalRef} />
+      <WinModal ref={winModalRef} handlePlayAgain={handlePlayAgain} />
     </>
   );
 };
