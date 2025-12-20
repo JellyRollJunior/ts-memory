@@ -30,7 +30,4 @@
 #### TODO
 
 - tests
-- desktop / tablet view
 - saving leaderboards backend
-
-- abort controller

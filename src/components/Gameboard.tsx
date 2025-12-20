@@ -11,7 +11,10 @@ const Gameboard = ({ numTiles = 12 }) => {
   const [gameState, setGameState] = useState<GameState>('NONE');
   const [gameTiles, setGameTiles] = useState<Tile[]>([] as Tile[]);
   const [highScore, setHighScore] = useState(0);
-  const { isLoading, error, data, refetchGifs } = useGiphy('sailor moon', numTiles);
+  const { isLoading, error, data, refetchGifs } = useGiphy(
+    'sailor moon',
+    numTiles
+  );
   const score = gameTiles.filter((tile) => tile.clicked == true).length;
   const winModalRef = useRef<HTMLDialogElement | null>(null);
   const loseModalRef = useRef<HTMLDialogElement | null>(null);
@@ -75,8 +78,8 @@ const Gameboard = ({ numTiles = 12 }) => {
 
   return (
     <>
-      <div className="text-sand-beige-dark w-full max-w-3xl">
-        <div className="text-sand-beige mt-2 grid grid-cols-2 font-extrabold">
+      <div className="text-sand-beige-dark w-full max-w-4xl md:border-3 md:px-10 md:pt-5 md:pb-8 md:bg-white/40 md:border-sand-beige md:rounded-3xl">
+        <div className="text-sand-beige md:text-lg grid grid-cols-2 font-extrabold">
           <h2 className="text-center">High Score: {highScore}</h2>
           <h2 className="text-center">Score: {score}</h2>
         </div>
@@ -85,7 +88,7 @@ const Gameboard = ({ numTiles = 12 }) => {
             <RefreshButton onClick={refetchGifs} />
           </div>
         )}
-        <ul className="mt-5 grid w-full grid-cols-2 gap-3">
+        <ul className="mt-5 grid w-full grid-cols-2 gap-3 md:gap-4 md:grid-cols-3">
           {isLoading || error != null
             ? [...Array(numTiles)].map((value, index) => (
                 <Fragment key={index}>
