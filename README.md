@@ -6,6 +6,7 @@
 - Generic function return types
     - returning an array with contents shuffled
 - Type narrowing function
+- Typescript forward refs
 - ZOD
     - creating primitive schema
     - creating object schema

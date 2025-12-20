@@ -2,7 +2,7 @@ import type { Tile } from '../types/types.ts';
 import { motion } from 'motion/react';
 import errorIcon from '../assets/svgs/dead-face.svg';
 
-type AppProps = {
+type gameTileProps = {
   data: Tile;
   onClick: () => void;
   isLoading: boolean;
@@ -16,7 +16,7 @@ const GameTile = ({
   isLoading = false,
   isError = false,
   isCheating = false,
-}: AppProps) => {
+}: gameTileProps) => {
   if (isLoading) {
     return (
       <motion.li

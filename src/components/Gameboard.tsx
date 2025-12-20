@@ -3,6 +3,7 @@ import { Fragment, useEffect, useRef, useState } from 'react';
 import { gameController } from '../game/gameController.ts';
 import { GameTile } from './GameTile.tsx';
 import { useGiphy } from '../hooks/useGiphy.ts';
+import { WinModal } from './WinModal.tsx';
 
 const Gameboard = ({ numTiles = 12 }) => {
   const [gameState, setGameState] = useState<GameState>('NONE');
@@ -27,13 +28,13 @@ const Gameboard = ({ numTiles = 12 }) => {
 
   // show modals on gamestate change
   useEffect(() => {
-    if (gameState == "WIN") {
+    if (gameState == 'WIN') {
       const dialog = winModalRef.current;
       if (dialog && !dialog.open) {
         dialog.showModal();
       }
     }
-  }, [gameState])
+  }, [gameState]);
 
   const onClickTile = (tileId: string): void => {
     if (gameState == 'PLAYING') {
@@ -47,46 +48,42 @@ const Gameboard = ({ numTiles = 12 }) => {
     }
   };
 
-  
-
   return (
     <>
-    <div className="w-full max-w-3xl text-sand-beige-dark">
-      <div className="mt-2 grid grid-cols-2 text-sand-beige font-extrabold">
-        <h2 className='text-center'>High Score: {highScore}</h2>
-        <h2 className='text-center'>Score: {score}</h2>
-      </div>
-      <ul className="mt-5 grid w-full grid-cols-2 gap-3">
-        {isLoading || error != null
-          ? [...Array(numTiles)].map((value, index) => (
-              <Fragment key={index}>
-                <GameTile
-                  data={{ id: '', src: '', clicked: false }}
-                  onClick={() => value}
-                  isLoading={isLoading}
-                  isError={Boolean(error)}
-                  isCheating={false}
-                />
-              </Fragment>
-            ))
-          : gameController.shuffleArray(gameTiles).map(
-              (data): React.JSX.Element => (
-                <Fragment key={data.id}>
+      <div className="text-sand-beige-dark w-full max-w-3xl">
+        <div className="text-sand-beige mt-2 grid grid-cols-2 font-extrabold">
+          <h2 className="text-center">High Score: {highScore}</h2>
+          <h2 className="text-center">Score: {score}</h2>
+        </div>
+        <ul className="mt-5 grid w-full grid-cols-2 gap-3">
+          {isLoading || error != null
+            ? [...Array(numTiles)].map((value, index) => (
+                <Fragment key={index}>
                   <GameTile
-                    data={data}
-                    onClick={() => onClickTile(data.id)}
+                    data={{ id: '', src: '', clicked: false }}
+                    onClick={() => value}
                     isLoading={isLoading}
                     isError={Boolean(error)}
-                    isCheating={true}
+                    isCheating={false}
                   />
                 </Fragment>
-              )
-            )}
-      </ul>
-    </div>
-    <dialog ref={winModalRef}>
-      <h2>Hello I am the win modal!</h2>
-    </dialog>
+              ))
+            : gameController.shuffleArray(gameTiles).map(
+                (data): React.JSX.Element => (
+                  <Fragment key={data.id}>
+                    <GameTile
+                      data={data}
+                      onClick={() => onClickTile(data.id)}
+                      isLoading={isLoading}
+                      isError={Boolean(error)}
+                      isCheating={true}
+                    />
+                  </Fragment>
+                )
+              )}
+        </ul>
+      </div>
+      <WinModal ref={winModalRef} />
     </>
   );
 };
