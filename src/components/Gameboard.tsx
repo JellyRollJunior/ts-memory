@@ -1,5 +1,5 @@
 import type { GameState, Tile } from '../types/types.ts';
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import { gameController } from '../game/gameController.ts';
 import { GameTile } from './GameTile.tsx';
 import { useGiphy } from '../hooks/useGiphy.ts';
@@ -10,7 +10,9 @@ const Gameboard = ({ numTiles = 12 }) => {
   const [highScore, setHighScore] = useState(0);
   const { isLoading, error, data } = useGiphy('sailor moon', numTiles);
   const score = gameTiles.filter((tile) => tile.clicked == true).length;
+  const winModalRef = useRef<HTMLDialogElement | null>(null);
 
+  // Init tiles on receiving src data
   useEffect(() => {
     const initGameBoard = (): void => {
       if (data) {
@@ -22,6 +24,16 @@ const Gameboard = ({ numTiles = 12 }) => {
 
     initGameBoard();
   }, [data]);
+
+  // show modals on gamestate change
+  useEffect(() => {
+    if (gameState == "WIN") {
+      const dialog = winModalRef.current;
+      if (dialog && !dialog.open) {
+        dialog.showModal();
+      }
+    }
+  }, [gameState])
 
   const onClickTile = (tileId: string): void => {
     if (gameState == 'PLAYING') {
@@ -35,7 +47,10 @@ const Gameboard = ({ numTiles = 12 }) => {
     }
   };
 
+  
+
   return (
+    <>
     <div className="w-full max-w-3xl text-sand-beige-dark">
       <div className="mt-2 grid grid-cols-2 text-sand-beige font-extrabold">
         <h2 className='text-center'>High Score: {highScore}</h2>
@@ -50,6 +65,7 @@ const Gameboard = ({ numTiles = 12 }) => {
                   onClick={() => value}
                   isLoading={isLoading}
                   isError={Boolean(error)}
+                  isCheating={false}
                 />
               </Fragment>
             ))
@@ -61,12 +77,17 @@ const Gameboard = ({ numTiles = 12 }) => {
                     onClick={() => onClickTile(data.id)}
                     isLoading={isLoading}
                     isError={Boolean(error)}
+                    isCheating={true}
                   />
                 </Fragment>
               )
             )}
       </ul>
     </div>
+    <dialog ref={winModalRef}>
+      <h2>Hello I am the win modal!</h2>
+    </dialog>
+    </>
   );
 };
 

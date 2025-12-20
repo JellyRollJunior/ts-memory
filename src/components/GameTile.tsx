@@ -7,6 +7,7 @@ type AppProps = {
   onClick: () => void;
   isLoading: boolean;
   isError: boolean;
+  isCheating: boolean;
 };
 
 const GameTile = ({
@@ -14,6 +15,7 @@ const GameTile = ({
   onClick,
   isLoading = false,
   isError = false,
+  isCheating = false,
 }: AppProps) => {
   if (isLoading) {
     return (
@@ -32,7 +34,7 @@ const GameTile = ({
   }
   return (
     <li
-      className={`border-sand-beige bg-sand-beige-light aspect-16/11 h-full w-full overflow-hidden rounded-3xl border-5`}
+      className={`border-sand-beige bg-sand-beige-light aspect-16/11 h-full w-full overflow-hidden rounded-3xl border-5 ${isCheating && data.clicked && 'outline-pink outline-3'}`}
     >
       <button className="size-full" onClick={onClick}>
         {!isError ? (

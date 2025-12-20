@@ -1,12 +1,13 @@
 # Learning outcomes
 - First TS project
 - Typing in JS
+- Typing React component props
 - Extending types with `&`
 - Generic function return types
     - returning an array with contents shuffled
 - Type narrowing function
 - ZOD
-    - creating basic schema
+    - creating primitive schema
     - creating object schema
     - parsing api responses with ZOD
     - parsing api error response with ZOD
@@ -21,3 +22,4 @@
 - lose modal
 - win modal
 - desktop / tablet view
+- saving leaderboards backend
