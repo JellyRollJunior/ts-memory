@@ -1,6 +1,6 @@
 import { Header } from './components/Header.tsx';
 import { Gameboard } from './components/Gameboard.tsx';
-import { Footer } from './components/Footer.tsx';
+import { Footer } from './components/Footer';
 
 function App() {
   return (

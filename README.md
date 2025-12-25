@@ -17,6 +17,10 @@
     - ZOD default / catch values
     - ZOD transform to modify shape of response object
     - ZOD infer type using schema
+- Structuring project for scale
+    - barrel file pattern: export file for each component
+    - /components for shared UI
+    - /features for domain UI
 
 # Improvements
 

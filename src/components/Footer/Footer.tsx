@@ -1,6 +1,6 @@
-import github from '../assets/icons/github.png';
-import instagram from '../assets/icons/instagram.png';
-import linkedin from '../assets/icons/linkedin.png';
+import github from '../../assets/icons/github.png';
+import instagram from '../../assets/icons/instagram.png';
+import linkedin from '../../assets/icons/linkedin.png';
 
 type iconButtonProps = {
   src: string;
@@ -19,9 +19,9 @@ const IconButton = ({ src, size = 20, link, alt }: iconButtonProps) => {
 
 const Footer = () => {
   return (
-    <footer className="pt-12 text-white md:pt-16 mt-auto">
+    <footer className="mt-auto pt-12 text-white md:pt-16">
       <div className="h-9 w-full bg-[url(../assets/footer-bg.png)] bg-contain bg-center" />
-      <div className="bg-sand-beige pt-3 pb-2 md:pb-3 md:pt-6">
+      <div className="bg-sand-beige pt-3 pb-2 md:pt-6 md:pb-3">
         <div className="mx-auto flex justify-center gap-5">
           <IconButton
             src={github}
