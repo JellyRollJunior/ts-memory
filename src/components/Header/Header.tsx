@@ -1,4 +1,4 @@
-import prettyGuardian from '../assets/pretty-guardian-logo.png'
+import prettyGuardian from '../../assets/pretty-guardian-logo.png'
 
 const Header = () => {
   return (

@@ -1,5 +1,5 @@
-import { Header } from './components/Header.tsx';
-import { Gameboard } from './components/Gameboard.tsx';
+import { Header } from './components/Header';
+import { Gameboard } from './components/Gameboard';
 import { Footer } from './components/Footer';
 
 function App() {

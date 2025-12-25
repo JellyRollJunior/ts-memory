@@ -1,5 +1,5 @@
 import type { Ref } from 'react';
-import logo from '../assets/pretty-guardian-logo.png';
+import logo from '../../assets/pretty-guardian-logo.png';
 
 type loseModalProps = {
   ref: Ref<HTMLDialogElement>;

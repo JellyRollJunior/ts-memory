@@ -35,3 +35,12 @@
 
 - tests
 - saving leaderboards backend
+- process other routes
+- extract modal component
+
+- file structure
+    -   pages
+    -   layouts
+    -   features
+    -   components
+    -   barrel file every component
