@@ -1,5 +1,5 @@
 import type { Ref } from 'react';
-import logo from '../../../assets/pretty-guardian-logo.png';
+import { Modal } from '../../../components/Modal';
 
 type winModalProps = {
   ref: Ref<HTMLDialogElement>;
@@ -8,27 +8,24 @@ type winModalProps = {
 
 const WinModal = ({ ref, handlePlayAgain }: winModalProps) => {
   return (
-    <dialog className="dialog" ref={ref}>
-      <div className="flex flex-col items-center px-5 pt-2 pb-5">
-        <img className="mx-auto w-36" src={logo} alt="" />
-        <h2 className="text-xl font-bold">Winner!</h2>
-        <div className="flex w-full justify-between">
-          <div>(☆｀• ω •´ )ｂ</div> ☆ <div>d(｀• ω • ´☆)</div>
-        </div>
-        <p>wowza you have such great memory!</p>
-        <div className="mt-3 grid w-full grid-cols-2 justify-center gap-5">
-          <button className="border-blooming-dahlia bg-blooming-dahlia/40 rounded-md border-2 px-5 py-0.5">
-            Close
-          </button>
-          <button
-            className="border-sand-beige-dark bg-sand-beige/40 rounded-md border-2 px-5 py-0.5"
-            onClick={handlePlayAgain}
-          >
-            Play again
-          </button>
-        </div>
+    <Modal
+      ref={ref}
+      headerText="Winner!"
+      contentWrapperStyling="flex flex-col items-center"
+    >
+      <p>wowza you have such great memory!</p>
+      <div className="mt-3 grid w-full grid-cols-2 justify-center gap-5">
+        <button className="border-blooming-dahlia bg-blooming-dahlia/40 rounded-md border-2 px-5 py-0.5">
+          Close
+        </button>
+        <button
+          className="border-sand-beige-dark bg-sand-beige/40 rounded-md border-2 px-5 py-0.5"
+          onClick={handlePlayAgain}
+        >
+          Play again
+        </button>
       </div>
-    </dialog>
+    </Modal>
   );
 };
 

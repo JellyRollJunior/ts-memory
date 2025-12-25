@@ -19,8 +19,10 @@
     - ZOD infer type using schema
 - Structuring project for scale
     - barrel file pattern: export file for each component
-    - /components for shared UI
+    - /components for shared UI elements
     - /features for domain UI
+    - /layout for page layouts + page layout components
+    - /pages for navigatable pages
 
 # Improvements
 
@@ -30,11 +32,12 @@
 - Modal on losing
 - Cheat mode
 - Refresh button to refetch gifs on error loading gifs
+- Structuring project files for scale
 
 #### TODO
 
 - tests
 - saving leaderboards backend
 - process other routes
-- extract modal component
 - error page
+- @
