@@ -1,6 +1,6 @@
-import type { Tile } from '../../../types/types.ts';
+import type { Tile } from '@/types/types.ts';
 import { motion } from 'motion/react';
-import errorIcon from '../../../assets/svgs/dead-face.svg';
+import errorIcon from '@/assets/svgs/dead-face.svg';
 
 type gameTileProps = {
   data: Tile;

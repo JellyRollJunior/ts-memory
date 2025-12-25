@@ -23,6 +23,8 @@
     - /features for domain UI
     - /layout for page layouts + page layout components
     - /pages for navigatable pages
+- Configuring path aliases
+    - modify tsconfig.app.json & vite.config.ts
 
 # Improvements
 
@@ -33,11 +35,11 @@
 - Cheat mode
 - Refresh button to refetch gifs on error loading gifs
 - Structuring project files for scale
+- Configure path aliasing to simplify imports
 
 #### TODO
 
 - tests
 - saving leaderboards backend
 - process other routes
-- error page
-- @
+    - error page

@@ -1,7 +1,7 @@
 import { z } from 'zod';
-import { giphyArraySchema } from '../schemas/giphy.schema';
-import { apiErrorSchema } from '../schemas/apiError.schema';
-import { createResponseError } from './responseError';
+import { giphyArraySchema } from '@/schemas/giphy.schema';
+import { apiErrorSchema } from '@/schemas/apiError.schema';
+import { createResponseError } from '@/services/responseError.ts';
 const GIPHY_API_KEY = import.meta.env.VITE_GIPHY_API_KEY;
 
 const requestGifs = async (search: string, limit = 12): Promise<z.infer<typeof giphyArraySchema>> => {

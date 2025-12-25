@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import refresh from '../../assets/svgs/refresh.svg';
+import refresh from '@/assets/svgs/refresh.svg';
 
 type refreshButtonProps = {
   onClick: () => void;

@@ -1,4 +1,4 @@
-import type { ResponseError } from '../types/types';
+import type { ResponseError } from '@/types/types.ts';
 
 const createResponseError = (
     status: number,

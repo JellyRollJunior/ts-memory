@@ -1,5 +1,5 @@
 import type { Ref, ReactNode } from 'react';
-import logo from '../../assets/pretty-guardian-logo.png';
+import logo from '@/assets/pretty-guardian-logo.png';
 
 type modalProps = {
   ref: Ref<HTMLDialogElement>,

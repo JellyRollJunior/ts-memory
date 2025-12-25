@@ -1,11 +1,11 @@
-import type { GameState, Tile } from '../../../types/types.ts';
+import type { GameState, Tile } from '@/types/types.ts';
 import { Fragment, useEffect, useRef, useState, type RefObject } from 'react';
-import { gameController } from '../../game/gameController.ts';
-import { useGiphy } from '../useGiphy.ts';
-import { GameTile } from '../GameTile';
-import { WinModal } from '../WinModal';
-import { LoseModal } from '../LoseModal';
-import { RefreshButton } from '../../../components/RefreshButton/index.ts';
+import { gameController } from '@/features/game/gameController.ts';
+import { useGiphy } from '@/features/game/useGiphy.ts';
+import { GameTile } from '@/features/game/GameTile';
+import { WinModal } from '@/features/game/WinModal';
+import { LoseModal } from '@/features/game/LoseModal';
+import { RefreshButton } from '@/components/RefreshButton/index.ts';
 
 const Gameboard = ({ numTiles = 12 }) => {
   const [gameState, setGameState] = useState<GameState>('NONE');

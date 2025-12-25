@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { z } from 'zod';
-import { giphyArraySchema } from '../../schemas/giphy.schema';
-import { isResponseError } from '../../services/responseError';
-import { requestGifs } from '../../services/request';
+import { giphyArraySchema } from '@/schemas/giphy.schema';
+import { isResponseError } from '@/services/responseError.ts';
+import { requestGifs } from '@/services/request.ts';
 
 const useGiphy = (query = 'sailor moon', limit = 12) => {
     const [isLoading, setIsLoading] = useState(false);

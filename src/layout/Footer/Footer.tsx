@@ -1,6 +1,6 @@
-import github from '../../assets/icons/github.png';
-import instagram from '../../assets/icons/instagram.png';
-import linkedin from '../../assets/icons/linkedin.png';
+import github from '@/assets/icons/github.png';
+import instagram from '@/assets/icons/instagram.png';
+import linkedin from '@/assets/icons/linkedin.png';
 
 type iconButtonProps = {
   src: string;

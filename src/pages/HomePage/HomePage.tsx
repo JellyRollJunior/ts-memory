@@ -1,5 +1,5 @@
-import { Gameboard } from '../../features/game';
-import { MainLayout } from '../../layout/MainLayout';
+import { Gameboard } from '@/features/game';
+import { MainLayout } from '@/layout/MainLayout';
 
 const HomePage = () => {
   return (

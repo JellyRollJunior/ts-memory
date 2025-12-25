@@ -1,5 +1,5 @@
 import type { Ref } from 'react';
-import { Modal } from '../../../components/Modal';
+import { Modal } from '@/components/Modal';
 
 type winModalProps = {
   ref: Ref<HTMLDialogElement>;
