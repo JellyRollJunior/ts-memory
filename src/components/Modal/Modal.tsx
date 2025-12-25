@@ -4,8 +4,8 @@ import logo from '@/assets/pretty-guardian-logo.png';
 type modalProps = {
   ref: Ref<HTMLDialogElement>,
   headerText: string,
-  contentWrapperStyling: string;
-  children: ReactNode;
+  contentWrapperStyling?: string;
+  children?: ReactNode;
 };
 
 const Modal = ({ ref, headerText, contentWrapperStyling = "", children }: modalProps) => {
