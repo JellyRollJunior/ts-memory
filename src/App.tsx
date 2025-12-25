@@ -1,12 +1,7 @@
-import { Gameboard } from './features/game';
-import { MainLayout } from './layout/MainLayout';
+import { HomePage } from './pages/HomePage';
 
 function App() {
-  return (
-    <MainLayout>
-      <Gameboard />
-    </MainLayout>
-  );
+  return <HomePage />;
 }
 
 export default App;
