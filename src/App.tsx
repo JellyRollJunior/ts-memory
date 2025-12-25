@@ -1,5 +1,5 @@
 import { Header } from './components/Header';
-import { Gameboard } from './components/Gameboard';
+import { Gameboard } from './features/game';
 import { Footer } from './components/Footer';
 
 function App() {
