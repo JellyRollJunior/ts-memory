@@ -1,6 +1,6 @@
 import type { GameState, Tile } from '@/features/game/types/types.ts';
 import { Fragment, useEffect, useRef, useState, type RefObject } from 'react';
-import { gameController } from '@/features/game/gameController/gameController.ts';
+import { gameController } from '@/features/game/gameController';
 import { useGiphy } from '@/features/game/useGiphy.ts';
 import { GameTile } from '@/features/game/GameTile';
 import { WinModal } from '@/features/game/WinModal';
