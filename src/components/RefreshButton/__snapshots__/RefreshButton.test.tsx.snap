@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Refresh button component > Renders a button with the refresh icon 1`] = `
+<div>
+  <button
+    class="hover:bg-sand-beige-light rounded-full p-1"
+    style="transform: none;"
+  >
+    <img
+      alt="refresh button"
+      src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20height='24px'%20viewBox='0%20-960%20960%20960'%20width='24px'%20fill='%23b4aa82'%3e%3cpath%20d='M480-160q-134%200-227-93t-93-227q0-134%2093-227t227-93q69%200%20132%2028.5T720-690v-110h80v280H520v-80h168q-32-56-87.5-88T480-720q-100%200-170%2070t-70%20170q0%20100%2070%20170t170%2070q77%200%20139-44t87-116h84q-28%20106-114%20173t-196%2067Z'/%3e%3c/svg%3e"
+    />
+  </button>
+</div>
+`;
