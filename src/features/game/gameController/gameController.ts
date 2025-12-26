@@ -15,7 +15,7 @@ const createTile = (src: string): Tile => {
     return {
         id: crypto.randomUUID(),
         src,
-        clicked: false,
+        isClicked: false,
     };
 };
 
@@ -35,12 +35,12 @@ const selectTile = (id: string, state: GameState, board: Tile[]): GameData => {
     let updatedBoard = board;
     if (state == 'PLAYING') {
         const tile = board.find((tile) => tile.id == id);
-        if (tile && !tile.clicked) {
-            tile.clicked = true;
+        if (tile && !tile.isClicked) {
+            tile.isClicked = true;
             updatedBoard = tile
                 ? [tile, ...board.filter((tile) => tile.id != id)]
                 : board;
-        } else if (tile && tile.clicked) {
+        } else if (tile && tile.isClicked) {
             updatedState = 'LOSE';
         }
     }
@@ -52,7 +52,7 @@ const selectTile = (id: string, state: GameState, board: Tile[]): GameData => {
 
 const verifyWin = (state: GameState, board: Tile[]): GameData => {
     const updatedState =
-        board.filter((tile) => tile.clicked).length == board.length
+        board.filter((tile) => tile.isClicked).length == board.length
             ? 'WIN'
             : state;
     return { state: updatedState, board };
@@ -73,7 +73,7 @@ const makeMove = (id: string, state: GameState, board: Tile[]): GameData => {
 
 const restartGame = (board: Tile[]): GameData => {
     const unClickedTiles = board.map((tile) => {
-        tile.clicked = false;
+        tile.isClicked = false;
         return tile;
     });
     return {

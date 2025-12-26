@@ -14,7 +14,7 @@ describe('Game controller module', () => {
             expect(tile.id).toBeTypeOf('string');
             expect(tile.id.length).toBeGreaterThan(0);
             expect(tile.src).toBe(SRC_ARRAY[index]);
-            expect(tile.clicked).toBe(false);
+            expect(tile.isClicked).toBe(false);
         });
     });
 });

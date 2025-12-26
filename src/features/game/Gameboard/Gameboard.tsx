@@ -15,7 +15,7 @@ const Gameboard = ({ numTiles = 12 }) => {
     'sailor moon',
     numTiles
   );
-  const score = gameTiles.filter((tile) => tile.clicked == true).length;
+  const score = gameTiles.filter((tile) => tile.isClicked == true).length;
   const winModalRef = useRef<HTMLDialogElement | null>(null);
   const loseModalRef = useRef<HTMLDialogElement | null>(null);
 
@@ -38,7 +38,7 @@ const Gameboard = ({ numTiles = 12 }) => {
       setGameState(gameData.state);
       setGameTiles(gameData.board);
     }
-    const score = gameTiles.filter((tile) => tile.clicked == true).length;
+    const score = gameTiles.filter((tile) => tile.isClicked == true).length;
     if (score > highScore) {
       setHighScore(score);
     }
@@ -93,7 +93,7 @@ const Gameboard = ({ numTiles = 12 }) => {
             ? [...Array(numTiles)].map((value, index) => (
                 <Fragment key={index}>
                   <GameTile
-                    data={{ id: '', src: '', clicked: false }}
+                    data={{ id: '', src: '', isClicked: false }}
                     onClick={() => value}
                     isLoading={isLoading}
                     isError={Boolean(error)}
