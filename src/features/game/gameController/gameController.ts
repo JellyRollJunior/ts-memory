@@ -31,23 +31,18 @@ const initGame = (srcArray: string[]): GameData => {
 };
 
 const selectTile = (id: string, state: GameState, board: Tile[]): GameData => {
-    let updatedState = state;
-    let updatedBoard = board;
-    if (state == 'PLAYING') {
-        const tile = board.find((tile) => tile.id == id);
-        if (tile && !tile.isClicked) {
-            tile.isClicked = true;
-            updatedBoard = tile
-                ? [tile, ...board.filter((tile) => tile.id != id)]
-                : board;
-        } else if (tile && tile.isClicked) {
-            updatedState = 'LOSE';
-        }
-    }
-    return {
-        state: updatedState,
-        board: updatedBoard,
-    };
+    // Return if !PLAYING or invalid ID
+    if (state != 'PLAYING') return { state, board };
+    const tile = board.find((tile) => tile.id == id);
+    if (!tile) return { state, board };
+
+    // Return LOSE if tile already clicked
+    if (tile.isClicked) return { state: 'LOSE', board };
+
+    const updatedBoard = board.map((tile) => {
+        return tile.id === id ? { ...tile, isClicked: true } : tile;
+    });
+    return { state: 'PLAYING', board: updatedBoard };
 };
 
 const verifyWin = (state: GameState, board: Tile[]): GameData => {
@@ -59,15 +54,8 @@ const verifyWin = (state: GameState, board: Tile[]): GameData => {
 };
 
 const makeMove = (id: string, state: GameState, board: Tile[]): GameData => {
-    const { state: updatedState, board: updatedBoard } = selectTile(
-        id,
-        state,
-        board
-    );
-    const winVerifiedGameData = gameController.verifyWin(
-        updatedState,
-        updatedBoard
-    );
+    const updatedData = selectTile(id, state, board);
+    const winVerifiedGameData = verifyWin(updatedData.state, updatedData.board);
     return winVerifiedGameData;
 };
 
@@ -77,16 +65,15 @@ const restartGame = (board: Tile[]): GameData => {
         return tile;
     });
     return {
-        state: "PLAYING",
+        state: 'PLAYING',
         board: unClickedTiles,
-    }
+    };
 };
 
 const gameController = {
     shuffleArray,
     initGame,
     makeMove,
-    verifyWin,
     restartGame,
 };
 

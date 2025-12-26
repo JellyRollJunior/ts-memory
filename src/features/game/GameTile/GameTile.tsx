@@ -34,7 +34,7 @@ const GameTile = ({
   }
   return (
     <li
-      className={`border-sand-beige bg-sand-beige-light aspect-16/11 h-full w-full overflow-hidden rounded-3xl border-5 ${isCheating && data.clicked && 'outline-pink outline-3'}`}
+      className={`border-sand-beige bg-sand-beige-light aspect-16/11 h-full w-full overflow-hidden rounded-3xl border-5 ${isCheating && data.isClicked && 'outline-pink outline-3'}`}
     >
       <button className="size-full" onClick={onClick}>
         {!isError ? (
