@@ -1,0 +1,18 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Game Tile component > Renders button with image 1`] = `
+<div>
+  <li
+    class="border-sand-beige bg-sand-beige-light aspect-16/11 h-full w-full overflow-hidden rounded-3xl border-5 false"
+  >
+    <button
+      class="size-full"
+    >
+      <img
+        class="size-full object-cover"
+        src="/src/assets/pretty-guardian-logo.png"
+      />
+    </button>
+  </li>
+</div>
+`;

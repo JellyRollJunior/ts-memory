@@ -1,0 +1,18 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Lose Modal component > Renders encouraging message and play again button 1`] = `
+<div>
+  <dialog>
+    <p
+      class="mt-0.5"
+    >
+      Keep trying, You can do it!
+    </p>
+    <button
+      class="border-blooming-dahlia bg-blooming-dahlia/40 mt-3 rounded-md border-2 px-5 py-0.5"
+    >
+      Play again
+    </button>
+  </dialog>
+</div>
+`;

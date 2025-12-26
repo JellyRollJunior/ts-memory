@@ -25,6 +25,13 @@
     - /pages for navigatable pages
 - Configuring path aliases
     - modify tsconfig.app.json & vite.config.ts
+- Vitest
+    - Using Vitest with Typescript
+    - revisting testing with React
+        - mocking functions
+        - mocking components
+        - userEvent to click elements
+        - snapshot tests
 
 # Improvements
 
@@ -43,3 +50,4 @@
 - saving leaderboards backend
 - process other routes
     - error page
+- move types into game

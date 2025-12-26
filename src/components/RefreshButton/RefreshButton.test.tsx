@@ -11,7 +11,7 @@ describe('Refresh button component', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('Calls function provided in onClick prop on clicking button', async () => {
+  it('Calls function in onClick prop on clicking button', async () => {
     const user = userEvent.setup();
     const onClick = vi.fn();
     render(<RefreshButton onClick={onClick} />);
