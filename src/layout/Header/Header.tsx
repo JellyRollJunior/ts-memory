@@ -2,7 +2,7 @@ import prettyGuardian from '@/assets/pretty-guardian-logo.png'
 
 const Header = () => {
   return (
-    <header className="w-full bg-[url(../assets/header-bg.png)] bg-contain bg-no-repeat">
+    <header className="w-full bg-[url(../assets/header-bg.png)] bg-contain bg-no-repeat px-1.5">
       <img className='max-w-32 mx-auto' src={prettyGuardian} />
       <h1 className="-mt-3 font-junge text-pink text-center text-3xl font-bold ">
         Sailor Moon Memory

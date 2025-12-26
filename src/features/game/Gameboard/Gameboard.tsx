@@ -88,7 +88,7 @@ const Gameboard = ({ numTiles = 12 }) => {
             <RefreshButton onClick={refetchGifs} />
           </div>
         )}
-        <ul className="mt-5 grid w-full grid-cols-2 gap-3 md:gap-4 md:grid-cols-3">
+        <ul className="mt-5 grid w-full grid-cols-2 gap-3 md:gap-4 sm:grid-cols-3">
           {isLoading || error != null
             ? [...Array(numTiles)].map((value, index) => (
                 <Fragment key={index}>

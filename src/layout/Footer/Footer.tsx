@@ -9,7 +9,7 @@ type iconButtonProps = {
   alt: string;
 };
 
-const IconButton = ({ src, size = 20, link, alt }: iconButtonProps) => {
+const IconLink = ({ src, size = 20, link, alt }: iconButtonProps) => {
   return (
     <a href={link} target="”_blank”" rel="noopener noreferrer nofollow">
       <img style={{ height: size, width: size }} src={src} alt={alt} />
@@ -23,19 +23,19 @@ const Footer = () => {
       <div className="h-9 w-full bg-[url(../assets/footer-bg.png)] bg-contain bg-center" />
       <div className="bg-sand-beige pt-3 pb-2 md:pt-6 md:pb-3">
         <div className="mx-auto flex justify-center gap-5">
-          <IconButton
+          <IconLink
             src={github}
             size={36}
             link="https://github.com/jellyrolljunior"
             alt="JellyRollJunior Github Link"
           />
-          <IconButton
+          <IconLink
             src={linkedin}
             size={36}
             link="https://www.linkedin.com/in/jellyrolljunior/"
             alt="Brandon Lin LinkedIn Link"
           />
-          <IconButton
+          <IconLink
             src={instagram}
             size={36}
             link="https://www.instagram.com/river.flows__"
