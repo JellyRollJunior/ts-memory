@@ -50,4 +50,3 @@
 - saving leaderboards backend
 - process other routes
     - error page
-- move types into game

@@ -1,4 +1,4 @@
-import type { GameData, GameState, Tile } from '@/types/types.ts';
+import type { GameData, GameState, Tile } from '@/features/game/types/types.ts';
 
 const shuffleArray = <Type>(inputArray: Type[]): Type[] => {
     const array = structuredClone(inputArray);
