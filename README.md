@@ -51,7 +51,6 @@
 
 #### TODO
 
-- tests
 - saving leaderboards backend
 - process other routes
     - error page

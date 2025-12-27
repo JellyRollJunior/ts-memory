@@ -77,9 +77,61 @@ describe('GameboardView component', () => {
     expect(screen.getByText('Lose')).toBeInTheDocument();
   });
 
-  // test score increments
-  // test refresh button appears on error
-  // tile render count
-  // tile click registers function
-  // move high score to gameboardcontainer
+  it('renders high score and score according to highScore and score props', () => {
+    const HIGHSCORE = 10;
+    const SCORE = 8;
+    render(
+      <GameboardView
+        highScore={HIGHSCORE}
+        score={SCORE}
+        gameState={'PLAYING'}
+        gameTiles={gameData.board}
+        onClickTile={() => {}}
+        restartGame={() => {}}
+        isLoading={false}
+        error={null}
+        onRetry={() => {}}
+      />
+    );
+
+    expect(screen.getByRole('heading', {name: `High Score: ${HIGHSCORE}`})).toBeInTheDocument();
+    expect(screen.getByRole('heading', {name: `Score: ${SCORE}`})).toBeInTheDocument();
+  });
+
+  it('renders refresh button on error === true', () => {
+    render(
+      <GameboardView
+        highScore={0}
+        score={0}
+        gameState={'PLAYING'}
+        gameTiles={gameData.board}
+        onClickTile={() => {}}
+        restartGame={() => {}}
+        isLoading={false}
+        error={'Hello I am an error'}
+        onRetry={() => {}}
+      />
+    );
+
+    expect(screen.getByRole('button', { name: 'refresh button'})).toBeInTheDocument();
+  })
+
+  it('renders a tile for each tile in gameData board', () => {
+    render(
+      <GameboardView
+        highScore={0}
+        score={0}
+        gameState={'PLAYING'}
+        gameTiles={gameData.board}
+        onClickTile={() => {}}
+        restartGame={() => {}}
+        isLoading={false}
+        error={null}
+        onRetry={() => {}}
+      />
+    );
+
+    const gameTiles = screen.getAllByRole('listitem')
+    expect(gameTiles.length).toBe(gameData.board.length);
+  })
 });
