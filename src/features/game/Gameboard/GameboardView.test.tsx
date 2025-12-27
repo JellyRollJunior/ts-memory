@@ -26,6 +26,8 @@ describe('GameboardView component', () => {
   it('renders score, gametiles, and win/lose modals', () => {
     const { container } = render(
       <GameboardView
+        highScore={0}
+        score={0}
         gameState={gameData.state}
         gameTiles={gameData.board}
         onClickTile={() => {}}
@@ -42,7 +44,9 @@ describe('GameboardView component', () => {
   it('opens WinModal on state === WIN', () => {
     render(
       <GameboardView
-        gameState={"WIN"}
+        highScore={0}
+        score={0}
+        gameState={'WIN'}
         gameTiles={gameData.board}
         onClickTile={() => {}}
         restartGame={() => {}}
@@ -58,7 +62,9 @@ describe('GameboardView component', () => {
   it('opens LoseModal on state === LOSE', () => {
     render(
       <GameboardView
-        gameState={"LOSE"}
+        highScore={0}
+        score={0}
+        gameState={'LOSE'}
         gameTiles={gameData.board}
         onClickTile={() => {}}
         restartGame={() => {}}
@@ -70,4 +76,10 @@ describe('GameboardView component', () => {
 
     expect(screen.getByText('Lose')).toBeInTheDocument();
   });
+
+  // test score increments
+  // test refresh button appears on error
+  // tile render count
+  // tile click registers function
+  // move high score to gameboardcontainer
 });

@@ -1,5 +1,5 @@
 import type { GameState, Tile } from '@/features/game/types/types.ts';
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import { gameController } from '@/features/game/gameController';
 import { GameTile } from '@/features/game/GameTile';
 import { WinModal } from '@/features/game/WinModal';
@@ -7,6 +7,8 @@ import { LoseModal } from '@/features/game/LoseModal';
 import { RefreshButton } from '@/components/RefreshButton';
 
 type gameboardViewProps = {
+  highScore: number;
+  score: number;
   gameState: GameState;
   gameTiles: Tile[];
   onClickTile: (tileId: string) => void;
@@ -17,6 +19,8 @@ type gameboardViewProps = {
 };
 
 const GameboardView = ({
+  highScore,
+  score,
   gameState,
   gameTiles,
   onClickTile,
@@ -25,12 +29,6 @@ const GameboardView = ({
   error,
   onRetry,
 }: gameboardViewProps) => {
-  const [highScore, setHighScore] = useState(0);
-  const score = gameTiles.filter((tile) => tile.isClicked == true).length;
-  if (score > highScore) {
-    setHighScore(score);
-  }
-
   /* MODALS */
   const isWin = gameState === 'WIN' ? true : false;
   const isLose = gameState === 'LOSE' ? true : false;

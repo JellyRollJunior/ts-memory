@@ -70,11 +70,16 @@ const restartGame = (board: Tile[]): GameData => {
     };
 };
 
+const calculateScore = (board: Tile[]): number => {
+    return board.filter((tile) => tile.isClicked == true).length;
+};
+
 const gameController = {
     shuffleArray,
     initGame,
     makeMove,
     restartGame,
+    calculateScore,
 };
 
 export { gameController };

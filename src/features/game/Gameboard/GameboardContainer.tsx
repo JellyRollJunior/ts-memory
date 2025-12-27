@@ -7,10 +7,12 @@ import { GameboardView } from './GameboardView.tsx';
 const GameboardContainer = ({ numTiles = 12 }) => {
   const [gameState, setGameState] = useState<GameState>('NONE');
   const [gameTiles, setGameTiles] = useState<Tile[]>([] as Tile[]);
+  const [highScore, setHighScore] = useState(0);
   const { isLoading, error, data, refetchGifs } = useGiphy(
     'sailor moon',
     numTiles
   );
+  const score = gameController.calculateScore(gameTiles);
 
   // Init tiles on receiving src data
   useEffect(() => {
@@ -30,6 +32,12 @@ const GameboardContainer = ({ numTiles = 12 }) => {
       const gameData = gameController.makeMove(tileId, gameState, gameTiles);
       setGameState(gameData.state);
       setGameTiles(gameData.board);
+
+      // update score
+      const newScore = gameController.calculateScore(gameData.board);
+      if (newScore > highScore) {
+        setHighScore(newScore);
+      }
     }
   };
 
@@ -41,6 +49,8 @@ const GameboardContainer = ({ numTiles = 12 }) => {
 
   return (
     <GameboardView
+      highScore={highScore}
+      score={score}
       gameState={gameState}
       gameTiles={gameTiles}
       onClickTile={onClickTile}
