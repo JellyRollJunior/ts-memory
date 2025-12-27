@@ -29,6 +29,12 @@ describe('Game controller module', () => {
         expect(session.board.find(tile => tile.id === tileOneId)?.isClicked).toBe(true);
     });
 
+    it('calculates score returning the number of clicked tiles', () => {
+        const score = gameController.calculateScore(session.board)
+
+        expect(score).toBe(1);
+    });
+
     it('verifies win on clicking all tiles once', () => {
         const tileTwoId = session.board[1].id;
 

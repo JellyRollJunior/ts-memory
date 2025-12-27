@@ -36,15 +36,15 @@ const GameboardView = ({
   return (
     <>
       <div className="text-sand-beige-dark md:border-sand-beige w-full max-w-4xl md:rounded-3xl md:border-3 md:bg-white/40 md:px-10 md:pt-5 md:pb-8">
+        {error && (
+          <div className="flex w-full justify-center">
+            <RefreshButton onClick={onRetry} />
+          </div>
+        )}
         <div className="text-sand-beige grid grid-cols-2 font-extrabold md:text-lg">
           <h2 className="text-center">High Score: {highScore}</h2>
           <h2 className="text-center">Score: {score}</h2>
         </div>
-        {error && (
-          <div className="mt-3 flex w-full justify-center">
-            <RefreshButton onClick={onRetry} />
-          </div>
-        )}
         <ul className="mt-5 grid w-full grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4">
           {isLoading || error != null
             ? [...Array(12)].map((value, index) => (
