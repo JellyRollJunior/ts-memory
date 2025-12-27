@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom/vitest';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { GameboardView } from '@/features/game/Gameboard/GameboardView.tsx';
@@ -36,5 +37,37 @@ describe('GameboardView component', () => {
     );
 
     expect(container).toMatchSnapshot();
+  });
+
+  it('opens WinModal on state === WIN', () => {
+    render(
+      <GameboardView
+        gameState={"WIN"}
+        gameTiles={gameData.board}
+        onClickTile={() => {}}
+        restartGame={() => {}}
+        isLoading={false}
+        error={null}
+        onRetry={() => {}}
+      />
+    );
+
+    expect(screen.getByText('Win')).toBeInTheDocument();
+  });
+
+  it('opens LoseModal on state === LOSE', () => {
+    render(
+      <GameboardView
+        gameState={"LOSE"}
+        gameTiles={gameData.board}
+        onClickTile={() => {}}
+        restartGame={() => {}}
+        isLoading={false}
+        error={null}
+        onRetry={() => {}}
+      />
+    );
+
+    expect(screen.getByText('Lose')).toBeInTheDocument();
   });
 });
