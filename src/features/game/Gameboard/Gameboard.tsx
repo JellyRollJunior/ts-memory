@@ -1,5 +1,5 @@
 import type { GameState, Tile } from '@/features/game/types/types.ts';
-import { Fragment, useEffect, useRef, useState, type RefObject } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { gameController } from '@/features/game/gameController';
 import { useGiphy } from '@/features/game/useGiphy.ts';
 import { GameTile } from '@/features/game/GameTile';
@@ -16,8 +16,6 @@ const Gameboard = ({ numTiles = 12 }) => {
     numTiles
   );
   const score = gameTiles.filter((tile) => tile.isClicked == true).length;
-  const winModalRef = useRef<HTMLDialogElement | null>(null);
-  const loseModalRef = useRef<HTMLDialogElement | null>(null);
 
   // Init tiles on receiving src data
   useEffect(() => {
@@ -51,35 +49,13 @@ const Gameboard = ({ numTiles = 12 }) => {
   };
 
   /* MODALS */
-  const openModal = (ref: RefObject<HTMLDialogElement | null>): void => {
-    if (!ref) return;
-    const dialog = ref.current;
-    if (dialog && !dialog.open) {
-      dialog.showModal();
-    }
-  };
-
-  const closeModal = (ref: RefObject<HTMLDialogElement | null>): void => {
-    if (!ref) return;
-    const dialog = ref.current;
-    if (dialog && dialog.open) {
-      dialog.close();
-    }
-  };
-
-  useEffect(() => {
-    if (gameState == 'WIN') {
-      openModal(winModalRef);
-    }
-    if (gameState == 'LOSE') {
-      openModal(loseModalRef);
-    }
-  }, [gameState]);
+  const isWin = gameState === 'WIN' ? true : false;
+  const isLose = gameState === 'LOSE' ? true : false;
 
   return (
     <>
-      <div className="text-sand-beige-dark w-full max-w-4xl md:border-3 md:px-10 md:pt-5 md:pb-8 md:bg-white/40 md:border-sand-beige md:rounded-3xl">
-        <div className="text-sand-beige md:text-lg grid grid-cols-2 font-extrabold">
+      <div className="text-sand-beige-dark md:border-sand-beige w-full max-w-4xl md:rounded-3xl md:border-3 md:bg-white/40 md:px-10 md:pt-5 md:pb-8">
+        <div className="text-sand-beige grid grid-cols-2 font-extrabold md:text-lg">
           <h2 className="text-center">High Score: {highScore}</h2>
           <h2 className="text-center">Score: {score}</h2>
         </div>
@@ -88,7 +64,7 @@ const Gameboard = ({ numTiles = 12 }) => {
             <RefreshButton onClick={refetchGifs} />
           </div>
         )}
-        <ul className="mt-5 grid w-full grid-cols-2 gap-3 md:gap-4 sm:grid-cols-3">
+        <ul className="mt-5 grid w-full grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4">
           {isLoading || error != null
             ? [...Array(numTiles)].map((value, index) => (
                 <Fragment key={index}>
@@ -117,17 +93,15 @@ const Gameboard = ({ numTiles = 12 }) => {
         </ul>
       </div>
       <WinModal
-        ref={winModalRef}
+        open={isWin}
         handlePlayAgain={() => {
           restartGame();
-          closeModal(winModalRef);
         }}
       />
       <LoseModal
-        ref={loseModalRef}
+        open={isLose}
         handlePlayAgain={() => {
           restartGame();
-          closeModal(loseModalRef);
         }}
       />
     </>

@@ -1,15 +1,14 @@
-import type { Ref } from 'react';
 import { Modal } from '@/components/Modal';
 
 type winModalProps = {
-  ref: Ref<HTMLDialogElement>;
-  handlePlayAgain: () => void;
+  open: boolean,
+  handlePlayAgain: () => void,
 };
 
-const WinModal = ({ ref, handlePlayAgain }: winModalProps) => {
+const WinModal = ({ open, handlePlayAgain }: winModalProps) => {
   return (
     <Modal
-      ref={ref}
+      open={open}
       headerText="Winner!"
       contentWrapperStyling="flex flex-col items-center"
     >

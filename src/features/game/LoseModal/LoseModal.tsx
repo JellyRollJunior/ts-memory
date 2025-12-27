@@ -1,15 +1,14 @@
-import type { Ref } from 'react';
 import { Modal } from '@/components/Modal';
 
 type loseModalProps = {
-  ref: Ref<HTMLDialogElement>;
-  handlePlayAgain: () => void;
+  open: boolean,
+  handlePlayAgain: () => void,
 };
 
-const LoseModal = ({ ref, handlePlayAgain }: loseModalProps) => {
+const LoseModal = ({ open, handlePlayAgain }: loseModalProps) => {
   return (
     <Modal
-      ref={ref}
+      open={open}
       headerText="Lose"
       contentWrapperStyling="flex flex-col items-center"
     >

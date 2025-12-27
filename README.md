@@ -32,6 +32,8 @@
         - mocking components
         - userEvent to click elements
         - snapshot tests
+- Separating components with multiple responsibilities into container + view 
+    - 
 
 # Improvements
 
@@ -50,3 +52,10 @@
 - saving leaderboards backend
 - process other routes
     - error page
+
+- refactor gameboard
+    - split to container + view
+        - create gameboard view to render state
+        - create gameboard container to pull state / view
+    - refactor modal to handle opening on its own
+    - bug: highscore max == 11s
