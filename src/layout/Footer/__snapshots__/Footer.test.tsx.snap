@@ -1,0 +1,59 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Footer component > renders contact links, signature, and footer decorations 1`] = `
+<div>
+  <footer
+    class="mt-auto pt-12 text-white md:pt-16"
+  >
+    <div
+      class="h-9 w-full bg-[url(../assets/footer-bg.png)] bg-contain bg-center"
+    />
+    <div
+      class="bg-sand-beige pt-3 pb-2 md:pt-6"
+    >
+      <div
+        class="mx-auto flex justify-center gap-5"
+      >
+        <a
+          href="https://github.com/jellyrolljunior"
+          rel="noopener noreferrer nofollow"
+          target="”_blank”"
+        >
+          <img
+            alt="JellyRollJunior Github Link"
+            src="/src/assets/icons/github.png"
+            style="height: 36px; width: 36px;"
+          />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/jellyrolljunior/"
+          rel="noopener noreferrer nofollow"
+          target="”_blank”"
+        >
+          <img
+            alt="Brandon Lin LinkedIn Link"
+            src="/src/assets/icons/linkedin.png"
+            style="height: 36px; width: 36px;"
+          />
+        </a>
+        <a
+          href="https://www.instagram.com/river.flows__"
+          rel="noopener noreferrer nofollow"
+          target="”_blank”"
+        >
+          <img
+            alt="river.flows__ Instagram Link"
+            src="/src/assets/icons/instagram.png"
+            style="height: 36px; width: 36px;"
+          />
+        </a>
+      </div>
+      <h3
+        class="mt-1 text-center"
+      >
+        Created in TypeScript by JellyRollJunior
+      </h3>
+    </div>
+  </footer>
+</div>
+`;

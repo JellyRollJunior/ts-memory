@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Header component > renders logo, title, and game explanation 1`] = `
+<div>
+  <header
+    class="w-full bg-[url(../assets/header-bg.png)] bg-contain bg-no-repeat px-1.5"
+  >
+    <img
+      class="max-w-32 mx-auto"
+      src="/src/assets/pretty-guardian-logo.png"
+    />
+    <h1
+      class="-mt-3 font-junge text-pink text-center text-3xl font-bold "
+    >
+      Sailor Moon Memory
+    </h1>
+    <p
+      class="text-center text-blooming-dahlia mt-1.5"
+    >
+      Get points by clicking on an image but don't click on any more than once!
+    </p>
+  </header>
+</div>
+`;

@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MainLayout layout component > renders main page layout with children 1`] = `
+<div>
+  <div
+    class="flex min-h-screen min-w-screen flex-col"
+  >
+    <header />
+    <main
+      class="mt-3 flex w-full justify-center px-3 md:px-8"
+    >
+      <div>
+        I am a child!
+      </div>
+    </main>
+    <footer />
+  </div>
+</div>
+`;
