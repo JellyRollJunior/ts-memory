@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`HomePage component > renders gameboard in main layout 1`] = `
+<div>
+  <main>
+    <div>
+      I am a Gameboard!
+    </div>
+  </main>
+</div>
+`;
