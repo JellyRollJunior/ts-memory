@@ -1,1 +1,1 @@
-export { Gameboard } from './Gameboard.tsx';
+export { GameboardContainer as Gameboard } from './GameboardContainer.tsx';

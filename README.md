@@ -33,7 +33,10 @@
         - userEvent to click elements
         - snapshot tests
 - Separating components with multiple responsibilities into container + view 
-    - 
+    - container for fetching data, state ownership, calling domain logic
+    - view for rendering UI and handling callback ONLY
+    - promotes UI testability
+        - when they were 1 component, I had to mock hooks/state/game logic/etc. Now I don't!
 
 # Improvements
 
@@ -53,9 +56,3 @@
 - process other routes
     - error page
 
-- refactor gameboard
-    - split to container + view
-        - create gameboard view to render state
-        - create gameboard container to pull state / view
-    - refactor modal to handle opening on its own
-    - bug: highscore max == 11s
