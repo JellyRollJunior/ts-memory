@@ -1,0 +1,42 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`GameboardView component > renders score, gametiles, and win/lose modals 1`] = `
+<div>
+  <div
+    class="text-sand-beige-dark md:border-sand-beige w-full max-w-4xl md:rounded-3xl md:border-3 md:bg-white/40 md:px-10 md:pt-5 md:pb-8"
+  >
+    <div
+      class="text-sand-beige grid grid-cols-2 font-extrabold md:text-lg"
+    >
+      <h2
+        class="text-center"
+      >
+        High Score: 
+        0
+      </h2>
+      <h2
+        class="text-center"
+      >
+        Score: 
+        0
+      </h2>
+    </div>
+    <ul
+      class="mt-5 grid w-full grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4"
+    >
+      <li>
+        Tile!
+      </li>
+      <li>
+        Tile!
+      </li>
+    </ul>
+  </div>
+  <dialog>
+    Win
+  </dialog>
+  <dialog>
+    Lose
+  </dialog>
+</div>
+`;
