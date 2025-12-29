@@ -1,10 +1,12 @@
 import { Link, useLocation } from 'react-router-dom';
 
-const ErrorContent = () => {
+const ErrorContent = ({ className = '' }) => {
   const location = useLocation();
 
   return (
-    <div className="main-content-container text-center">
+    <div
+      className={`text-sand-beige-dark border-sand-beige w-full max-w-xl rounded-3xl border-3 bg-white/40 px-10 pt-5 pb-8 text-center ${className}`}
+    >
       <h2 className="text-center text-xl font-bold">
         {location.pathname != '/' ? '404 Page Found' : 'I Got Nothin!'}
       </h2>

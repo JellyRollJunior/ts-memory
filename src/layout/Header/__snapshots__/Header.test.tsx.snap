@@ -3,19 +3,19 @@
 exports[`Header component > renders logo, title, and game explanation 1`] = `
 <div>
   <header
-    class="w-full bg-[url(../assets/header-bg.png)] bg-contain bg-no-repeat px-1.5"
+    class="w-full bg-[url(@/assets/header-bg.png)] bg-contain bg-no-repeat px-1.5"
   >
     <img
-      class="max-w-32 mx-auto"
+      class="mx-auto max-w-32"
       src="/src/assets/pretty-guardian-logo.png"
     />
     <h1
-      class="-mt-3 font-junge text-pink text-center text-3xl font-bold "
+      class="font-junge text-pink -mt-3 text-center text-3xl font-bold"
     >
       Sailor Moon Memory
     </h1>
     <p
-      class="text-center text-blooming-dahlia mt-1.5"
+      class="text-blooming-dahlia mt-1.5 text-center"
     >
       Get points by clicking on an image but don't click on any more than once!
     </p>

@@ -4,7 +4,7 @@ import { MainLayout } from '@/layout/MainLayout';
 const ErrorPage = () => {
   return (
     <MainLayout>
-      <ErrorContent />
+      <ErrorContent className='mt-3' />
     </MainLayout>
   );
 };

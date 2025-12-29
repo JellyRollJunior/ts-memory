@@ -1,3 +1,15 @@
+# Features
+- Memory Game with animated cards
+    - click each tile exactly once to win
+    - click a tile two times and you lose
+    - clicking a card shuffles the cards
+- Memory cards
+    - loading animation
+    - error loading / broken link design
+- Scoreboard & highscore count
+- Refresh button on error loading gifs for memory cards
+- Error page on invalid routes / unexexpected errors
+
 # Learning outcomes
 
 - First TS project
@@ -51,4 +63,8 @@
 
 #### TODO
 
-- saving leaderboards backend
+- frontend
+    - leaderboard
+
+- backend
+    - save winner names

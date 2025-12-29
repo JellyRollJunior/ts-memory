@@ -33,5 +33,5 @@
 }
 
 @utility primary-button {
-  @apply border-sand-beige-dark hover:bg-sand-beige rounded-md border-2 hover:text-white;
+  @apply bg-sand-beige-light text-sand-beige-dark border-sand-beige-dark hover:bg-sand-beige rounded-md border-2 hover:text-white;
 }
