@@ -65,6 +65,12 @@
 
 - frontend
     - leaderboard
+    - site icon
 
 - backend
     - save winner names
+
+- fix
+    - onclick accept all funcitons, not just void
+        - refresh button
+        - iconbutton

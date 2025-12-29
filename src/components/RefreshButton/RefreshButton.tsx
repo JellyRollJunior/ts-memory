@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { IconButton } from '@/components/IconButton';
 import refresh from '@/assets/svgs/refresh.svg';
 
 type refreshButtonProps = {
@@ -7,8 +8,8 @@ type refreshButtonProps = {
 
 const RefreshButton = ({ onClick }: refreshButtonProps) => {
   return (
-    <motion.button
-      className="hover:bg-sand-beige-light rounded-full p-1"
+    <motion.div
+      className="hover:bg-sand-beige-light rounded-full"
       initial={{
         rotate: 0,
       }}
@@ -25,8 +26,8 @@ const RefreshButton = ({ onClick }: refreshButtonProps) => {
       }}
       onClick={onClick}
     >
-      <img src={refresh} alt="refresh button" />
-    </motion.button>
+      <IconButton className="p-2" src={refresh} onClick={onClick} />
+    </motion.div>
   );
 };
 

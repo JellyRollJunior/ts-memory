@@ -23,7 +23,6 @@ const requestGifs = async (search: string, limit = 12): Promise<z.infer<typeof g
     }
     // validate response ZOD
     const parsed = giphyArraySchema.parse(json);
-    console.log(parsed)
     return parsed;
 };
 
