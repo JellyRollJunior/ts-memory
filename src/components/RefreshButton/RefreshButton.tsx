@@ -26,7 +26,7 @@ const RefreshButton = ({ onClick }: refreshButtonProps) => {
       }}
       onClick={onClick}
     >
-      <IconButton className="p-2" src={refresh} onClick={onClick} />
+      <IconButton className="p-2" src={refresh} onClick={onClick} alt='Refresh button' />
     </motion.div>
   );
 };

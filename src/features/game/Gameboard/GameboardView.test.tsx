@@ -113,7 +113,7 @@ describe('GameboardView component', () => {
       />
     );
 
-    expect(screen.getByRole('button', { name: 'refresh button'})).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Refresh button'})).toBeInTheDocument();
   })
 
   it('renders a tile for each tile in gameData board', () => {
