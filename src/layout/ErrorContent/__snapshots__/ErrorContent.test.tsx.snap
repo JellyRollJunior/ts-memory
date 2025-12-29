@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Error Content component > Renders error messages and return home button 1`] = `
+<div>
+  <div
+    class="main-content-container text-center"
+  >
+    <h2
+      class="text-center text-xl font-bold"
+    >
+      I Got Nothin!
+    </h2>
+    <p
+      class="my-10"
+    >
+      Wow you've reached an unexpected error!
+    </p>
+    <a
+      class="primary-button mx-auto mt-3 block w-fit px-7 py-1"
+      data-discover="true"
+      href="/"
+    >
+      Return Home
+    </a>
+  </div>
+</div>
+`;

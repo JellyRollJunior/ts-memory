@@ -5,7 +5,9 @@ const ErrorContent = () => {
 
   return (
     <div className="main-content-container text-center">
-      <h2 className="text-center text-xl font-bold">404 Page Found</h2>
+      <h2 className="text-center text-xl font-bold">
+        {location.pathname != '/' ? '404 Page Found' : 'I Got Nothin!'}
+      </h2>
       <p className="my-10">
         {location.pathname != '/'
           ? "You've reached an invalid page."
