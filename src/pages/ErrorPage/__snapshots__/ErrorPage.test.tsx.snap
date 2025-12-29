@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Error Page component > renders ErrorContent inside MainLayout 1`] = `
+<div>
+  <main>
+    <div>
+      Error here!
+    </div>
+  </main>
+</div>
+`;
