@@ -1,7 +1,7 @@
 import type { RouteObject } from 'react-router-dom';
 import { App } from '@/App.tsx';
 import { HomePage } from '@/pages/HomePage';
-import { ErrorPage } from './pages/ErrorPage/ErrorPage';
+import { ErrorPage } from './pages/ErrorPage';
 
 const routes: RouteObject[] = [
   {
