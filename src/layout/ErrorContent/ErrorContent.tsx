@@ -1,7 +1,22 @@
+import { Link, useLocation } from 'react-router-dom';
+
 const ErrorContent = () => {
+  const location = useLocation();
+
   return (
-    <div className="text-sand-beige-dark md:border-sand-beige w-full max-w-4xl md:rounded-3xl md:border-3 md:bg-white/40 md:px-10 md:pt-5 md:pb-8">
-      Error!
+    <div className="main-content-container text-center">
+      <h2 className="text-center text-xl font-bold">404 Page Found</h2>
+      <p className="my-10">
+        {location.pathname != '/'
+          ? "You've reached an invalid page."
+          : "Wow you've reached an unexpected error!"}
+      </p>
+      <Link
+        className="primary-button mx-auto mt-3 block w-fit px-7 py-1"
+        to="/"
+      >
+        Return Home
+      </Link>
     </div>
   );
 };
