@@ -1,7 +1,7 @@
 import { Modal } from '@/components/Modal';
 
 type loseModalProps = {
-  className: string;
+  className?: string;
   open: boolean;
   handlePlayAgain: () => void;
 };

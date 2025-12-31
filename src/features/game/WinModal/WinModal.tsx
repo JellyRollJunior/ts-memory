@@ -1,7 +1,7 @@
 import { Modal } from '@/components/Modal';
 
 type winModalProps = {
-  className: string;
+  className?: string;
   open: boolean;
   handlePlayAgain: () => void;
 };

@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import logo from '@/assets/pretty-guardian-logo.png';
 
 type modalProps = {
-  className: string;
+  className?: string;
   open: boolean;
   showLogo: boolean;
   headerText: string;

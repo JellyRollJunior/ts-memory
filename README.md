@@ -44,6 +44,7 @@
         - mocking components
         - userEvent to click elements
         - snapshot tests
+        - mocking default imports & libraries!
 - Separating components with multiple responsibilities into container + view 
     - container for fetching data, state ownership, calling domain logic
     - view for rendering UI and handling callback ONLY
@@ -64,7 +65,6 @@
 #### TODO
 
 - frontend
-    - leaderboard
     - site icon
 
 - backend

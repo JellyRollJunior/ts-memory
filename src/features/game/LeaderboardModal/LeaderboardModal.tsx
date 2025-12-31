@@ -5,7 +5,7 @@ import silver from '@/assets/svgs/trophy-silver.svg';
 import bronze from '@/assets/svgs/trophy-bronze.svg';
 
 type leaderboardModalProps = {
-  className: string;
+  className?: string;
   isOpen: boolean;
   closeModal: () => void;
   winners?: string[];
@@ -31,7 +31,7 @@ const LeaderboardModal = ({
             <li className='text-center'>No winners yet!</li>
           ) : (
             winners.map((winner, index) => (
-              <li className="grid w-full grid-cols-[24px_1fr_24px] items-center gap-2">
+              <li key={index + winner} className="grid w-full grid-cols-[24px_1fr_24px] items-center gap-2">
                 <span>{index + 1}.</span>
                 <span className="text-lg">{winner}</span>
                 {index == 0 ? (
