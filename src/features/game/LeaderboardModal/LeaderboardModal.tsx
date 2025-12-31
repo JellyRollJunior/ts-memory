@@ -27,21 +27,25 @@ const LeaderboardModal = ({
     >
       <SimpleBar className="border-sand-beige mt-3 h-42 border-t-2 border-b-2 px-6">
         <ol className="my-2 flex flex-col gap-0.5">
-          {winners.map((winner, index) => (
-            <li className="grid w-full grid-cols-[24px_1fr_24px] items-center gap-2">
-              <span>{index + 1}.</span>
-              <span className="text-lg">{winner}</span>
-              {index == 0 ? (
-                <img src={gold} />
-              ) : index == 1 ? (
-                <img src={silver} />
-              ) : index == 2 ? (
-                <img src={bronze} />
-              ) : (
-                <div />
-              )}
-            </li>
-          ))}
+          {winners.length == 0 ? (
+            <li className='text-center'>No winners yet!</li>
+          ) : (
+            winners.map((winner, index) => (
+              <li className="grid w-full grid-cols-[24px_1fr_24px] items-center gap-2">
+                <span>{index + 1}.</span>
+                <span className="text-lg">{winner}</span>
+                {index == 0 ? (
+                  <img src={gold} />
+                ) : index == 1 ? (
+                  <img src={silver} />
+                ) : index == 2 ? (
+                  <img src={bronze} />
+                ) : (
+                  <div />
+                )}
+              </li>
+            ))
+          )}
         </ol>
       </SimpleBar>
       <button
