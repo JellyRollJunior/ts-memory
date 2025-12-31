@@ -7,6 +7,7 @@
     - loading animation
     - error loading / broken link design
 - Scoreboard & highscore count
+- Leaderboard
 - Refresh button on error loading gifs for memory cards
 - Error page on invalid routes / unexexpected errors
 
@@ -61,11 +62,11 @@
 - Refresh button to refetch gifs on error loading gifs
 - Structuring project files for scale
 - Configure path aliasing to simplify imports
+- Site icons
+- Leaderboard
+- Tests for entire suite!
 
 #### TODO
-
-- frontend
-    - site icon
 
 - backend
     - save winner names
