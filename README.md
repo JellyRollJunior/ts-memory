@@ -69,6 +69,3 @@
 
 - backend
     - save winner names
-
-- fix
-    - standardize button styling

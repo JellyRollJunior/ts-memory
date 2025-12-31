@@ -4,20 +4,49 @@ import { Modal } from '@/components/Modal';
 import { render, screen } from '@testing-library/react';
 
 describe('Modal component', () => {
-  it('Renders dialog, logo, and emojis', () => {
+  it('renders dialog, logo, and emojis', () => {
     const { container } = render(
-      <Modal open={true} headerText="Test" contentWrapperStyling="" />
+      <Modal
+        className=""
+        open={true}
+        showLogo={true}
+        headerText="Test"
+        contentWrapperStyling=""
+      />
     );
 
     expect(container).toMatchSnapshot();
   });
 
-  it('Renders text from prop: headerText in heading', () => {
+  it('renders text from prop: headerText in heading', () => {
     const headerText = 'Test';
     render(
-      <Modal open={true} headerText={headerText} contentWrapperStyling="" />
+      <Modal
+        className=""
+        open={true}
+        showLogo={true}
+        headerText={headerText}
+        contentWrapperStyling=""
+      />
     );
 
-    expect(screen.getByRole('heading', { name: headerText })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: headerText })
+    ).toBeInTheDocument();
+  });
+
+  it('does not render logo if showLogo == false', () => {
+    render(
+      <Modal
+        className=""
+        open={true}
+        showLogo={false}
+        headerText="Test"
+        contentWrapperStyling=""
+      />
+    );
+
+    const logo = screen.queryByRole('img');
+    expect(logo).not.toBeInTheDocument();
   });
 });
