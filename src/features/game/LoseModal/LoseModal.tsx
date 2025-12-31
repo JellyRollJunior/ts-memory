@@ -1,8 +1,8 @@
 import { Modal } from '@/components/Modal';
 
 type loseModalProps = {
-  open: boolean,
-  handlePlayAgain: () => void,
+  open: boolean;
+  handlePlayAgain: () => void;
 };
 
 const LoseModal = ({ open, handlePlayAgain }: loseModalProps) => {
@@ -14,7 +14,7 @@ const LoseModal = ({ open, handlePlayAgain }: loseModalProps) => {
     >
       <p className="mt-0.5">Keep trying, You can do it!</p>
       <button
-        className="border-blooming-dahlia bg-blooming-dahlia/40 mt-3 rounded-md border-2 px-5 py-0.5"
+        className="secondary-button mt-3 px-5 py-0.5"
         onClick={handlePlayAgain}
       >
         Play again

@@ -12,7 +12,7 @@ vi.mock('@/components/Modal', () => ({
 describe('Lose Modal component', () => {
   it('Renders encouraging message and play again button', () => {
     const { container } = render(
-      <LoseModal ref={null} handlePlayAgain={() => {}} />
+      <LoseModal open={true} handlePlayAgain={() => {}} />
     );
 
     expect(container).toMatchSnapshot();
@@ -21,7 +21,7 @@ describe('Lose Modal component', () => {
   it('Calls handlePlayAgain on clicking play again button', async () => {
     const user = userEvent.setup();
     const handlePlayAgain = vi.fn();
-    render(<LoseModal ref={null} handlePlayAgain={handlePlayAgain} />);
+    render(<LoseModal open={true} handlePlayAgain={handlePlayAgain} />);
 
     const playAgainButton = screen.getByRole('button', { hidden: true });
     await user.click(playAgainButton);

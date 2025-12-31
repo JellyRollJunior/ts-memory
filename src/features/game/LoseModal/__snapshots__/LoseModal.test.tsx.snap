@@ -9,7 +9,7 @@ exports[`Lose Modal component > Renders encouraging message and play again butto
       Keep trying, You can do it!
     </p>
     <button
-      class="border-blooming-dahlia bg-blooming-dahlia/40 mt-3 rounded-md border-2 px-5 py-0.5"
+      class="secondary-button mt-3 px-5 py-0.5"
     >
       Play again
     </button>

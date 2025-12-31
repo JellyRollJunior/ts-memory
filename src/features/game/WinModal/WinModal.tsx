@@ -1,8 +1,8 @@
 import { Modal } from '@/components/Modal';
 
 type winModalProps = {
-  open: boolean,
-  handlePlayAgain: () => void,
+  open: boolean;
+  handlePlayAgain: () => void;
 };
 
 const WinModal = ({ open, handlePlayAgain }: winModalProps) => {
@@ -14,11 +14,9 @@ const WinModal = ({ open, handlePlayAgain }: winModalProps) => {
     >
       <p>wowza you have such great memory!</p>
       <div className="mt-3 grid w-full grid-cols-2 justify-center gap-5">
-        <button className="border-blooming-dahlia bg-blooming-dahlia/40 rounded-md border-2 px-5 py-0.5">
-          Close
-        </button>
+        <button className="primary-button px-5 py-0.5">Close</button>
         <button
-          className="border-sand-beige-dark bg-sand-beige/40 rounded-md border-2 px-5 py-0.5"
+          className="secondary-button px-5 py-0.5"
           onClick={handlePlayAgain}
         >
           Play again

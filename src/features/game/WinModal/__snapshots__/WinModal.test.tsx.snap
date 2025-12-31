@@ -10,12 +10,12 @@ exports[`Win Modal component > Renders encouraging message and play again button
       class="mt-3 grid w-full grid-cols-2 justify-center gap-5"
     >
       <button
-        class="border-blooming-dahlia bg-blooming-dahlia/40 rounded-md border-2 px-5 py-0.5"
+        class="primary-button px-5 py-0.5"
       >
         Close
       </button>
       <button
-        class="border-sand-beige-dark bg-sand-beige/40 rounded-md border-2 px-5 py-0.5"
+        class="secondary-button px-5 py-0.5"
       >
         Play again
       </button>

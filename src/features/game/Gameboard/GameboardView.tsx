@@ -1,11 +1,12 @@
 import type { GameState, Tile } from '@/features/game/types/types.ts';
 import { Fragment, useState } from 'react';
 import { gameController } from '@/features/game/gameController';
+import { IconButton } from '@/components/IconButton';
+import { RefreshButton } from '@/components/RefreshButton';
 import { GameTile } from '@/features/game/GameTile';
 import { WinModal } from '@/features/game/WinModal';
 import { LoseModal } from '@/features/game/LoseModal';
-import { RefreshButton } from '@/components/RefreshButton';
-import { IconButton } from '@/components/IconButton';
+import { LeaderboardModal } from '@/features/game/LeaderboardModal';
 import deadFace from '@/assets/svgs/dead-face.svg';
 
 type gameboardViewProps = {
@@ -91,6 +92,10 @@ const GameboardView = ({
         handlePlayAgain={() => {
           restartGame();
         }}
+      />
+      <LeaderboardModal
+        isOpen={isLeaderboardOpen}
+        closeModal={() => setIsLeaderboardOpen(false)}
       />
     </>
   );

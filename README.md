@@ -71,6 +71,4 @@
     - save winner names
 
 - fix
-    - onclick accept all funcitons, not just void
-        - refresh button
-        - iconbutton
+    - standardize button styling

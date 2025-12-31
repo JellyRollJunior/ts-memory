@@ -12,12 +12,14 @@
   --font-junge: 'junge', arial, sans-serif;
 
   /* Colors */
-  --color-sand-beige-light: #e8e5d9;
-  --color-sand-beige: #b4aa82;
-  --color-sand-beige-dark: #908868;
   --color-pink: #ff819f;
-  --color-blooming-dahlia: #e99784;
   --color-gold: #daab73;
+  --color-sand-beige: #b4aa82;
+  --color-sand-beige-light: #e8e5d9;
+  --color-sand-beige-dark: #908868;
+  --color-blooming-dahlia: #edab9b;
+  --color-blooming-dahlia-light: #f8e1dc;
+  --color-blooming-dahlia-dark: #d18776;
 }
 
 @utility site-bg-image {
@@ -34,4 +36,8 @@
 
 @utility primary-button {
   @apply bg-sand-beige-light text-sand-beige-dark border-sand-beige-dark hover:bg-sand-beige rounded-md border-2 hover:text-white;
+}
+
+@utility secondary-button {
+  @apply border-blooming-dahlia-dark text-blooming-dahlia-dark bg-blooming-dahlia-light hover:bg-blooming-dahlia rounded-md border-2 hover:text-white;
 }

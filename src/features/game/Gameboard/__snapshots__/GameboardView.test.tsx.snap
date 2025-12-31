@@ -50,5 +50,8 @@ exports[`GameboardView component > renders score, gametiles, and win/lose modals
   <dialog>
     Lose
   </dialog>
+  <dialog>
+    Leaderboard
+  </dialog>
 </div>
 `;

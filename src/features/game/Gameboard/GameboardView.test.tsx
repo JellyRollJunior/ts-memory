@@ -9,14 +9,20 @@ vi.mock('@/features/game/GameTile', () => ({
 }));
 
 vi.mock('@/features/game/WinModal', () => ({
-  WinModal: ({ isOpen }: { isOpen: boolean }) => (
-    <dialog open={isOpen}>Win</dialog>
+  WinModal: ({ open }: { open: boolean }) => (
+    <dialog open={open}>Win</dialog>
   ),
 }));
 
 vi.mock('@/features/game/LoseModal', () => ({
-  LoseModal: ({ isOpen }: { isOpen: boolean }) => (
-    <dialog open={isOpen}>Lose</dialog>
+  LoseModal: ({ open }: { open: boolean }) => (
+    <dialog open={open}>Lose</dialog>
+  ),
+}));
+
+vi.mock('@/features/game/LeaderboardModal', () => ({
+  LeaderboardModal: ({ open }: { open: boolean }) => (
+    <dialog open={open}>Leaderboard</dialog>
   ),
 }));
 

@@ -15,7 +15,7 @@ const Modal = ({ open = false, headerText, contentWrapperStyling = "", children 
         <img className="mx-auto w-36" src={logo} alt="Sailor Moon sitting on a crescent moon" />
         <h2 className="text-xl font-bold">{headerText}</h2>
         <div className="flex w-full justify-between">
-          <div>(☆｀• ω •´ )ｂ</div> ☆ <div>d(｀• ω • ´☆)</div>
+          <div>(☆｀• ω •´ )ｂ</div>☆<div>d(｀• ω • ´☆)</div>
         </div>
         <main className={`${contentWrapperStyling}`}>{children}</main>
       </div>

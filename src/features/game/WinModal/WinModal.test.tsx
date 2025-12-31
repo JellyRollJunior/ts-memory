@@ -12,7 +12,7 @@ vi.mock('@/components/Modal', () => ({
 describe('Win Modal component', () => {
   it('Renders encouraging message and play again button', () => {
     const { container } = render(
-      <WinModal ref={null} handlePlayAgain={() => {}} />
+      <WinModal open={true} handlePlayAgain={() => {}} />
     );
 
     expect(container).toMatchSnapshot();
@@ -21,7 +21,7 @@ describe('Win Modal component', () => {
   it('Calls handlePlayAgain on clicking play again button', async () => {
     const user = userEvent.setup();
     const handlePlayAgain = vi.fn();
-    render(<WinModal ref={null} handlePlayAgain={handlePlayAgain} />);
+    render(<WinModal open={true} handlePlayAgain={handlePlayAgain} />);
 
     const playAgainButton = screen.getByRole('button', {
       name: 'Play again',
