@@ -70,3 +70,12 @@
 
 - backend
     - save winner names
+
+
+
+#### server - mini tutorial
+
+1. npm init -y
+2. Runtime: npm install express
+3. Dev & types: npm install -D typescript ts-node-dev @types/node @types/express
+4. Init TS: npx tsc --init
