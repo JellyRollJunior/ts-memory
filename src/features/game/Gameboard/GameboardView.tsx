@@ -7,7 +7,7 @@ import { GameTile } from '@/features/game/GameTile';
 import { WinModal } from '@/features/game/WinModal';
 import { LoseModal } from '@/features/game/LoseModal';
 import { LeaderboardModal } from '@/features/game/LeaderboardModal';
-import deadFace from '@/assets/svgs/dead-face.svg';
+import leaderboardIcon from '@/assets/svgs/leaderboard.svg';
 
 type gameboardViewProps = {
   highScore: number;
@@ -39,11 +39,11 @@ const GameboardView = ({
 
   return (
     <>
-      <div className="text-sand-beige-dark md:border-sand-beige w-full max-w-4xl md:rounded-3xl md:border-3 md:bg-white/40 md:px-10 md:pt-5 md:pb-8">
-        <div className="mb-2 flex w-full justify-center gap-3 md:mb-0">
+      <div className="text-sand-beige-dark md:border-sand-beige w-full max-w-4xl md:rounded-3xl md:border-3 md:bg-white/40 md:px-10 md:pt-4 md:pb-8">
+        <div className="mb-2 flex w-full justify-center md:justify-start gap-3 md:mb-0">
           <IconButton
             className="hover:bg-sand-beige-light rounded-full p-2"
-            src={deadFace}
+            src={leaderboardIcon}
             onClick={() => setIsLeaderboardOpen(!isLeaderboardOpen)}
             alt="Leaderboards button"
           />

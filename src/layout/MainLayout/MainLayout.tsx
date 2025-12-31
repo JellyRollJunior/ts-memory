@@ -10,7 +10,9 @@ const MainLayout = ({ children }: mainLayoutProps) => {
   return (
     <div className="flex min-h-screen min-w-screen flex-col">
       <Header />
-      <main className="mt-3 flex w-full justify-center px-3 md:px-8">{children}</main>
+      <main className="mt-2 flex w-full justify-center px-3 md:mt-3 md:px-8">
+        {children}
+      </main>
       <Footer />
     </div>
   );
