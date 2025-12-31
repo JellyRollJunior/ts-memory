@@ -1,43 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Modal component > Renders dialog, logo, and emojis 1`] = `
-<div>
-  <dialog
-    class="dialog min-w-2xs"
-    open=""
-  >
-    <div
-      class="flex flex-col items-center px-5 pt-2 pb-5"
-    >
-      <img
-        alt="Sailor Moon sitting on a crescent moon"
-        class="mx-auto w-36"
-        src="/src/assets/pretty-guardian-logo.png"
-      />
-      <h2
-        class="text-xl font-bold"
-      >
-        Test
-      </h2>
-      <div
-        class="flex w-full justify-between"
-      >
-        <div>
-          (☆｀• ω •´ )ｂ
-        </div>
-        ☆
-        <div>
-          d(｀• ω • ´☆)
-        </div>
-      </div>
-      <main
-        class=""
-      />
-    </div>
-  </dialog>
-</div>
-`;
-
 exports[`Modal component > renders dialog, logo, and emojis 1`] = `
 <div>
   <dialog

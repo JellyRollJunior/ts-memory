@@ -1,14 +1,17 @@
 import { Modal } from '@/components/Modal';
 
 type winModalProps = {
+  className: string;
   open: boolean;
   handlePlayAgain: () => void;
 };
 
-const WinModal = ({ open, handlePlayAgain }: winModalProps) => {
+const WinModal = ({ className = '', open, handlePlayAgain }: winModalProps) => {
   return (
     <Modal
+      className={className}
       open={open}
+      showLogo={true}
       headerText="Winner!"
       contentWrapperStyling="flex flex-col items-center"
     >

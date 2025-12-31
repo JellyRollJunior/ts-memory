@@ -1,14 +1,21 @@
 import { Modal } from '@/components/Modal';
 
 type loseModalProps = {
+  className: string;
   open: boolean;
   handlePlayAgain: () => void;
 };
 
-const LoseModal = ({ open, handlePlayAgain }: loseModalProps) => {
+const LoseModal = ({
+  className = '',
+  open,
+  handlePlayAgain,
+}: loseModalProps) => {
   return (
     <Modal
+      className={className}
       open={open}
+      showLogo={true}
       headerText="Lose"
       contentWrapperStyling="flex flex-col items-center"
     >

@@ -82,18 +82,21 @@ const GameboardView = ({
         </ul>
       </div>
       <WinModal
+        className="mt-5"
         open={isWin}
         handlePlayAgain={() => {
           restartGame();
         }}
       />
       <LoseModal
+        className="mt-5"
         open={isLose}
         handlePlayAgain={() => {
           restartGame();
         }}
       />
       <LeaderboardModal
+        className="mt-5"
         isOpen={isLeaderboardOpen}
         closeModal={() => setIsLeaderboardOpen(false)}
       />
