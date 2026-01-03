@@ -8,6 +8,7 @@ datasource db {
 }
 
 model Winner {
-  id   String @id @default(uuid())
-  name String
+  id       String   @id @default(uuid())
+  name     String
+  datetime DateTime @default(now())
 }
