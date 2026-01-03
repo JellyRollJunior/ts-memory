@@ -30,3 +30,6 @@ dist-ssr
 
 # Typescript
 tsconfig.tsbuildinfo
+
+# Prisma
+generated
