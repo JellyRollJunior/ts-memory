@@ -70,4 +70,9 @@
 #### TODO
 
 -   backend
-    -   save winner names
+    -   Setup cors
+    -   Setup controllers
+    -   Setup DB
+    -   GET /winners
+    -   POST /winners
+    
