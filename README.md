@@ -52,6 +52,8 @@
     -   view for rendering UI and handling callback ONLY
     -   promotes UI testability
         -   when they were 1 component, I had to mock hooks/state/game logic/etc. Now I don't!
+-   Learned I don't need to load dotenv more than once (oops!)
+    -   Learned I can import 'dotenv/config' instead of import 'dotenv' (wow!)
 
 # Improvements
 
@@ -70,7 +72,6 @@
 #### TODO
 
 -   backend
-    -   Setup cors
     -   Setup controllers
     -   Setup DB
     -   GET /winners
