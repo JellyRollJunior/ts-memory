@@ -1,4 +1,4 @@
-import type { Winner } from "../../generated/prisma/browser.js";
+import type { Winner } from "@root/generated/prisma/browser.js";
 import { prisma } from "@/db/prisma.js";
 
 const getWinners = async (): Promise<Winner[]> => {
