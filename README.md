@@ -55,6 +55,7 @@
 -   Learned I don't need to load dotenv more than once (oops!)
     -   Learned I can import 'dotenv/config' instead of import 'dotenv' (wow!)
 -   Moving prisma config & folders out of src for cleaner project structure
+-   Typing / Extending classes in TS
 
 # Improvements
 

@@ -1,5 +1,6 @@
 import type { Winner } from "@root/generated/prisma/browser.js";
 import { prisma } from "@/db/prisma.js";
+import { DatabaseError } from "@/errors/DatabaseError.js";
 
 const getWinners = async (): Promise<Winner[]> => {
     try {
@@ -10,7 +11,7 @@ const getWinners = async (): Promise<Winner[]> => {
         });
         return data;
     } catch (error) {
-        throw error;
+        throw new DatabaseError("Unable to fetch winners");
     }
 };
 
