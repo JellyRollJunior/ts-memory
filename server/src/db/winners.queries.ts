@@ -15,4 +15,17 @@ const getWinners = async (): Promise<Winner[]> => {
     }
 };
 
-export { getWinners };
+const createWinner = async (name: string): Promise<Winner> => {
+    try {
+        const data = await prisma.winner.create({
+            data: {
+                name
+            }
+        });
+        return data;
+    } catch (error) {
+        throw new DatabaseError('Unable to create winner')
+    }
+}
+
+export { getWinners, createWinner };
