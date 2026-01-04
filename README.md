@@ -74,8 +74,7 @@
 #### TODO
 
 -   backend
-    -   Setup controllers
-    -   Setup DB
-    -   GET /winners
     -   POST /winners
-    
+    -   error handler
+    -   validate input with zod
+    -   validate -> middleware
