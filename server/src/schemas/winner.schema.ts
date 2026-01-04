@@ -1,10 +1,10 @@
 import { z } from "zod";
 
-const createWinnerSchema = z.object({
+const postWinnersInputSchema = z.object({
     name: z.string().min(1),
 });
 
-type CreateWinnerInput = z.infer<typeof createWinnerSchema>;
+type PostWinnerInput = z.infer<typeof postWinnersInputSchema>;
 
-export { createWinnerSchema };
-export type { CreateWinnerInput };
+export { postWinnersInputSchema };
+export type { PostWinnerInput };

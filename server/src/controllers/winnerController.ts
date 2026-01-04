@@ -10,15 +10,14 @@ const getWinners = async (req: Request, res: Response, next: NextFunction) => {
     }
 };
 
-// const postWinners = async (req: Request, res: Response, next: NextFunction) => {
-//     try {
-//         // validate request data
-//         const name = req.body.name;
-//         const winner = await winnerQueries.createWinner()
-//         res.json(winner);
-//     } catch (error) {
-//         next(error)
-//     }
-// }
+const postWinners = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const name = req.body.name;
+        const winner = await winnerQueries.createWinner(name);
+        res.json(winner);
+    } catch (error) {
+        next(error);
+    }
+};
 
-export { getWinners };
+export { getWinners, postWinners };
