@@ -66,6 +66,7 @@
     -   Denoting intentionally unused params in express middleware
     -   Testing routes in TS
         -   configuring path aliasing in Vitest tests
+        -   mocking function return values dynamically
 
 # Improvements
 
@@ -90,9 +91,9 @@
         -   change responseError to class declaration (easier for typing)
 -   backend
     -   error handler
-    -   /get winners -> dont return ID
     -   /post winners -> dont return ID
     -   tests
         -   services
             -   mock db calls
         -   routes
+            -   post /winners
