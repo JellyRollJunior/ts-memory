@@ -59,6 +59,7 @@
     -   Moving prisma config & folders out of src for cleaner project structure
     -   Typing / Extending classes in TS
     -   Typing express middleware
+        -   Typing request body
     -   Validating request body input with ZOD
     -   "Moving all business logic into services" model
         -   controllers are for receiving inputs & delegating to services with business logic, then responding 
@@ -80,6 +81,8 @@
 #### TODO
 
 -   backend
-    -   POST /winners
     -   error handler
     -   tests
+        -   services
+            -   mock db calls
+        -   routes
