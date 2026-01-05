@@ -31,7 +31,7 @@ describe("GET /winners route", () => {
         const response = await request(app).get("/winners");
 
         // verify response body is array of winners
-        let result = winnerResponseSchema.array().safeParse(response.body);
+        const result = winnerResponseSchema.array().safeParse(response.body);
         expect(result.success).toBe(true);
     });
 
@@ -47,6 +47,8 @@ describe("GET /winners route", () => {
             expect(winner.id).toBeUndefined();
         });
     });
+
+    // test errors
 });
 
 describe("POST /winners route", () => {
@@ -63,8 +65,29 @@ describe("POST /winners route", () => {
         expect(response.header["content-type"]).toMatch(/json/);
     });
 
-    // calls create winner with input name
-    // returns new user
-    // does not lead ID
-    // responds with 400 on validation error
+    it("returns a winner on success", async () => {
+        const response = await request(app)
+            .post("/winners")
+            .send({ name: "oo-sah-gee" });
+
+        const result = winnerResponseSchema.safeParse(response.body);
+        expect(result.success).toBe(true);
+    });
+
+    it("does not leak IDs", async () => {
+        const response = await request(app)
+            .post("/winners")
+            .send({ name: "oo-sah-gee" });
+
+        const winner = response.body;
+        expect(winner.id).toBeUndefined();
+    });
+
+    // it("responds with 400 on input validation error", async () => {
+    //     const response = await request(app)
+    //         .post("/winners")
+    //         .send({ oops: 'I forgot to put a name!' });
+
+    //     expect(response.status).toBe(400);
+    // });
 });
