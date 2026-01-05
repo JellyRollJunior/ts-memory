@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "vitest",
         "build": "tsc --build",
         "start": "node ./dist/server.js",
         "dev": "nodemon --exec tsx src/server.ts"
@@ -27,11 +27,13 @@
         "@types/express": "^5.0.6",
         "@types/node": "^25.0.3",
         "@types/pg": "^8.16.0",
+        "@types/supertest": "^6.0.3",
         "dotenv": "^17.2.3",
         "nodemon": "^3.1.11",
         "prisma": "^7.2.0",
         "supertest": "^7.1.4",
         "tsx": "^4.21.0",
-        "typescript": "^5.9.3"
+        "typescript": "^5.9.3",
+        "vite-tsconfig-paths": "^6.0.3"
     }
 }

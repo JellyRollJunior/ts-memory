@@ -62,7 +62,10 @@
         -   Typing request body
     -   Validating request body input with ZOD
     -   "Moving all business logic into services" model
-        -   controllers are for receiving inputs & delegating to services with business logic, then responding 
+        -   controllers are for receiving inputs & delegating to services with business logic, then responding
+    -   Denoting intentionally unused params in express middleware
+    -   Testing routes in TS
+        -   configuring path aliasing in Vitest tests
 
 # Improvements
 
@@ -80,8 +83,15 @@
 
 #### TODO
 
+-   client
+    -   fetch winners
+    -   post winners
+    -   move error to errors folder
+        -   change responseError to class declaration (easier for typing)
 -   backend
     -   error handler
+    -   /get winners -> dont return ID
+    -   /post winners -> dont return ID
     -   tests
         -   services
             -   mock db calls
