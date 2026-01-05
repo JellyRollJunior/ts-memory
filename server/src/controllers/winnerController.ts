@@ -1,9 +1,9 @@
-import * as winnerQueries from "@/db/winner.queries.js";
 import type { Request, Response, NextFunction } from "express";
+import * as winnerServices from "@/services/winner.service.js";
 
 const getWinners = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const winners = await winnerQueries.getWinners();
+        const winners = await winnerServices.getWinners();
         res.json(winners);
     } catch (error) {
         next(error);
@@ -13,7 +13,7 @@ const getWinners = async (req: Request, res: Response, next: NextFunction) => {
 const postWinners = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const name = req.body.name;
-        const winner = await winnerQueries.createWinner(name);
+        const winner = await winnerServices.createWinner(name);
         res.json(winner);
     } catch (error) {
         next(error);
