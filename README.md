@@ -97,3 +97,6 @@
             -   mock db calls
         -   routes
             -   post /winners
+    -   validation 2
+        -   enforce string max
+        -   enforce no special chars

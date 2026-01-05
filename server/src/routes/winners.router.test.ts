@@ -9,18 +9,18 @@ import * as winnerQueries from "@/db/winner.queries.js";
 const mockedGetWinners = vi.mocked(winnerQueries.getWinners);
 const mockedCreateWinner = vi.mocked(winnerQueries.createWinner);
 
+const MOCK_USER = {
+    id: "This should not be exposed!",
+    name: "oo-sah-gee",
+    datetime: new Date(),
+};
+
 describe("GET /winners route", () => {
     beforeAll(() => {
-        mockedGetWinners.mockResolvedValue([
-            {
-                id: "This should not be exposed!",
-                name: "oo-sah-gee",
-                datetime: new Date(),
-            },
-        ]);
+        mockedGetWinners.mockResolvedValue([MOCK_USER]);
     });
 
-    it("responds with 200 & JSON content type", async () => {
+    it("responds with 200 & content type JSON", async () => {
         const response = await request(app).get("/winners");
 
         expect(response.status).toBe(200);
@@ -47,4 +47,24 @@ describe("GET /winners route", () => {
             expect(winner.id).toBeUndefined();
         });
     });
+});
+
+describe("POST /winners route", () => {
+    beforeAll(() => {
+        mockedCreateWinner.mockResolvedValue(MOCK_USER);
+    });
+
+    it("responds with 200 & content type JSON", async () => {
+        const response = await request(app)
+            .post("/winners")
+            .send({ name: "oo-sah-gee" });
+
+        expect(response.status).toBe(200);
+        expect(response.header["content-type"]).toMatch(/json/);
+    });
+
+    // calls create winner with input name
+    // returns new user
+    // does not lead ID
+    // responds with 400 on validation error
 });
