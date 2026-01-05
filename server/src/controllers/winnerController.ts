@@ -5,7 +5,11 @@ import * as winnerServices from "@/services/winner.service.js";
 const getWinners = async (_req: Request, res: Response, next: NextFunction) => {
     try {
         const winners = await winnerServices.getWinners();
-        res.json(winners);
+        const output = winners.map(({ name, datetime }) => ({
+            name,
+            datetime,
+        }));
+        res.json(output);
     } catch (error) {
         next(error);
     }

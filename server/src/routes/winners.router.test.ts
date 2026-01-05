@@ -6,26 +6,19 @@ import { winnerResponseSchema } from "@/schemas/winner.schema.js";
 vi.mock("@/db/winner.queries.ts", () => ({
     getWinners: () => [
         {
-            id: "swag",
-            name: "swag",
+            id: 'I should not be exposed to client!',
+            name: "oosahgee",
             datetime: new Date(),
         },
     ],
 }));
 
 describe("GET /winners", () => {
-    // responds with json
-
     it("returns a list of winners", async () => {
         const response = await request(app).get("/winners");
 
         // verify response body is array of winners
-        let isWinners = true;
-        for (const winner of response.body) {
-            isWinners =
-                isWinners && winnerResponseSchema.safeParse(winner).success;
-        }
-
-        expect(isWinners).toBe(true);
+        let result = winnerResponseSchema.array().safeParse(response.body)
+        expect(result.success).toBe(true);
     });
 });
