@@ -21,9 +21,8 @@ const postWinners = async (
     try {
         const name = req.body.name;
         const winner = await winnerServices.createWinner(name);
-        // const output = omitId(winner);
-        // res.json(output);
-        res.json(winner);
+        const output = omitId(winner);
+        res.json(output);
     } catch (error) {
         next(error);
     }

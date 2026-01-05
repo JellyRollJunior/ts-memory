@@ -65,7 +65,7 @@ describe("POST /winners route", () => {
         expect(response.header["content-type"]).toMatch(/json/);
     });
 
-    it("returns a winner on success", async () => {
+    it("returns a winner", async () => {
         const response = await request(app)
             .post("/winners")
             .send({ name: "oo-sah-gee" });
