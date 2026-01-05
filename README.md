@@ -1,4 +1,10 @@
-# Features
+<h1 align="center">Sailor Moon Memory (TS Version)</h1>
+<h3 align="center">Play a Sailor Moon themed game of memory <a href=''>here</a>!</h3>
+<p align="center">
+    <img align="center" width="" alt="" src="">
+</p>
+
+## Features
 
 -   Memory Game with animated cards
     -   click each tile exactly once to win
@@ -12,7 +18,14 @@
 -   Refresh button on error loading gifs for memory cards
 -   Error page on invalid routes / unexexpected errors
 
-# Learning outcomes
+## Endpoints
+
+| Method | URI      | Function         | Body (inputs)             | Outputs                    | Notes |
+| ------ | -------- | ---------------- | ------------------------- | -------------------------- | ----- |
+| GET    | /winners | Retrieve winners |                           | [...winners]               |
+| POST   | /winners | Create winner    | name: { min: 1, max: 16 } | winner: { name, datetime } |
+
+## Learning outcomes
 
 -   Client
     -   First TS project
@@ -68,7 +81,7 @@
         -   configuring path aliasing in Vitest tests
         -   mocking function return values dynamically
 
-# Improvements
+## Improvements vs [Original in React-JS](https://github.com/JellyRollJunior/sailor-moon-memory)
 
 -   Game tiles
     -   loading animation when loading gifs
@@ -80,23 +93,21 @@
 -   Configure path aliasing to simplify imports
 -   Site icons
 -   Leaderboard
+    -   Backend to save leaderboard values
 -   Tests for entire suite!
 
 #### TODO
 
 -   client
+
     -   fetch winners
     -   post winners
     -   move error to errors folder
         -   change responseError to class declaration (easier for typing)
+
 -   backend
+
     -   error handler
-    -   /post winners -> dont return ID
     -   tests
-        -   services
-            -   mock db calls
         -   routes
-            -   post /winners
-    -   validation 2
-        -   enforce string max
-        -   enforce no special chars
+            -   error responses

@@ -1,7 +1,12 @@
 import { z } from "zod";
 
 const postWinnersInputSchema = z.object({
-    name: z.string().min(1),
+    name: z
+        .string()
+        .min(1).max(16)
+        .regex(/^[^<>]*$/, {
+            message: "Invalid characters detected",
+        }),
 });
 type PostWinnerInput = z.infer<typeof postWinnersInputSchema>;
 
