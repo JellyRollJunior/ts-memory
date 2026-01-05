@@ -2,6 +2,15 @@ import type { Request, Response, NextFunction, Errback } from "express";
 import { DatabaseError } from "@/errors/DatabaseError.js";
 import { z, ZodError } from "zod";
 
+const errorHandler404 = (_req: Request, res: Response) => {
+    res.status(404).json({
+        status: 404,
+        name: "404 Not Found Error",
+        message:
+            "Invalid route detected. Consult the README for a list of valid routes",
+    });
+};
+
 const errorHandler = (
     error: Errback,
     _req: Request,
@@ -30,4 +39,4 @@ const errorHandler = (
     }
 };
 
-export { errorHandler };
+export { errorHandler404, errorHandler };
