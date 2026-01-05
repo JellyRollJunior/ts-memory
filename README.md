@@ -108,6 +108,8 @@
 -   backend
 
     -   error handler
+        -   404 handler
+        -   error handler
     -   tests
         -   routes
             -   error responses

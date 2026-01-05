@@ -87,7 +87,10 @@ describe("POST /winners route", () => {
     //     const response = await request(app)
     //         .post("/winners")
     //         .send({ oops: 'I forgot to put a name!' });
-
     //     expect(response.status).toBe(400);
     // });
+
+    // test XSS chars
+    // test < min value
+    // test > max value
 });
