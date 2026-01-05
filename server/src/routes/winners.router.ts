@@ -3,13 +3,13 @@ import { validateBody } from "@/middleware/validate.js";
 import { postWinnersInputSchema } from "@/schemas/winner.schema.js";
 import * as winnerController from "@/controllers/winnerController.js";
 
-const winnerRouter = Router();
+const winnersRouter = Router();
 
-winnerRouter.get("/", winnerController.getWinners);
-winnerRouter.post(
+winnersRouter.get("/", winnerController.getWinners);
+winnersRouter.post(
     "/",
     validateBody(postWinnersInputSchema),
     winnerController.postWinners
 );
 
-export { winnerRouter };
+export { winnersRouter };
