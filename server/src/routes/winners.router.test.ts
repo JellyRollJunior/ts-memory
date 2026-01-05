@@ -7,8 +7,9 @@ import { winnerResponseSchema } from "@/schemas/winner.schema.js";
 vi.mock("@/db/winner.queries.js");
 import * as winnerQueries from "@/db/winner.queries.js";
 const mockedGetWinners = vi.mocked(winnerQueries.getWinners);
+const mockedCreateWinner = vi.mocked(winnerQueries.createWinner);
 
-describe("GET /winners", () => {
+describe("GET /winners route", () => {
     beforeAll(() => {
         mockedGetWinners.mockResolvedValue([
             {

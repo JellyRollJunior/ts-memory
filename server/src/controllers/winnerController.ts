@@ -1,14 +1,12 @@
 import type { Request, Response, NextFunction } from "express";
 import type { PostWinnerInput } from "@/schemas/winner.schema.js";
+import { omitId } from "@/utils/omitId.js";
 import * as winnerServices from "@/services/winner.service.js";
 
 const getWinners = async (_req: Request, res: Response, next: NextFunction) => {
     try {
         const winners = await winnerServices.getWinners();
-        const output = winners.map(({ name, datetime }) => ({
-            name,
-            datetime,
-        }));
+        const output = winners.map((winner) => omitId(winner));
         res.json(output);
     } catch (error) {
         next(error);
@@ -23,6 +21,8 @@ const postWinners = async (
     try {
         const name = req.body.name;
         const winner = await winnerServices.createWinner(name);
+        // const output = omitId(winner);
+        // res.json(output);
         res.json(winner);
     } catch (error) {
         next(error);
