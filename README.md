@@ -18,6 +18,17 @@
 -   Refresh button on error loading gifs for memory cards
 -   Error page on invalid routes / unexexpected errors
 
+## Stack
+
+-   Client
+    -   React, Typescript, Vite
+    -   React router, Zod, Vitest
+    -   TailwindCSS, Motion
+-   Server
+    -   Express, NodeJS, Typescript
+    -   PrismaORM
+    -   CORS, Zod, Vitest, Supertest
+
 ## Endpoints
 
 | Method | URI      | Function         | Body (inputs)             | Outputs                    | Notes |
@@ -104,4 +115,9 @@
     -   post winners
     -   move error to errors folder
         -   change responseError to class declaration (easier for typing)
-
+    -   don't reshuffle on closing modals
+    -   refactor business logic out of request gifs -> separate into 
+        -   request
+        -   fetch gifs
+    -   response error => class based
+    -   get rid of APIError? I see no use for this tbh
