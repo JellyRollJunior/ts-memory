@@ -113,6 +113,16 @@
     -   configure shared package
     -   contains only schemas, DTOs, enums, constants
 
+-   server
+    -   when returning data, instead of using omitID
+        -   parse with winnerDto schema
+    -   safeParse DTO before sending
+        -   if error, throw custom DTO not valid error aka internal server error
+
+-   document
+    -   wrote a cool funciton to remove ID from object
+    -   didnt end up using it in the end, used zod schema parse to strip ID instead
+
 -   client
 
     -   fetch winners
@@ -127,10 +137,3 @@
     -   get rid of APIError? I see no use for this tbh
 
 
-
-
-build shared
-
-```bash
-npx tsc -p tsconfig.json
-```

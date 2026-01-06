@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from "express";
-import type { PostWinnerInput } from "@/schemas/winner.schema.js";
+import type { PostWinnerInput } from "@shared/src/winners";
 import { omitId } from "@/utils/omitId.js";
 import * as winnerServices from "@/services/winner.service.js";
 
