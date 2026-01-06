@@ -125,3 +125,12 @@
         -   fetch gifs
     -   response error => class based
     -   get rid of APIError? I see no use for this tbh
+
+
+
+
+build shared
+
+```bash
+npx tsc -p tsconfig.json
+```

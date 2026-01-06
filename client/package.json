@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "@sailor-moon-memory/client",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
