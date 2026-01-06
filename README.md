@@ -109,6 +109,10 @@
 
 #### TODO
 
+-   shared
+    -   configure shared package
+    -   contains only schemas, DTOs, enums, constants
+
 -   client
 
     -   fetch winners
