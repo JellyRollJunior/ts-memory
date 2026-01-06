@@ -47,8 +47,6 @@ describe("GET /winners route", () => {
             expect(winner.id).toBeUndefined();
         });
     });
-
-    // test errors
 });
 
 describe("POST /winners route", () => {
@@ -83,14 +81,31 @@ describe("POST /winners route", () => {
         expect(winner.id).toBeUndefined();
     });
 
-    // it("responds with 400 on input validation error", async () => {
-    //     const response = await request(app)
-    //         .post("/winners")
-    //         .send({ oops: 'I forgot to put a name!' });
-    //     expect(response.status).toBe(400);
-    // });
+    it("responds with 400 when name is not provided", async () => {
+        const response = await request(app)
+            .post("/winners")
+            .send({ oops: "I forgot to put a name!" });
+        expect(response.status).toBe(400);
+    });
 
-    // test XSS chars
-    // test < min value
-    // test > max value
+    it("responds with 400 when name contains special characters", async () => {
+        const response = await request(app)
+            .post("/winners")
+            .send({ name: "SpecialCharacters: <>'\"" });
+        expect(response.status).toBe(400);
+    });
+
+    it("responds with 400 when name.length < 1", async () => {
+        const response = await request(app)
+            .post("/winners")
+            .send({ name: "" });
+        expect(response.status).toBe(400);
+    });
+
+    it("responds with 400 when name.length > 16", async () => {
+        const response = await request(app)
+            .post("/winners")
+            .send({ name: "I am WAY over 16 characters don't allow me to enter!" });
+        expect(response.status).toBe(400);
+    });
 });

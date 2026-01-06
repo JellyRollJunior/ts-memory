@@ -105,8 +105,3 @@
     -   move error to errors folder
         -   change responseError to class declaration (easier for typing)
 
--   backend
-
-    -   tests
-        -   routes
-            -   error responses
