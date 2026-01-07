@@ -1,6 +1,5 @@
 import type { ZodType } from "zod";
 import type { Request, Response, NextFunction, RequestHandler } from "express";
-import { ServerError } from "@/errors/ServerError.js";
 
 const validateBody = <Type>(
     validationSchema: ZodType<Type>

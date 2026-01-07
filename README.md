@@ -35,15 +35,15 @@
 
 | Method | URI      | Function         | Body (inputs)             | Outputs                    | Notes |
 | ------ | -------- | ---------------- | ------------------------- | -------------------------- | ----- |
-| GET    | /winners | Retrieve winners |                           | [...winners]               |
-| POST   | /winners | Create winner    | name: { min: 1, max: 16 } | winner: { name, datetime } |
+| GET    | /winners | Retrieve winners |                           | [...winners]               |       |
+| POST   | /winners | Create winner    | name: { min: 1, max: 16 } | winner: { name, datetime } |       |
 
 ## Learning outcomes
 
 -   Architecture
     -   Configure Monorepo with client / server / shared packages
     -   Shared for types, DTOs, enums, constants
-    -   Configure Base tsconfig for each pacakge to use
+    -   Configure base tsconfig for each pacakge to use
 -   Client
     -   First TS project
     -   Typing in JS
@@ -113,20 +113,22 @@
     -   Backend to save leaderboard values
 -   Tests for entire suite!
 
+## Yapping
+
+```ts
+// I wrote a cool generic that removes the ID key from an object
+// Took me a long time to figure this out in TS! First challenging TS generic usage
+// Didn't end up using it in the final build so documenting here for me 8)
+const omitId = <T extends { id: unknown }>(input: T): Omit<T, "id"> => {
+    const { id, ...filtered } = input;
+    return filtered;
+};
+```
+
 #### TODO
 
--   shared
-    -   winner dto normalize instead of union (too complex)
-
 -   server
-    -   when returning data, instead of using omitID
-        -   parse with winnerDto schema
-    -   safeParse DTO before sending
-        -   if error, throw custom DTO not valid error aka internal server error
-
--   document
-    -   wrote a cool funciton to remove ID from object
-    -   didnt end up using it in the end, used zod schema parse to strip ID instead
+    -   verify shared types match schemas
 
 -   client
 
@@ -135,10 +137,8 @@
     -   move error to errors folder
         -   change responseError to class declaration (easier for typing)
     -   don't reshuffle on closing modals
-    -   refactor business logic out of request gifs -> separate into 
+    -   refactor business logic out of request gifs -> separate into
         -   request
         -   fetch gifs
     -   response error => class based
     -   get rid of APIError? I see no use for this tbh
-
-

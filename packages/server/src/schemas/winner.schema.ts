@@ -8,13 +8,13 @@ const postWinnersInputSchema = z.object({
             message: "Invalid characters detected",
         }),
 });
-type PostWinnerInput = z.infer<typeof postWinnersInputSchema>;
+type PostWinnersInput = z.infer<typeof postWinnersInputSchema>;
 
-const winnerResponseSchema = z.object({
+const winnerDataTransferObjectSchema = z.object({
     name: z.string().min(1),
     datetime: z.date(),
 });
-type WinnerResponse = z.infer<typeof winnerResponseSchema>;
+type winnerDataTransferObject = z.infer<typeof winnerDataTransferObjectSchema>;
 
-export { postWinnersInputSchema, winnerResponseSchema };
-export type { PostWinnerInput, WinnerResponse };
+export { postWinnersInputSchema, winnerDataTransferObjectSchema };
+export type { PostWinnersInput, winnerDataTransferObject };

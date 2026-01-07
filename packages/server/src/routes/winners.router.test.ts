@@ -1,7 +1,8 @@
+import type { Winner } from "@prisma/client";
 import request from "supertest";
 import { app } from "@/app.js";
 import { describe, it, expect, vi, beforeAll } from "vitest";
-import { winnerResponseSchema } from "@/schemas/winner.schema.js";
+import { winnerDataTransferObjectSchema } from "@/schemas/winner.schema.js";
 
 // Mock fetching winners
 vi.mock("@/db/winner.queries.js");
@@ -31,7 +32,11 @@ describe("GET /winners route", () => {
         const response = await request(app).get("/winners");
 
         // verify response body is array of winners
-        const result = winnerResponseSchema.array().safeParse(response.body);
+        const normalized = response.body.map((item: Winner) => ({
+            name: item.name,
+            datetime: new Date(item.datetime),
+        }));
+        const result = winnerDataTransferObjectSchema.array().safeParse(normalized);
         expect(result.success).toBe(true);
     });
 
@@ -68,7 +73,10 @@ describe("POST /winners route", () => {
             .post("/winners")
             .send({ name: "oo-sah-gee" });
 
-        const result = winnerResponseSchema.safeParse(response.body);
+        const result = winnerDataTransferObjectSchema.safeParse({
+            name: response.body.name,
+            datetime: new Date(response.body.datetime),
+        });
         expect(result.success).toBe(true);
     });
 
@@ -96,16 +104,14 @@ describe("POST /winners route", () => {
     });
 
     it("responds with 400 when name.length < 1", async () => {
-        const response = await request(app)
-            .post("/winners")
-            .send({ name: "" });
+        const response = await request(app).post("/winners").send({ name: "" });
         expect(response.status).toBe(400);
     });
 
     it("responds with 400 when name.length > 16", async () => {
-        const response = await request(app)
-            .post("/winners")
-            .send({ name: "I am WAY over 16 characters don't allow me to enter!" });
+        const response = await request(app).post("/winners").send({
+            name: "I am WAY over 16 characters don't allow me to enter!",
+        });
         expect(response.status).toBe(400);
     });
 });
