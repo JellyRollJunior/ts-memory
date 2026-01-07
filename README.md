@@ -38,6 +38,10 @@
 
 ## Learning outcomes
 
+-   Architecture
+    -   Configure Monorepo with client / server / shared packages
+    -   Shared for schemas, DTOs, enums, constants
+    -   Configure Base tsconfig for each pacakge to use
 -   Client
     -   First TS project
     -   Typing in JS
@@ -108,11 +112,6 @@
 -   Tests for entire suite!
 
 #### TODO
-
--   shared
-    -   configure shared package
-    -   contains only schemas, DTOs, enums, constants
-    -   MAKE THE IMPORTS WORK I BEG. MAYBE I DO NEED MONOREPO IDK
 
 -   server
     -   when returning data, instead of using omitID

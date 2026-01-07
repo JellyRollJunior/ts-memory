@@ -1,49 +1,28 @@
 {
-    "compilerOptions": {
-        // File Layout
-        "rootDir": "./",
-        "outDir": "./dist",
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "./",
+    "outDir": "./dist",
 
-        // Environment Settings
-        "module": "nodenext",
-        "target": "esnext",
-        // "types": [],
-        // For nodejs:
-        "lib": ["esnext"],
-        "types": ["node"],
+    /* Runtime */
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ESNext"],
+    "types": ["node"],
 
-        // Other Outputs
-        "sourceMap": true,
-        "declaration": true,
-        "declarationMap": true,
+    /* Outputs */
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
 
-        // Stricter Typechecking Options
-        "noUncheckedIndexedAccess": true,
-        "exactOptionalPropertyTypes": true,
-
-        // Style Options
-        "noImplicitReturns": true,
-        "noImplicitOverride": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "noFallthroughCasesInSwitch": true,
-        "noPropertyAccessFromIndexSignature": false,
-
-        // Recommended Options
-        "strict": true,
-        "jsx": "react-jsx",
-        "verbatimModuleSyntax": true,
-        "isolatedModules": true,
-        "noUncheckedSideEffectImports": true,
-        "moduleDetection": "force",
-        "skipLibCheck": true,
-
-        // Path aliases
-        "baseUrl": "src",
-        "paths": {
-            "@/*": ["*"],
-            "@root/*": ["../*"],
-            "@shared/*": ["../shared/*"]
-        }
+    /* Path aliases */
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"],
+      "@root/*": ["../*"],
+      "@shared/*": ["../shared/*"]
     }
+  },
+  "include": ["src"]
 }
