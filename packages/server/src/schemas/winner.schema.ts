@@ -12,7 +12,7 @@ type PostWinnerInput = z.infer<typeof postWinnersInputSchema>;
 
 const winnerResponseSchema = z.object({
     name: z.string().min(1),
-    datetime: z.string().transform((str) => new Date(str)),
+    datetime: z.date(),
 });
 type WinnerResponse = z.infer<typeof winnerResponseSchema>;
 

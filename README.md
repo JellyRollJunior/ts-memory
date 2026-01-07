@@ -28,6 +28,8 @@
     -   Express, NodeJS, Typescript
     -   PrismaORM
     -   CORS, Zod, Vitest, Supertest
+-   Shared
+    -   Typescript
 
 ## Endpoints
 
@@ -40,7 +42,7 @@
 
 -   Architecture
     -   Configure Monorepo with client / server / shared packages
-    -   Shared for schemas, DTOs, enums, constants
+    -   Shared for types, DTOs, enums, constants
     -   Configure Base tsconfig for each pacakge to use
 -   Client
     -   First TS project
@@ -112,6 +114,9 @@
 -   Tests for entire suite!
 
 #### TODO
+
+-   shared
+    -   winner dto normalize instead of union (too complex)
 
 -   server
     -   when returning data, instead of using omitID
