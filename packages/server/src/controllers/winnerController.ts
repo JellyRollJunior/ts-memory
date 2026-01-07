@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from "express";
-import type { PostWinnerInput } from "@shared/src/winners";
+import type { PostWinnersInput } from "@sailor-moon-memory/shared/winners"
 import { omitId } from "@/utils/omitId.js";
 import * as winnerServices from "@/services/winner.service.js";
 
@@ -14,7 +14,7 @@ const getWinners = async (_req: Request, res: Response, next: NextFunction) => {
 };
 
 const postWinners = async (
-    req: Request<{}, {}, PostWinnerInput>,
+    req: Request<{}, {}, PostWinnersInput>,
     res: Response,
     next: NextFunction
 ) => {

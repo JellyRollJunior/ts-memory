@@ -112,6 +112,7 @@
 -   shared
     -   configure shared package
     -   contains only schemas, DTOs, enums, constants
+    -   MAKE THE IMPORTS WORK I BEG. MAYBE I DO NEED MONOREPO IDK
 
 -   server
     -   when returning data, instead of using omitID

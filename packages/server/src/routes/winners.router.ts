@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { validateBody } from "@/middleware/validate.js";
-import { postWinnersInputSchema } from "@shared/src/winners";
+import { postWinnersInputSchema } from "@/schemas/winner.schema.js";
 import * as winnerController from "@/controllers/winnerController.js";
 
 const winnersRouter = Router();
