@@ -13,7 +13,7 @@ const mapBaseErrorToDto = (error: BaseError | ServerError) => {
 const mapValidationErrorToDto = (error: ValidationError) => {
     return {
         ...mapBaseErrorToDto(error),
-        validationError: error.validationErrors,
+        validationErrors: error.validationErrors,
     };
 };
 
