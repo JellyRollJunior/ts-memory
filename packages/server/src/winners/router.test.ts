@@ -2,11 +2,11 @@ import type { Winner } from "@prisma/client";
 import request from "supertest";
 import { app } from "@/app.js";
 import { describe, it, expect, vi, beforeAll } from "vitest";
-import { winnerDataTransferObjectSchema } from "@/schemas/winner.schema.js";
+import { winnerDataTransferObjectSchema } from "@/winners/winner.schema.js";
 
 // Mock fetching winners
 vi.mock("@/db/winner.queries.js");
-import * as winnerQueries from "@/db/winner.queries.js";
+import * as winnerQueries from "@/winners/queries.js";
 const mockedGetWinners = vi.mocked(winnerQueries.getWinners);
 const mockedCreateWinner = vi.mocked(winnerQueries.createWinner);
 

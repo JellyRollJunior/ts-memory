@@ -1,4 +1,4 @@
-import * as winnerQueries from "@/db/winner.queries.js";
+import * as winnerQueries from "@/winners/queries.js";
 
 const getWinners = async () => {
     const winners = await winnerQueries.getWinners();

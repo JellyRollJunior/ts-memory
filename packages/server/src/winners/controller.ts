@@ -1,9 +1,9 @@
 import type { Request, Response, NextFunction } from "express";
 import type { Winner } from "@prisma/client";
-import type { PostWinnersInput } from "@/schemas/winner.schema.js";
-import { winnerDataTransferObjectSchema } from "@/schemas/winner.schema.js";
+import type { PostWinnersInput } from "@/winners/winner.schema.js";
+import { winnerDataTransferObjectSchema } from "@/winners/winner.schema.js";
 import { ServerError } from "@/errors/ServerError.js";
-import * as winnerServices from "@/services/winner.service.js";
+import * as winnerServices from "@/winners/service.js";
 
 const validateWinnerDto = (winner: Winner) => {
     const result = winnerDataTransferObjectSchema.safeParse(winner);

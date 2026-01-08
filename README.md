@@ -44,6 +44,8 @@
     -   Configure Monorepo with client / server / shared packages
     -   Shared for types, DTOs, enums, constants
     -   Configure base tsconfig for each pacakge to use
+    -   Using feature folders vs controller/router/server folder etc.
+        -   Feature folders let you work on one problem at a time without fighting the filesystem
 -   Client
     -   First TS project
     -   Typing in JS
@@ -129,8 +131,7 @@ const omitId = <T extends { id: unknown }>(input: T): Omit<T, "id"> => {
 
 -   server
     -   verify shared types match schemas
-    -   Split by responsibility, not by HTTP route.
-    -   Feature folders let you work on one problem at a time, without fighting your filesystem.
+
 -   client
 
     -   fetch winners
