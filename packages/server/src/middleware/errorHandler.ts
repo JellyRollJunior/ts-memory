@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction, Errback } from "express";
-import { DatabaseError } from "@/errors/DatabaseError.js";
 import { z, ZodError } from "zod";
+import { ServerError } from "@/errors/ServerError.js";
 
 const errorHandler404 = (_req: Request, res: Response) => {
     res.status(404).json({
@@ -24,7 +24,7 @@ const errorHandler = (
             message: "Error validating input",
             validationErrors: z.flattenError(error),
         });
-    } else if (error instanceof DatabaseError) {
+    } else if (error instanceof ServerError) {
         res.status(500).json({
             status: error.status,
             name: error.name,

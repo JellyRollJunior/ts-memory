@@ -134,8 +134,6 @@ const omitId = <T extends { id: unknown }>(input: T): Omit<T, "id"> => {
 #### TODO
 
 -   server
-    -   create base error
-    -   create validation error
     -   create mapper from zodError to validation error
     -   verify shared error types match 
 

@@ -1,6 +1,6 @@
 import type { Winner } from "@root/generated/prisma/browser.js";
 import { prisma } from "@/db/prisma.js";
-import { DatabaseError } from "@/errors/DatabaseError.js";
+import { ServerError } from "@/errors/ServerError.js";
 
 const getWinners = async (): Promise<Winner[]> => {
     try {
@@ -11,7 +11,7 @@ const getWinners = async (): Promise<Winner[]> => {
         });
         return data;
     } catch (error) {
-        throw new DatabaseError("Unable to fetch winners");
+        throw new ServerError("Unable to fetch winners");
     }
 };
 
@@ -24,7 +24,7 @@ const createWinner = async (name: string): Promise<Winner> => {
         });
         return data;
     } catch (error) {
-        throw new DatabaseError('Unable to create winner')
+        throw new ServerError('Unable to create winner')
     }
 }
 
