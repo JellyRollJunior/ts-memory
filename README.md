@@ -99,6 +99,8 @@
     -   Testing routes in TS
         -   configuring path aliasing in Vitest tests
         -   mocking function return values dynamically
+    -   Using mappers to map DB object to Data Transfer Object (DTO)
+    -   Validating DTO before sending response
 
 ## Improvements vs [Original in React-JS](https://github.com/JellyRollJunior/sailor-moon-memory)
 
@@ -131,6 +133,7 @@ const omitId = <T extends { id: unknown }>(input: T): Omit<T, "id"> => {
 
 -   server
     -   verify shared types match schemas
+    -   mapper tests
 
 -   client
 
