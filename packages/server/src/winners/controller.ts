@@ -1,22 +1,14 @@
 import type { Request, Response, NextFunction } from "express";
-import type { Winner } from "@prisma/client";
 import type { PostWinnersInput } from "@/winners/input.schema.js";
-import { winnerDataTransferObjectSchema } from "@/winners/dto.schema.js";
-import { ServerError } from "@/errors/ServerError.js";
+import { winnerDatabaseToDataTransferObjectMapper } from "./mapper.js";
 import * as winnerServices from "@/winners/service.js";
-
-const validateWinnerDto = (winner: Winner) => {
-    const result = winnerDataTransferObjectSchema.safeParse(winner);
-    if (!result.success) {
-        throw new ServerError("Internal Server Error");
-    }
-    return result.data;
-};
 
 const getWinners = async (_req: Request, res: Response, next: NextFunction) => {
     try {
         const winners = await winnerServices.getWinners();
-        const output = winners.map((winner) => validateWinnerDto(winner));
+        const output = winners.map((winner) =>
+            winnerDatabaseToDataTransferObjectMapper(winner)
+        );
         res.json(output);
     } catch (error) {
         next(error);
@@ -31,7 +23,7 @@ const postWinners = async (
     try {
         const name = req.body.name;
         const winner = await winnerServices.createWinner(name);
-        const output = validateWinnerDto(winner);
+        const output = winnerDatabaseToDataTransferObjectMapper(winner);
         res.json(output);
     } catch (error) {
         next(error);
