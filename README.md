@@ -46,6 +46,7 @@
     -   Configure base tsconfig for each pacakge to use
     -   Using feature folders vs controller/router/server folder etc.
         -   Feature folders let you work on one problem at a time without fighting the filesystem
+    -   Using contract tests to enforce type parity between server and shared
 -   Client
     -   First TS project
     -   Typing in JS
