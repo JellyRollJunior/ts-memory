@@ -133,7 +133,12 @@ const omitId = <T extends { id: unknown }>(input: T): Omit<T, "id"> => {
 
 -   server
     -   verify shared types match schemas
-    -   mapper tests
+    -   verify shared error types match 
+
+-   shared
+    -   error types
+        -   base error
+        -   validation error
 
 -   client
 

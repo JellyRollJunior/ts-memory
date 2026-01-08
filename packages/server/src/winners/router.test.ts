@@ -5,8 +5,9 @@ import { describe, it, expect, vi, beforeAll } from "vitest";
 import { winnerDataTransferObjectSchema } from "@/winners/dto.schema.js";
 
 // Mock fetching winners
-vi.mock("@/db/winner.queries.js");
+vi.mock("@/winners/queries.js");
 import * as winnerQueries from "@/winners/queries.js";
+import { Result } from "pg";
 const mockedGetWinners = vi.mocked(winnerQueries.getWinners);
 const mockedCreateWinner = vi.mocked(winnerQueries.createWinner);
 
@@ -31,12 +32,7 @@ describe("GET /winners route", () => {
     it("returns a list of winners", async () => {
         const response = await request(app).get("/winners");
 
-        // verify response body is array of winners
-        const normalized = response.body.map((item: Winner) => ({
-            name: item.name,
-            datetime: new Date(item.datetime),
-        }));
-        const result = winnerDataTransferObjectSchema.array().safeParse(normalized);
+        const result = winnerDataTransferObjectSchema.array().safeParse(response.body);
         expect(result.success).toBe(true);
     });
 
@@ -73,10 +69,7 @@ describe("POST /winners route", () => {
             .post("/winners")
             .send({ name: "oo-sah-gee" });
 
-        const result = winnerDataTransferObjectSchema.safeParse({
-            name: response.body.name,
-            datetime: new Date(response.body.datetime),
-        });
+        const result = winnerDataTransferObjectSchema.safeParse(response.body);
         expect(result.success).toBe(true);
     });
 
