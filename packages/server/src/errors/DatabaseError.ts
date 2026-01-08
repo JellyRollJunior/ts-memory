@@ -1,9 +1,8 @@
-class DatabaseError extends Error {
-    status: number;
+import { BaseError } from "./BaseError.js";
+
+class DatabaseError extends BaseError {
     constructor(msg: string, status = 500) {
-        super(msg);
-        this.name = "Database Error";
-        this.status = status;
+        super("Database Error", msg, status);
     }
 }
 

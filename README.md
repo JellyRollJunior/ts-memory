@@ -46,7 +46,7 @@
     -   Configure base tsconfig for each pacakge to use
     -   Using feature folders vs controller/router/server folder etc.
         -   Feature folders let you work on one problem at a time without fighting the filesystem
-    -   Using contract tests to enforce type parity between server and shared
+    -   Using contract tests in server to enforce type parity between server and shared
 -   Client
     -   First TS project
     -   Typing in JS
@@ -102,6 +102,7 @@
         -   mocking function return values dynamically
     -   Using mappers to map DB object to Data Transfer Object (DTO)
     -   Validating DTO before sending response
+    -   Contract tests to ensure serverWinnerDTO type matches sharedWinnerDTO type
 
 ## Improvements vs [Original in React-JS](https://github.com/JellyRollJunior/sailor-moon-memory)
 
@@ -133,7 +134,9 @@ const omitId = <T extends { id: unknown }>(input: T): Omit<T, "id"> => {
 #### TODO
 
 -   server
-    -   verify shared types match schemas
+    -   create base error
+    -   create validation error
+    -   create mapper from zodError to validation error
     -   verify shared error types match 
 
 -   shared
