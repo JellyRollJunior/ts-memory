@@ -103,6 +103,7 @@
     -   Using mappers to map DB object to Data Transfer Object (DTO)
     -   Validating DTO before sending response
     -   Contract tests to ensure serverWinnerDTO type matches sharedWinnerDTO type
+    -   DTO mappers for ServerErrors and ValidationErrors
 
 ## Improvements vs [Original in React-JS](https://github.com/JellyRollJunior/sailor-moon-memory)
 
@@ -134,7 +135,8 @@ const omitId = <T extends { id: unknown }>(input: T): Omit<T, "id"> => {
 #### TODO
 
 -   server
-    -   verify shared error types match 
+    -   figure out how to get type from class component
+        -   then we can verify shared error types match 
 
 -   shared
     -   error types

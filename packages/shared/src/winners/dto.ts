@@ -1,6 +1,6 @@
-type WinnerDataTransferObject = {
+type WinnerDto = {
     name: string;
     datetime: string; // ISO 8601
 };
 
-export type { WinnerDataTransferObject };
+export type { WinnerDto };
