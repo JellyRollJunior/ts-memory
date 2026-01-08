@@ -1,7 +1,7 @@
 import request from "supertest";
 import { app } from "@/app.js";
 import { describe, it, expect, vi, beforeAll } from "vitest";
-import { winnerDataTransferObjectSchema } from "@/winners/dto.schema.js";
+import { winnerDtoSchema } from "@/winners/dto.schema.js";
 
 // Mock fetching winners
 vi.mock("@/winners/queries.js");
@@ -30,7 +30,7 @@ describe("GET /winners route", () => {
     it("returns a list of winners", async () => {
         const response = await request(app).get("/winners");
 
-        const result = winnerDataTransferObjectSchema.array().safeParse(response.body);
+        const result = winnerDtoSchema.array().safeParse(response.body);
         expect(result.success).toBe(true);
     });
 
@@ -67,7 +67,7 @@ describe("POST /winners route", () => {
             .post("/winners")
             .send({ name: "oo-sah-gee" });
 
-        const result = winnerDataTransferObjectSchema.safeParse(response.body);
+        const result = winnerDtoSchema.safeParse(response.body);
         expect(result.success).toBe(true);
     });
 

@@ -1,13 +1,13 @@
 import type { Winner } from "@prisma/client";
-import type { WinnerDataTransferObject } from "@/winners/dto.schema.js"
+import type { winnerDto } from "@/winners/dto.schema.js"
 
-const winnerDatabaseToDataTransferObjectMapper = (
+const mapWinnerToDto = (
     input: Winner
-): WinnerDataTransferObject => {
+): winnerDto => {
     return {
         name: input.name,
         datetime: input.datetime.toISOString(),
     };
 };
 
-export { winnerDatabaseToDataTransferObjectMapper };
+export { mapWinnerToDto };

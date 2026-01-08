@@ -1,10 +1,10 @@
 import { z } from "zod";
 
-const winnerDataTransferObjectSchema = z.object({
+const winnerDtoSchema = z.object({
     name: z.string(),
     datetime: z.iso.datetime(),
 });
-type WinnerDataTransferObject = z.infer<typeof winnerDataTransferObjectSchema>;
+type winnerDto = z.infer<typeof winnerDtoSchema>;
 
-export { winnerDataTransferObjectSchema };
-export type { WinnerDataTransferObject };
+export { winnerDtoSchema };
+export type { winnerDto };

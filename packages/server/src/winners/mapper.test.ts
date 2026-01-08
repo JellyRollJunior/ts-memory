@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { winnerDatabaseToDataTransferObjectMapper } from "./mapper.js";
+import { mapWinnerToDto } from "./mapper.js";
 
 describe("Winner database to dto mapper", () => {
     const DATABASE_WINNER = {
@@ -7,7 +7,7 @@ describe("Winner database to dto mapper", () => {
         name: "This is my name!",
         datetime: new Date(),
     };
-    const output = winnerDatabaseToDataTransferObjectMapper(DATABASE_WINNER);
+    const output = mapWinnerToDto(DATABASE_WINNER);
     
     it("returns an object with name and date matching the input", () => {
         expect(output.name).toEqual(DATABASE_WINNER.name);
