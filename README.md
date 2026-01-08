@@ -129,7 +129,8 @@ const omitId = <T extends { id: unknown }>(input: T): Omit<T, "id"> => {
 
 -   server
     -   verify shared types match schemas
-
+    -   Split by responsibility, not by HTTP route.
+    -   Feature folders let you work on one problem at a time, without fighting your filesystem.
 -   client
 
     -   fetch winners

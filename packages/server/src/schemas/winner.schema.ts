@@ -11,8 +11,8 @@ const postWinnersInputSchema = z.object({
 type PostWinnersInput = z.infer<typeof postWinnersInputSchema>;
 
 const winnerDataTransferObjectSchema = z.object({
-    name: z.string().min(1),
-    datetime: z.date(),
+    name: z.string(),
+    datetime: z.iso.datetime(),
 });
 type winnerDataTransferObject = z.infer<typeof winnerDataTransferObjectSchema>;
 

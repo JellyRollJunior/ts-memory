@@ -1,6 +1,6 @@
 type WinnerDataTransferObject = {
     name: string;
-    datetime: Date;
+    datetime: string; // ISO 8601
 };
 
 export type { WinnerDataTransferObject };
