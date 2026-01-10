@@ -1,11 +1,11 @@
-type BaseError = {
+type BaseErrorDto = {
     message: string;
     name: string;
     status: number;
 };
 
-type ValidationError = BaseError & {
+type ValidationErrorDto = BaseErrorDto & {
     validationError: Record<string, string>;
 };
 
-export type { BaseError, ValidationError };
+export type { BaseErrorDto, ValidationErrorDto };
