@@ -4,8 +4,11 @@ type BaseErrorDto = {
     status: number;
 };
 
-type ValidationErrorDto = BaseErrorDto & {
-    validationError: Record<string, string>;
+type ValidationErrorDto = {
+    message: string;
+    name: string;
+    status: number;
+    validationErrors: Record<string, string[]>;
 };
 
 export type { BaseErrorDto, ValidationErrorDto };

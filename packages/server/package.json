@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "vitest",
+        "test": "vitest --typecheck",
         "build": "tsc --build",
         "start": "node ./dist/server.js",
         "dev": "nodemon --exec tsx src/server.ts"

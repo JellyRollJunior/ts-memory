@@ -134,15 +134,6 @@ const omitId = <T extends { id: unknown }>(input: T): Omit<T, "id"> => {
 
 #### TODO
 
--   server
-    -   figure out how to get type from class component
-        -   then we can verify shared error types match 
-
--   shared
-    -   error types
-        -   base error
-        -   validation error
-
 -   client
 
     -   fetch winners
