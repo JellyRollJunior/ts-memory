@@ -1,5 +1,14 @@
 import type { ResponseError } from '@/types/types.ts';
 
+class BaseError extends Error {
+    status: number;
+    constructor(name: string, message: string, status = 500) {
+        super(message);
+        this.name = name;
+        this.status = status;
+    }
+}
+
 const createResponseError = (
     status: number,
     name: string,
@@ -15,4 +24,4 @@ const isResponseError = (err: unknown): err is ResponseError => {
     return err instanceof Error && 'status' in err;
 };
 
-export { createResponseError, isResponseError };
+export { BaseError, createResponseError, isResponseError };

@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { giphyArraySchema } from '@/schemas/giphy.schema';
-import { apiErrorSchema } from '@/schemas/apiError.schema';
-import { createResponseError } from '@/services/responseError.ts';
+import { baseErrorSchema } from '@/errors/baseError.schema';
+import { createResponseError } from '@/errors/BaseError.ts';
 const GIPHY_API_KEY = import.meta.env.VITE_GIPHY_API_KEY;
 
 const makeRequest = async (endpoint: string, options: RequestInit,) => {
@@ -9,7 +9,7 @@ const makeRequest = async (endpoint: string, options: RequestInit,) => {
     const json = await response.json();
     // handle errors
     if (!response.ok) {
-        const apiError = apiErrorSchema.parse(json);
+        const apiError = baseErrorSchema.parse(json);
         throw createResponseError(Number(apiError.status), apiError.name, apiError.message);
     }
     return json;
@@ -30,7 +30,7 @@ const requestGifs = async (search: string, limit = 12): Promise<z.infer<typeof g
     const json = await response.json();
     // handle response
     if (!response.ok) {
-        const apiError = apiErrorSchema.parse(json);
+        const apiError = baseErrorSchema.parse(json);
         throw createResponseError(Number(apiError.status), apiError.name, apiError.message);
     }
     // validate response ZOD

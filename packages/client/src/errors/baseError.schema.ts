@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const apiErrorSchema = z.object({
+const baseErrorSchema = z.object({
     status: z.number().default(500).catch(500),
     name: z
         .string()
@@ -8,8 +8,8 @@ const apiErrorSchema = z.object({
         .catch('Internal Server Error'),
     message: z
         .string()
-        .default('Please try again later')
-        .catch('Please try again later'),
+        .default('Unable to process request. Please try again later')
+        .catch('Unable to process request. Please try again later'),
 });
 
-export { apiErrorSchema };
+export { baseErrorSchema };

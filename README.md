@@ -102,8 +102,9 @@
         -   mocking function return values dynamically
     -   Using mappers to map DB object to Data Transfer Object (DTO)
     -   Validating DTO before sending response
-    -   Contract tests to ensure serverWinnerDTO type matches sharedWinnerDTO type
     -   DTO mappers for ServerErrors and ValidationErrors
+    -   Contract tests to ensure serverWinnerDTO type matches sharedWinnerDTO type
+    -   Tests with typechecking!
 
 ## Improvements vs [Original in React-JS](https://github.com/JellyRollJunior/sailor-moon-memory)
 
@@ -146,3 +147,11 @@ const omitId = <T extends { id: unknown }>(input: T): Omit<T, "id"> => {
         -   fetch gifs
     -   response error => class based
     -   get rid of APIError? I see no use for this tbh
+
+-   Request
+    -   receives error
+    -   determine error type using schemas (?)
+    -   map error to our client error type
+    -   throw error
+    -   hook -> handle error based on error type
+-   rename response error -> unexpectedResponseError
