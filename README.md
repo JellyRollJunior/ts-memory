@@ -151,7 +151,13 @@ const omitId = <T extends { id: unknown }>(input: T): Omit<T, "id"> => {
 -   Request
     -   receives error
     -   determine error type using schemas (?)
+        -   determine with z.discriminatedUnion - SEARCH UP DOCUMENTATION!
     -   map error to our client error type
     -   throw error
     -   hook -> handle error based on error type
 -   rename response error -> unexpectedResponseError
+-   contract tests to ensure 
+    -   baseError == shared baseError
+    -   validaitonError == shared validationError
+
+
