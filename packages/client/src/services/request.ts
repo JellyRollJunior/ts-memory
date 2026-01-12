@@ -6,13 +6,13 @@ const GIPHY_API_KEY = import.meta.env.VITE_GIPHY_API_KEY;
 
 const makeRequest = async (endpoint: string, options: RequestInit,) => {
     const response = await fetch(endpoint, options);
-    const json = await response.json();
     // handle errors
     if (!response.ok) {
+        const json = await response.json();
         const apiError = baseErrorSchema.parse(json);
         throw createResponseError(Number(apiError.status), apiError.name, apiError.message);
     }
-    return json;
+    return response.json();
 }
 
 // separate this
