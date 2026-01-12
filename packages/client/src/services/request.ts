@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { giphyArraySchema } from '@/schemas/giphy.schema';
 import { baseErrorSchema } from '@/errors/baseError.schema';
 import { createResponseError } from '@/errors/BaseError.ts';
+import { resolveError } from '@/errors/resolveError';
 const GIPHY_API_KEY = import.meta.env.VITE_GIPHY_API_KEY;
 
 const makeRequest = async (endpoint: string, options: RequestInit,) => {
@@ -9,8 +10,8 @@ const makeRequest = async (endpoint: string, options: RequestInit,) => {
     // handle errors
     if (!response.ok) {
         const json = await response.json();
-        const apiError = baseErrorSchema.parse(json);
-        throw createResponseError(Number(apiError.status), apiError.name, apiError.message);
+        const resolvedError = resolveError(json);
+        throw resolvedError;
     }
     return response.json();
 }
