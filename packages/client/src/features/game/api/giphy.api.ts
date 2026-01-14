@@ -1,5 +1,6 @@
-import { giphyArraySchema } from '@/features/game/schema';
 import { makeRequest } from '../../../shared/api/request';
+import { giphyGifArraySchema } from '@/features/game/schema';
+import { giphyDtoToUrlsMapper } from '../mapper';
 const GIPHY_API_KEY = import.meta.env.VITE_GIPHY_API_KEY;
 const GIPHY_BASE_URL = 'https://api.giphy.com';
 
@@ -12,10 +13,11 @@ const fetchGifs = async (search: string, limit = 12) => {
         limit: `limit=${limit}`,
     };
     const endpoint = `${GIPHY_BASE_URL}${PATH}?${Object.values(parameters).join('&')}`;
-    // fetch & parse data
+    // fetch & parse & map data
     const json = await makeRequest(endpoint, { mode: 'cors', method: 'GET' });
-    const parsed = giphyArraySchema.parse(json);
-    return parsed;
+    const parsed = giphyGifArraySchema.parse(json);
+    const formatted = giphyDtoToUrlsMapper(parsed);
+    return formatted;
 };
 
 export { fetchGifs };

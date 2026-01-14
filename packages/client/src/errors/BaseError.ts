@@ -1,4 +1,4 @@
-import type { ResponseError } from '@/types/types.ts';
+import type { ResponseError } from '@/shared/types/types.ts';
 
 class BaseError extends Error {
     status: number;

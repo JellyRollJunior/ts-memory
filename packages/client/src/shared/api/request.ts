@@ -1,4 +1,4 @@
-import { resolveError } from '@/errors/resolveError';
+import { resolveError } from '@/errors/resolveError.ts';
 
 const makeRequest = async (endpoint: string, options: RequestInit) => {
     const response = await fetch(endpoint, options);

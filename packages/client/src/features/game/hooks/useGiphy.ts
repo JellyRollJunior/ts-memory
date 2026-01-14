@@ -1,13 +1,12 @@
-import { useCallback, useEffect, useState } from 'react';
 import { z } from 'zod';
-import { giphyArraySchema } from '@/features/game/schema';
+import { useCallback, useEffect, useState } from 'react';
 import { isResponseError } from '@/errors/BaseError.ts';
-import { fetchGifs as fetchGifsApi } from '@/features/game/api/giphy.api';
+import { fetchGifs as fetchGifsApi } from '@/features/game/api/giphy.api.ts';
 
 const useGiphy = (query = 'sailor moon', limit = 12) => {
+    const [data, setData] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const [data, setData] = useState<z.infer<typeof giphyArraySchema> | null>(null);
 
     const fetchGifs = useCallback(async () => {
         setIsLoading(true);
