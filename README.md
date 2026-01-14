@@ -160,4 +160,7 @@ const omitId = <T extends { id: unknown }>(input: T): Omit<T, "id"> => {
     -   baseError == shared baseError
     -   validaitonError == shared validationError
 
+-   GIPHY
+    -   refactor -> schema only for validation
+    -   create mapper
 

@@ -1,1 +1,1 @@
-export { Gameboard } from './Gameboard'
+export { Gameboard } from './components/Gameboard'
