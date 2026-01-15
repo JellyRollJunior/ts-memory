@@ -20,7 +20,7 @@ const LeaderboardList = ({ className = '', winners }: leaderboardListProps) => {
           winners.map((winner, index) => (
             <li
               key={index + winner.name}
-              className="grid w-full grid-cols-[24px_1fr_24px] items-center gap-2"
+              className="grid w-full grid-cols-[12px_1fr_24px] items-center gap-2"
             >
               <span>{index + 1}.</span>
               <span className="text-lg">{winner.name}</span>

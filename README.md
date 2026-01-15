@@ -161,5 +161,9 @@ const omitId = <T extends { id: unknown }>(input: T): Omit<T, "id"> => {
     -> to map to date?
     -> update type?
 
--   leaderboard list
+-   leaderboard 
+    -   increase width
     -   add date to list
+    -   loading animation
+    -   refresh button
+    -   error state

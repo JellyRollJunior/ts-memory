@@ -1,21 +1,20 @@
+import type { Winner } from '@/features/leaderboard/schemas/winner.schema.ts';
 import { Modal } from '@/shared/components/Modal';
 import { LeaderboardList } from '@/features/leaderboard/components/LeaderboardList';
-import { useWinners } from '@/features/leaderboard/hooks/useWinners.ts';
 
 type leaderboardModalProps = {
   className?: string;
   isOpen: boolean;
   closeModal: () => void;
-  winners?: string[];
+  winners: Winner[];
 };
 
-const LeaderboardModal = ({
+const LeaderboardModalView = ({
   className = '',
   isOpen,
   closeModal,
+  winners = [],
 }: leaderboardModalProps) => {
-  const { data, isLoading, error} = useWinners();
-
   return (
     <Modal
       className={className}
@@ -25,10 +24,7 @@ const LeaderboardModal = ({
       contentWrapperStyling="w-full"
     >
       <div className="mt-3 h-42">
-        <LeaderboardList
-          className="px-6"
-          winners={data}
-        />
+        <LeaderboardList className="px-3" winners={winners} />
       </div>
       <button
         className="secondary-button mx-auto mt-4 block px-5 py-0.5"
@@ -40,4 +36,4 @@ const LeaderboardModal = ({
   );
 };
 
-export { LeaderboardModal };
+export { LeaderboardModalView };

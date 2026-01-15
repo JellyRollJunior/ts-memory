@@ -7,7 +7,7 @@ exports[`Leaderboard List components > renders a list of winners 1`] = `
       class="my-2 flex flex-col gap-0.5"
     >
       <li
-        class="grid w-full grid-cols-[24px_1fr_24px] items-center gap-2"
+        class="grid w-full grid-cols-[12px_1fr_24px] items-center gap-2"
       >
         <span>
           1
@@ -23,7 +23,7 @@ exports[`Leaderboard List components > renders a list of winners 1`] = `
         />
       </li>
       <li
-        class="grid w-full grid-cols-[24px_1fr_24px] items-center gap-2"
+        class="grid w-full grid-cols-[12px_1fr_24px] items-center gap-2"
       >
         <span>
           2
@@ -39,7 +39,7 @@ exports[`Leaderboard List components > renders a list of winners 1`] = `
         />
       </li>
       <li
-        class="grid w-full grid-cols-[24px_1fr_24px] items-center gap-2"
+        class="grid w-full grid-cols-[12px_1fr_24px] items-center gap-2"
       >
         <span>
           3
@@ -55,7 +55,7 @@ exports[`Leaderboard List components > renders a list of winners 1`] = `
         />
       </li>
       <li
-        class="grid w-full grid-cols-[24px_1fr_24px] items-center gap-2"
+        class="grid w-full grid-cols-[12px_1fr_24px] items-center gap-2"
       >
         <span>
           4
@@ -69,7 +69,7 @@ exports[`Leaderboard List components > renders a list of winners 1`] = `
         <div />
       </li>
       <li
-        class="grid w-full grid-cols-[24px_1fr_24px] items-center gap-2"
+        class="grid w-full grid-cols-[12px_1fr_24px] items-center gap-2"
       >
         <span>
           5
@@ -83,7 +83,7 @@ exports[`Leaderboard List components > renders a list of winners 1`] = `
         <div />
       </li>
       <li
-        class="grid w-full grid-cols-[24px_1fr_24px] items-center gap-2"
+        class="grid w-full grid-cols-[12px_1fr_24px] items-center gap-2"
       >
         <span>
           6

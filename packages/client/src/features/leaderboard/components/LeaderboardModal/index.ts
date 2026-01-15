@@ -1,1 +1,1 @@
-export { LeaderboardModal } from './LeaderboardModal.tsx';
+export { LeaderboardModalContainer as LeaderboardModal } from './LeaderboardModalContainer.tsx';

@@ -1,19 +1,16 @@
-import '@testing-library/jest-dom/vitest';
 import UserEvent from '@testing-library/user-event';
 import { describe, it, expect, vi } from 'vitest';
 import { screen, render } from '@testing-library/react';
-import { LeaderboardModal } from '@/features/leaderboard/components/LeaderboardModal';
+import { LeaderboardModalView } from '@/features/leaderboard/components/LeaderboardModal/LeaderboardModalView.jsx';
 
 vi.mock('@/features/leaderboard/components/LeaderboardList', () => ({
-  LeaderboardList: () => <ol>I am a list of winners!</ol>
+  LeaderboardList: () => <ol>I am a list of winners!</ol>,
 }));
 
 describe('Leaderboard modal component', () => {
-  const WINNERS = ['bob', 'billy', 'usagi'];
-
   it('renders title, leaderboard, and close button', () => {
     const { container } = render(
-      <LeaderboardModal isOpen={true} closeModal={() => {}} winners={WINNERS} />
+      <LeaderboardModalView isOpen={true} closeModal={() => {}} winners={[]} />
     );
 
     expect(container).toMatchSnapshot();
@@ -23,10 +20,10 @@ describe('Leaderboard modal component', () => {
     const user = UserEvent.setup();
     const closeModal = vi.fn();
     render(
-      <LeaderboardModal
+      <LeaderboardModalView
         isOpen={true}
         closeModal={closeModal}
-        winners={WINNERS}
+        winners={[]}
       />
     );
 
