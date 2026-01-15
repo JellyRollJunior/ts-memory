@@ -5,12 +5,12 @@ import { validationErrorSchema } from './validationError.schema';
 const resolveError = (error: unknown) => {
     const validationResult = validationErrorSchema.safeParse(error);
     if (validationResult.success) {
-        return validationResult;
+        return validationResult.data;
     }
 
     const baseErrorResult = baseErrorSchema.safeParse(error);
     if (baseErrorResult.success) {
-        return baseErrorResult;
+        return baseErrorResult.data;
     }
     
     return unknownErrorSchema.parse(error);
