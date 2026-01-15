@@ -9,6 +9,10 @@ vi.mock('simplebar-react', () => ({
   default: ({ children }: { children: ReactNode }) => <div>{children}</div>,
 }));
 
+vi.mock('@/features/leaderboard/components/LeaderboardList', () => ({
+  LeaderboardList: () => <ol>I am a list of winners!</ol>
+}));
+
 describe('Leaderboard modal component', () => {
   const WINNERS = ['bob', 'billy', 'usagi'];
 
@@ -35,14 +39,5 @@ describe('Leaderboard modal component', () => {
     await user.click(closeButton);
 
     expect(closeModal).toHaveBeenCalledOnce();
-  });
-
-  it('renders every winner in winners list', () => {
-    render(
-      <LeaderboardModal isOpen={true} closeModal={() => {}} winners={WINNERS} />
-    );
-    const winnerListItems = screen.getAllByRole('listitem');
-
-    expect(winnerListItems.length).toBe(WINNERS.length);
   });
 });

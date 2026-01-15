@@ -155,3 +155,11 @@ const omitId = <T extends { id: unknown }>(input: T): Omit<T, "id"> => {
 -   hooks error handling
     -   useGiphy
     -   useWinners
+
+-   winner schema
+    -> datetime iso
+    -> to map to date?
+    -> update type?
+
+-   leaderboard list
+    -   add date to list
