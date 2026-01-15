@@ -1,6 +1,4 @@
-import { z } from 'zod';
 import { useCallback, useEffect, useState } from 'react';
-import { isResponseError } from '@/errors/BaseError.ts';
 import { fetchGifs as fetchGifsApi } from '@/features/game/api/giphy.api.ts';
 
 const useGiphy = (query = 'sailor moon', limit = 12) => {
@@ -15,15 +13,7 @@ const useGiphy = (query = 'sailor moon', limit = 12) => {
             setData(gifArray);
             setError(null);
         } catch (error) {
-            if (isResponseError(error)) {
-                setError(error.message);
-            } else if (error instanceof Error) {
-                setError(error.message);
-            } else if (error instanceof z.ZodError) {
-                setError('Error with response schema: ' + z.treeifyError(error))
-            } else {
-                setError('Unable to fetch gifs');
-            }
+            setError('Unable to fetch gifs');
         } finally {
             setIsLoading(false);
         }
@@ -37,7 +27,7 @@ const useGiphy = (query = 'sailor moon', limit = 12) => {
         fetchGifs();
     };
 
-    return { isLoading, error, data, refetchGifs };
+    return { data, isLoading, error, refetchGifs };
 };
 
 export { useGiphy };

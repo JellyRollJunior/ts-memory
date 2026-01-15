@@ -152,3 +152,6 @@ const omitId = <T extends { id: unknown }>(input: T): Omit<T, "id"> => {
     -   validaitonError == shared validationError
 
 
+-   hooks error handling
+    -   useGiphy
+    -   useWinners
