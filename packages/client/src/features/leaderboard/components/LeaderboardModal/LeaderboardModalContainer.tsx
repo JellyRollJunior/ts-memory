@@ -20,6 +20,8 @@ const LeaderboardModalContainer = ({
       isOpen={isOpen}
       closeModal={closeModal}
       winners={data}
+      isLoadingWinners={isLoading}
+      error={error}
     />
   );
 };

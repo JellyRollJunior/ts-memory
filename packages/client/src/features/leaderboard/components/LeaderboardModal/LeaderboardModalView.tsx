@@ -7,6 +7,8 @@ type leaderboardModalProps = {
   isOpen: boolean;
   closeModal: () => void;
   winners: Winner[];
+  isLoadingWinners: boolean;
+  error: string | null;
 };
 
 const LeaderboardModalView = ({
@@ -14,6 +16,8 @@ const LeaderboardModalView = ({
   isOpen,
   closeModal,
   winners = [],
+  isLoadingWinners = false,
+  error = null,
 }: leaderboardModalProps) => {
   return (
     <Modal
@@ -24,7 +28,13 @@ const LeaderboardModalView = ({
       contentWrapperStyling="w-full"
     >
       <div className="mt-3 h-42">
-        <LeaderboardList className="px-3" winners={winners} />
+        {isLoadingWinners ? (
+          <div>i am loading</div>
+        ) : error ? (
+          <div>i am {error}</div>
+        ) : (
+          <LeaderboardList className="px-3" winners={winners} />
+        )}
       </div>
       <button
         className="secondary-button mx-auto mt-4 block px-5 py-0.5"
