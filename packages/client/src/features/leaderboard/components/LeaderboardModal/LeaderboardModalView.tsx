@@ -1,7 +1,8 @@
 import type { Winner } from '@/features/leaderboard/schemas/winner.schema.ts';
+import SimpleBar from 'simplebar-react';
 import { Modal } from '@/shared/components/Modal';
 import { LeaderboardList } from '@/features/leaderboard/components/LeaderboardList';
-import SimpleBar from 'simplebar-react';
+import { LoadingAnimation } from '@/shared/components/LoadingAnimation';
 
 type leaderboardModalProps = {
   className?: string;
@@ -30,7 +31,7 @@ const LeaderboardModalView = ({
     >
       <SimpleBar className="border-sand-beige mt-3 h-42 border-t-2 border-b-2">
         {isLoadingWinners ? (
-          <div>i am loading</div>
+          <LoadingAnimation />
         ) : error ? (
           <div className="text-pink mt-3 text-center">{error}</div>
         ) : (
