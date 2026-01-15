@@ -137,7 +137,6 @@ const omitId = <T extends { id: unknown }>(input: T): Omit<T, "id"> => {
 
 -   client
 
-    -   fetch winners
     -   post winners
     -   move error to errors folder
         -   change responseError to class declaration (easier for typing)
@@ -148,14 +147,6 @@ const omitId = <T extends { id: unknown }>(input: T): Omit<T, "id"> => {
     -   response error => class based
     -   get rid of APIError? I see no use for this tbh
 
--   Request
-    -   receives error
-    -   determine error type using schemas (?)
-        -   determine with z.discriminatedUnion - SEARCH UP DOCUMENTATION!
-    -   map error to our client error type
-    -   throw error
-    -   hook -> handle error based on error type
--   rename response error -> unexpectedResponseError
 -   contract tests to ensure 
     -   baseError == shared baseError
     -   validaitonError == shared validationError

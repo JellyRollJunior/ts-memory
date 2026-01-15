@@ -3,8 +3,7 @@ import { Modal } from '@/shared/components/Modal';
 import gold from '@/assets/svgs/trophy-gold.svg';
 import silver from '@/assets/svgs/trophy-silver.svg';
 import bronze from '@/assets/svgs/trophy-bronze.svg';
-import { fetchWinners } from '../../api/winners.api';
-fetchWinners()
+
 type leaderboardModalProps = {
   className?: string;
   isOpen: boolean;
