@@ -1,11 +1,11 @@
-import SimpleBar from 'simplebar-react';
 import type { Winner } from '@/features/leaderboard/schemas/winner.schema.ts';
+import SimpleBar from 'simplebar-react';
 import gold from '@/assets/svgs/trophy-gold.svg';
 import silver from '@/assets/svgs/trophy-silver.svg';
 import bronze from '@/assets/svgs/trophy-bronze.svg';
 
 type leaderboardListProps = {
-  className: string;
+  className?: string;
   winners: Winner[];
 };
 const LeaderboardList = ({ className = '', winners }: leaderboardListProps) => {

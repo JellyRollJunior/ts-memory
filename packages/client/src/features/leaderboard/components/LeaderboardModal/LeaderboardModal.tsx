@@ -12,19 +12,7 @@ const LeaderboardModal = ({
   className = '',
   isOpen,
   closeModal,
-  winners = [
-    'bob',
-    'billy',
-    'joe',
-    'usagi',
-    'luna',
-    'joe',
-    'usagi',
-    'luna',
-    'joe',
-    'usagi',
-    'luna',
-  ],
+  winners = [],
 }: leaderboardModalProps) => {
   return (
     <Modal
@@ -37,7 +25,11 @@ const LeaderboardModal = ({
       <div className="mt-3 h-42">
         <LeaderboardList
           className="px-6"
-          winners={[{ name: 'billy', datetime: 'jean' }, { name: 'billy', datetime: 'jean' }, { name: 'billy', datetime: 'jean' }]}
+          winners={[
+            { name: 'billy', datetime: 'jean' },
+            { name: 'billy', datetime: 'jean' },
+            { name: 'billy', datetime: 'jean' },
+          ]}
         />
       </div>
       <button

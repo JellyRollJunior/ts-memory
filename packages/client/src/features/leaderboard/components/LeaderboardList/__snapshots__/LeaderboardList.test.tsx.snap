@@ -1,0 +1,102 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Leaderboard List components > renders a list of winners 1`] = `
+<div>
+  <div>
+    <ol
+      class="my-2 flex flex-col gap-0.5"
+    >
+      <li
+        class="grid w-full grid-cols-[24px_1fr_24px] items-center gap-2"
+      >
+        <span>
+          1
+          .
+        </span>
+        <span
+          class="text-lg"
+        >
+          billy
+        </span>
+        <img
+          src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20height='24px'%20viewBox='0%20-960%20960%20960'%20width='24px'%20fill='%23B89230'%3e%3cpath%20d='M280-120v-80h160v-124q-49-11-87.5-41.5T296-442q-75-9-125.5-65.5T120-640v-40q0-33%2023.5-56.5T200-760h80v-80h400v80h80q33%200%2056.5%2023.5T840-680v40q0%2076-50.5%20132.5T664-442q-18%2046-56.5%2076.5T520-324v124h160v80H280Zm0-408v-152h-80v40q0%2038%2022%2068.5t58%2043.5Zm200%20128q50%200%2085-35t35-85v-240H360v240q0%2050%2035%2085t85%2035Zm200-128q36-13%2058-43.5t22-68.5v-40h-80v152Zm-200-52Z'/%3e%3c/svg%3e"
+        />
+      </li>
+      <li
+        class="grid w-full grid-cols-[24px_1fr_24px] items-center gap-2"
+      >
+        <span>
+          2
+          .
+        </span>
+        <span
+          class="text-lg"
+        >
+          jean
+        </span>
+        <img
+          src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20height='24px'%20viewBox='0%20-960%20960%20960'%20width='24px'%20fill='%23666666'%3e%3cpath%20d='M280-120v-80h160v-124q-49-11-87.5-41.5T296-442q-75-9-125.5-65.5T120-640v-40q0-33%2023.5-56.5T200-760h80v-80h400v80h80q33%200%2056.5%2023.5T840-680v40q0%2076-50.5%20132.5T664-442q-18%2046-56.5%2076.5T520-324v124h160v80H280Zm0-408v-152h-80v40q0%2038%2022%2068.5t58%2043.5Zm200%20128q50%200%2085-35t35-85v-240H360v240q0%2050%2035%2085t85%2035Zm200-128q36-13%2058-43.5t22-68.5v-40h-80v152Zm-200-52Z'/%3e%3c/svg%3e"
+        />
+      </li>
+      <li
+        class="grid w-full grid-cols-[24px_1fr_24px] items-center gap-2"
+      >
+        <span>
+          3
+          .
+        </span>
+        <span
+          class="text-lg"
+        >
+          is
+        </span>
+        <img
+          src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20height='24px'%20viewBox='0%20-960%20960%20960'%20width='24px'%20fill='%237A2917'%3e%3cpath%20d='M280-120v-80h160v-124q-49-11-87.5-41.5T296-442q-75-9-125.5-65.5T120-640v-40q0-33%2023.5-56.5T200-760h80v-80h400v80h80q33%200%2056.5%2023.5T840-680v40q0%2076-50.5%20132.5T664-442q-18%2046-56.5%2076.5T520-324v124h160v80H280Zm0-408v-152h-80v40q0%2038%2022%2068.5t58%2043.5Zm200%20128q50%200%2085-35t35-85v-240H360v240q0%2050%2035%2085t85%2035Zm200-128q36-13%2058-43.5t22-68.5v-40h-80v152Zm-200-52Z'/%3e%3c/svg%3e"
+        />
+      </li>
+      <li
+        class="grid w-full grid-cols-[24px_1fr_24px] items-center gap-2"
+      >
+        <span>
+          4
+          .
+        </span>
+        <span
+          class="text-lg"
+        >
+          not
+        </span>
+        <div />
+      </li>
+      <li
+        class="grid w-full grid-cols-[24px_1fr_24px] items-center gap-2"
+      >
+        <span>
+          5
+          .
+        </span>
+        <span
+          class="text-lg"
+        >
+          my
+        </span>
+        <div />
+      </li>
+      <li
+        class="grid w-full grid-cols-[24px_1fr_24px] items-center gap-2"
+      >
+        <span>
+          6
+          .
+        </span>
+        <span
+          class="text-lg"
+        >
+          lover
+        </span>
+        <div />
+      </li>
+    </ol>
+  </div>
+</div>
+`;
