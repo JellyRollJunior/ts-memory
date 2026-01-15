@@ -1,12 +1,7 @@
-import type { ReactNode } from 'react';
 import type { Winner } from '@/features/leaderboard/schemas/winner.schema.ts';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { LeaderboardList } from './LeaderboardList.tsx';
-
-vi.mock('simplebar-react', () => ({
-  default: ({ children }: { children: ReactNode }) => <div>{children}</div>,
-}));
 
 describe('Leaderboard List components', () => {
   const WINNERS: Winner[] = [
