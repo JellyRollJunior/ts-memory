@@ -1,5 +1,5 @@
 import type { Winner } from '@/features/leaderboard/schemas/winner.schema.ts';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { fetchWinners as fetchWinnersApi } from '@/features/leaderboard/api/winners.api.ts';
 
 const useWinners = () => {
@@ -7,7 +7,7 @@ const useWinners = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
-    const fetchWinners = async () => {
+    const fetchWinners = useCallback(async () => {
         setIsLoading(true);
         try {
             const winners = await fetchWinnersApi();
@@ -18,7 +18,7 @@ const useWinners = () => {
         } finally {
             setIsLoading(false);
         }
-    };
+    }, []);
 
     useEffect(() => {
         fetchWinners();

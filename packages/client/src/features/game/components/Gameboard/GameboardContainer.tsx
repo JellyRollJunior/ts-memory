@@ -8,7 +8,7 @@ const GameboardContainer = ({ numTiles = 12 }) => {
   const [gameState, setGameState] = useState<GameState>('NONE');
   const [gameTiles, setGameTiles] = useState<Tile[]>([] as Tile[]);
   const [highScore, setHighScore] = useState(0);
-  const { isLoading, error, data, refetchGifs } = useGiphy(
+  const { data, isLoading, error, refetchGifs } = useGiphy(
     'sailor moon',
     numTiles
   );

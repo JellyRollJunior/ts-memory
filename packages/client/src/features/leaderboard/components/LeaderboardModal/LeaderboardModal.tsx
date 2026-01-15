@@ -1,5 +1,6 @@
 import { Modal } from '@/shared/components/Modal';
 import { LeaderboardList } from '@/features/leaderboard/components/LeaderboardList';
+import { useWinners } from '@/features/leaderboard/hooks/useWinners.ts';
 
 type leaderboardModalProps = {
   className?: string;
@@ -12,8 +13,9 @@ const LeaderboardModal = ({
   className = '',
   isOpen,
   closeModal,
-  winners = [],
 }: leaderboardModalProps) => {
+  const { data, isLoading, error} = useWinners();
+
   return (
     <Modal
       className={className}
@@ -25,11 +27,7 @@ const LeaderboardModal = ({
       <div className="mt-3 h-42">
         <LeaderboardList
           className="px-6"
-          winners={[
-            { name: 'billy', datetime: 'jean' },
-            { name: 'billy', datetime: 'jean' },
-            { name: 'billy', datetime: 'jean' },
-          ]}
+          winners={data}
         />
       </div>
       <button
