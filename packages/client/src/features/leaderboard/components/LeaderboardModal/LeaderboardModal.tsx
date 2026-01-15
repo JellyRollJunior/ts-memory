@@ -1,5 +1,5 @@
-import { Modal } from '@/shared/components/Modal';
 import SimpleBar from 'simplebar-react';
+import { Modal } from '@/shared/components/Modal';
 import gold from '@/assets/svgs/trophy-gold.svg';
 import silver from '@/assets/svgs/trophy-silver.svg';
 import bronze from '@/assets/svgs/trophy-bronze.svg';

@@ -1,4 +1,4 @@
-import type { GiphyGif } from './schema';
+import type { GiphyGif } from './schemas/giphy.schema';
 
 const giphyDtoToUrlsMapper = (input: GiphyGif) => {
     const gifArray = input.data;

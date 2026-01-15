@@ -1,10 +1,10 @@
-import { makeRequest } from '../../../shared/api/request';
-import { giphyGifArraySchema } from '@/features/game/schema';
-import { giphyDtoToUrlsMapper } from '../mapper';
+import { makeRequest } from '@/shared/api/request.ts';
+import { giphyGifArraySchema } from '@/features/game/schemas/giphy.schema.ts';
+import { giphyDtoToUrlsMapper } from '@/features/game/mapper.ts';
 const GIPHY_API_KEY = import.meta.env.VITE_GIPHY_API_KEY;
 const GIPHY_BASE_URL = 'https://api.giphy.com';
 
-const fetchGifs = async (search: string, limit = 12) => {
+const fetchGifs = async (search: string, limit = 12): Promise<string[]> => {
     // build url + options
     const PATH = '/v1/gifs/search';
     const parameters = {
