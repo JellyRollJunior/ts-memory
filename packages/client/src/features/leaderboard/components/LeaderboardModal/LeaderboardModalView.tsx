@@ -32,7 +32,7 @@ const LeaderboardModalView = ({
         {isLoadingWinners ? (
           <div>i am loading</div>
         ) : error ? (
-          <div className="text-center">{error}</div>
+          <div className="text-pink mt-3 text-center">{error}</div>
         ) : (
           <LeaderboardList className="px-3" winners={winners} />
         )}
