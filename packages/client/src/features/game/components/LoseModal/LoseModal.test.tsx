@@ -5,7 +5,7 @@ import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { LoseModal } from '@/features/game/components/LoseModal';
 
-vi.mock('@/components/Modal', () => ({
+vi.mock('@/shared/components/modal', () => ({
   Modal: ({ children }: { children: ReactNode }) => <dialog>{children}</dialog>,
 }));
 

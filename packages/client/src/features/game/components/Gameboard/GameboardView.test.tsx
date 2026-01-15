@@ -4,23 +4,23 @@ import { render, screen } from '@testing-library/react';
 import { GameboardView } from '@/features/game/components/Gameboard/GameboardView';
 import { gameController } from '@/features/game/controller';
 
-vi.mock('@/features/game/GameTile', () => ({
+vi.mock('@/features/game/components/GameTile', () => ({
   GameTile: () => <li>Tile!</li>,
 }));
 
-vi.mock('@/features/game/WinModal', () => ({
+vi.mock('@/features/game/components/WinModal', () => ({
   WinModal: ({ open }: { open: boolean }) => (
     <dialog open={open}>Win</dialog>
   ),
 }));
 
-vi.mock('@/features/game/LoseModal', () => ({
+vi.mock('@/features/game/components/LoseModal', () => ({
   LoseModal: ({ open }: { open: boolean }) => (
     <dialog open={open}>Lose</dialog>
   ),
 }));
 
-vi.mock('@/features/game/LeaderboardModal', () => ({
+vi.mock('@/features/leaderboard/components/LeaderboardModal', () => ({
   LeaderboardModal: ({ open }: { open: boolean }) => (
     <dialog open={open}>Leaderboard</dialog>
   ),
