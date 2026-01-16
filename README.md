@@ -164,6 +164,4 @@ const omitId = <T extends { id: unknown }>(input: T): Omit<T, "id"> => {
 -   leaderboard 
     -   increase width
     -   add date to list
-    -   loading animation
     -   refresh button
-    -   error state

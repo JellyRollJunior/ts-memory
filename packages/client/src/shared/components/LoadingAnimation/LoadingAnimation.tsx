@@ -70,7 +70,7 @@ const createItemVariants = (
   };
 };
 
-const TRANSLATE_DISTANCE = 25;
+const TRANSLATE_DISTANCE = 35;
 const DURATION = 3;
 const COLOR_1 = '#ff819f';
 const COLOR_2 = '#daab73';
@@ -104,19 +104,19 @@ const BallArray = ({
 }: BallArrayProps) => {
   return (
     <motion.div
-      className="absolute flex justify-center gap-1"
+      className="absolute flex justify-center gap-1.5"
       variants={containerVariants}
       initial="initial"
       animate="animate"
     >
       {[...Array(numBalls)].map(() => (
-        <motion.div className="size-1.5 rounded-full" variants={itemVariants} />
+        <motion.div className="size-2 rounded-full" variants={itemVariants} />
       ))}
     </motion.div>
   );
 };
 
-const LoadingAnimation = ({ className = '', numBalls = 5 }) => {
+const LoadingAnimation = ({ className = '', numBalls = 9 }) => {
   return (
     <div className={`relative ${className}`}>
       <BallArray

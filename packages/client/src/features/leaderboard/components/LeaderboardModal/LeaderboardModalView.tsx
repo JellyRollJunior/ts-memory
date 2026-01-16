@@ -31,7 +31,7 @@ const LeaderboardModalView = ({
     >
       <SimpleBar className="border-sand-beige mt-3 h-42 border-t-2 border-b-2">
         {isLoadingWinners ? (
-          <LoadingAnimation />
+          <LoadingAnimation className='flex w-full mt-6 items-center justify-center' />
         ) : error ? (
           <div className="text-pink mt-3 text-center">{error}</div>
         ) : (
