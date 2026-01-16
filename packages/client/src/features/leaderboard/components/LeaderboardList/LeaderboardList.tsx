@@ -7,6 +7,7 @@ type leaderboardListProps = {
   className?: string;
   winners: Winner[];
 };
+
 const LeaderboardList = ({ className = '', winners }: leaderboardListProps) => {
   return (
     <ol className={`my-2 flex flex-col gap-0.5 ${className}`}>
