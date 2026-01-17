@@ -109,8 +109,12 @@ const BallArray = ({
       initial="initial"
       animate="animate"
     >
-      {[...Array(numBalls)].map(() => (
-        <motion.div className="size-2 rounded-full" variants={itemVariants} />
+      {[...Array(numBalls)].map((_value, index) => (
+        <motion.div
+          key={index + Date.toString()}
+          className="size-2 rounded-full"
+          variants={itemVariants}
+        />
       ))}
     </motion.div>
   );
