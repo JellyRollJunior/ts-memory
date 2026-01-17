@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import UserEvent from '@testing-library/user-event';
 import { describe, it, expect, vi } from 'vitest';
 import { screen, render } from '@testing-library/react';
-import { LeaderboardModalView } from '@/features/leaderboard/components/LeaderboardModal/LeaderboardModalView.jsx';
+import { LeaderboardModalView } from '@/features/winners/components/LeaderboardModal/LeaderboardModalView.js';
 
 vi.mock('simplebar-react', () => ({
   default: ({ children }: { children: ReactNode }) => <div>{children}</div>,

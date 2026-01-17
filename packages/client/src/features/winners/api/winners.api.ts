@@ -1,7 +1,7 @@
-import type { Winner } from '@/features/leaderboard/types.ts';
+import type { Winner } from '@/features/winners/types.ts';
 import { makeRequest } from '@/shared/api/request.ts';
-import { winnerDtoSchema } from '@/features/leaderboard/schemas/winnerDto.schema.ts';
-import { winnerDtoToWinnerMapper } from '@/features/leaderboard/mapper.ts';
+import { winnerDtoSchema } from '@/features/winners/schemas/winnerDto.schema.ts';
+import { winnerDtoToWinnerMapper } from '@/features/winners/mapper.ts';
 const BASE_URL = import.meta.env.VITE_SERVER_BASE_URL;
 
 const fetchWinners = async (): Promise<Winner[]> => {

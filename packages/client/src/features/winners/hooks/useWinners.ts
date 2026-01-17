@@ -1,6 +1,6 @@
-import type { Winner } from '@/features/leaderboard/schemas/winnerDto.schema';
+import type { Winner } from '@/features/winners/types.ts';
 import { useCallback, useEffect, useState } from 'react';
-import { fetchWinners as fetchWinnersApi } from '@/features/leaderboard/api/winners.api.ts';
+import { fetchWinners as fetchWinnersApi } from '@/features/winners/api/winners.api';
 
 const useWinners = () => {
     const [data, setData] = useState<Winner[]>([]);

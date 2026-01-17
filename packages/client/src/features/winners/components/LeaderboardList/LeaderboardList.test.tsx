@@ -1,4 +1,4 @@
-import type { Winner } from '@/features/leaderboard/types.ts';
+import type { Winner } from '@/features/winners/types.ts';
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { LeaderboardList } from './LeaderboardList.tsx';

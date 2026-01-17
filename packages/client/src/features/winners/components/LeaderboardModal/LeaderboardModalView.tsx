@@ -1,7 +1,7 @@
-import type { Winner } from '@/features/leaderboard/types.ts';
+import type { Winner } from '@/features/winners/types.ts';
 import SimpleBar from 'simplebar-react';
 import { Modal } from '@/shared/components/Modal';
-import { LeaderboardList } from '@/features/leaderboard/components/LeaderboardList';
+import { LeaderboardList } from '@/features/winners/components/LeaderboardList';
 import { LoadingAnimation } from '@/shared/components/LoadingAnimation';
 
 type leaderboardModalProps = {

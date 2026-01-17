@@ -1,5 +1,5 @@
-import { useWinners } from '@/features/leaderboard/hooks/useWinners';
-import { LeaderboardModalView } from '@/features/leaderboard/components/LeaderboardModal/LeaderboardModalView.tsx';
+import { useWinners } from '@/features/winners/hooks/useWinners';
+import { LeaderboardModalView } from '@/features/winners/components/LeaderboardModal/LeaderboardModalView';
 
 type leaderboardModalContainerProps = {
   className?: string;

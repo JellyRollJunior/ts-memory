@@ -6,7 +6,7 @@ import { RefreshButton } from '@/shared/components/RefreshButton';
 import { GameTile } from '@/features/game/components/GameTile';
 import { WinModal } from '@/features/game/components/WinModal';
 import { LoseModal } from '@/features/game/components/LoseModal';
-import { LeaderboardModal } from '@/features/leaderboard';
+import { LeaderboardModal } from '@/features/winners';
 import leaderboardIcon from '@/assets/svgs/leaderboard.svg';
 
 type gameboardViewProps = {
