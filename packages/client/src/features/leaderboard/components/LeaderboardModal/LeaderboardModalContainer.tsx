@@ -1,5 +1,5 @@
-import { useWinners } from '../../hooks/useWinners';
-import { LeaderboardModalView } from './LeaderboardModalView';
+import { useWinners } from '@/features/leaderboard/hooks/useWinners';
+import { LeaderboardModalView } from '@/features/leaderboard/components/LeaderboardModal/LeaderboardModalView.tsx';
 
 type leaderboardModalContainerProps = {
   className?: string;
@@ -26,4 +26,4 @@ const LeaderboardModalContainer = ({
   );
 };
 
-export { LeaderboardModalContainer }
+export { LeaderboardModalContainer };

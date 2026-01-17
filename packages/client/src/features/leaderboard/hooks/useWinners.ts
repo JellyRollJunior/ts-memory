@@ -1,4 +1,4 @@
-import type { Winner } from '@/features/leaderboard/schemas/winner.schema.ts';
+import type { Winner } from '@/features/leaderboard/schemas/winnerDto.schema';
 import { useCallback, useEffect, useState } from 'react';
 import { fetchWinners as fetchWinnersApi } from '@/features/leaderboard/api/winners.api.ts';
 

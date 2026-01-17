@@ -1,4 +1,4 @@
-import type { Winner } from '@/features/leaderboard/schemas/winner.schema.ts';
+import type { Winner } from '@/features/leaderboard/types.ts';
 import SimpleBar from 'simplebar-react';
 import { Modal } from '@/shared/components/Modal';
 import { LeaderboardList } from '@/features/leaderboard/components/LeaderboardList';

@@ -1,4 +1,4 @@
-import type { Winner } from '@/features/leaderboard/schemas/winner.schema.ts';
+import type { Winner } from '@/features/leaderboard/types.ts';
 import gold from '@/assets/svgs/trophy-gold.svg';
 import silver from '@/assets/svgs/trophy-silver.svg';
 import bronze from '@/assets/svgs/trophy-bronze.svg';

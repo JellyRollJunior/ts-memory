@@ -1,16 +1,16 @@
-import type { Winner } from '@/features/leaderboard/schemas/winner.schema.ts';
+import type { Winner } from '@/features/leaderboard/types.ts';
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { LeaderboardList } from './LeaderboardList.tsx';
 
 describe('Leaderboard List components', () => {
   const WINNERS: Winner[] = [
-    { name: 'billy', datetime: 'jean' },
-    { name: 'jean', datetime: 'jean' },
-    { name: 'is', datetime: 'jean' },
-    { name: 'not', datetime: 'jean' },
-    { name: 'my', datetime: 'jean' },
-    { name: 'lover', datetime: 'jean' },
+    { name: 'billy', datetime: new Date() },
+    { name: 'jean', datetime: new Date() },
+    { name: 'is', datetime: new Date() },
+    { name: 'not', datetime: new Date() },
+    { name: 'my', datetime: new Date() },
+    { name: 'lover', datetime: new Date() },
   ];
 
   it('renders a list of winners', () => {
