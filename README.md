@@ -136,9 +136,8 @@ const omitId = <T extends { id: unknown }>(input: T): Omit<T, "id"> => {
 #### TODO
 
 -   client
-
-    -   post winners
-        -   signal
+    -   winmodal
+        -   submit winner
     -   don't reshuffle on closing modals
 
     -   contract tests to ensure 

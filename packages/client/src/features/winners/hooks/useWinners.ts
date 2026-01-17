@@ -8,11 +8,11 @@ const useWinners = () => {
     const [error, setError] = useState<string | null>(null);
 
     const fetchWinners = useCallback(async () => {
-        setIsLoading(true);
         try {
+            setIsLoading(true);
+            setError(null);
             const winners = await fetchWinnersApi();
             setData(winners);
-            setError(null);
         } catch (error) {
             setError('Unable to fetch winners');
         } finally {
