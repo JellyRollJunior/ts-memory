@@ -138,30 +138,13 @@ const omitId = <T extends { id: unknown }>(input: T): Omit<T, "id"> => {
 -   client
 
     -   post winners
-    -   move error to errors folder
-        -   change responseError to class declaration (easier for typing)
+        -   signal
     -   don't reshuffle on closing modals
-    -   refactor business logic out of request gifs -> separate into
-        -   request
-        -   fetch gifs
-    -   response error => class based
-    -   get rid of APIError? I see no use for this tbh
 
--   contract tests to ensure 
-    -   baseError == shared baseError
-    -   validaitonError == shared validationError
+    -   contract tests to ensure 
+        -   baseError == shared baseError
+        -   validaitonError == shared validationError
 
-
--   hooks error handling
-    -   useGiphy
-    -   useWinners
-
--   winner schema
-    -> datetime iso
-    -> to map to date?
-    -> update type?
-
--   leaderboard 
-    -   increase width
-    -   add date to list
-    -   refresh button
+    -   hooks error handling
+        -   useGiphy
+        -   useWinners

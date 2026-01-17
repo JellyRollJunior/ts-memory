@@ -13,4 +13,22 @@ const fetchWinners = async (): Promise<Winner[]> => {
     return formatted;
 };
 
-export { fetchWinners };
+const postWinners = async (name: string): Promise<Winner> => {
+    const PATH = '/winners';
+    const endpoint = `${BASE_URL}${PATH}`;
+    const json = await makeRequest(endpoint, {
+        mode: 'cors',
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            name: name,
+        }),
+    });
+    const parsed = winnerDtoSchema.parse(json);
+    const formatted = winnerDtoToWinnerMapper(parsed);
+    return formatted;
+};
+
+export { fetchWinners, postWinners };
