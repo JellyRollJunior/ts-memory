@@ -40,7 +40,7 @@ const GameboardView = ({
   return (
     <>
       <div className="text-sand-beige-dark md:border-sand-beige w-full max-w-4xl md:rounded-3xl md:border-3 md:bg-white/40 md:px-10 md:pt-4 md:pb-8">
-        <div className="mb-2 flex w-full justify-center md:justify-start gap-3 md:mb-0">
+        <div className="mb-2 flex w-full justify-center gap-3 md:mb-0 md:justify-start">
           <IconButton
             className="hover:bg-sand-beige-light rounded-full p-2"
             src={leaderboardIcon}
@@ -95,11 +95,13 @@ const GameboardView = ({
           restartGame();
         }}
       />
-      <LeaderboardModal
-        className="mt-5"
-        isOpen={isLeaderboardOpen}
-        closeModal={() => setIsLeaderboardOpen(false)}
-      />
+      {isLeaderboardOpen && (
+        <LeaderboardModal
+          className="mt-5"
+          isOpen={true}
+          closeModal={() => setIsLeaderboardOpen(false)}
+        />
+      )}
     </>
   );
 };

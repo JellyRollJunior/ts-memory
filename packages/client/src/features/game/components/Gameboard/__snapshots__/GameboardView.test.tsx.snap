@@ -6,7 +6,7 @@ exports[`GameboardView component > renders score, gametiles, and win/lose modals
     class="text-sand-beige-dark md:border-sand-beige w-full max-w-4xl md:rounded-3xl md:border-3 md:bg-white/40 md:px-10 md:pt-4 md:pb-8"
   >
     <div
-      class="mb-2 flex w-full justify-center md:justify-start gap-3 md:mb-0"
+      class="mb-2 flex w-full justify-center gap-3 md:mb-0 md:justify-start"
     >
       <button
         class="hover:bg-sand-beige-light rounded-full p-2"
@@ -49,9 +49,6 @@ exports[`GameboardView component > renders score, gametiles, and win/lose modals
   </dialog>
   <dialog>
     Lose
-  </dialog>
-  <dialog>
-    Leaderboard
   </dialog>
 </div>
 `;
