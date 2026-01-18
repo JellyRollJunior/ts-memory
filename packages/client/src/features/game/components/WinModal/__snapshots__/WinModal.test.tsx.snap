@@ -3,23 +3,38 @@
 exports[`Win Modal component > Renders encouraging message and play again button 1`] = `
 <div>
   <dialog>
-    <p>
-      wowza you have such great memory!
-    </p>
-    <div
-      class="mt-3 grid w-full grid-cols-2 justify-center gap-5"
+    <form
+      class="mt-3 flex flex-col self-start"
     >
-      <button
-        class="primary-button px-5 py-0.5"
+      <label
+        for="winner-name"
       >
-        Close
-      </button>
-      <button
-        class="secondary-button px-5 py-0.5"
+        Add your name to the leaderboards
+      </label>
+      <input
+        class="border-sand-beige mt-1 h-8 rounded-md border-2 pr-1 pl-2"
+        id="winner-name"
+        maxlength="16"
+        minlength="1"
+        placeholder="name"
+        type="text"
+      />
+      <div
+        class="mt-3.5 flex w-full justify-center gap-5"
       >
-        Play again
-      </button>
-    </div>
+        <button
+          class="primary-button px-5 py-0.5"
+          type="button"
+        >
+          Play again
+        </button>
+        <button
+          class="secondary-button px-5 py-0.5"
+        >
+          Submit & play again
+        </button>
+      </div>
+    </form>
   </dialog>
 </div>
 `;
