@@ -4,7 +4,7 @@ exports[`Win Modal component > Renders encouraging message and play again button
 <div>
   <dialog>
     <form
-      class="mt-3 flex flex-col self-start"
+      class="mt-4 flex flex-col self-start"
     >
       <label
         for="winner-name"
@@ -12,15 +12,19 @@ exports[`Win Modal component > Renders encouraging message and play again button
         Add your name to the leaderboards
       </label>
       <input
-        class="border-sand-beige mt-1 h-8 rounded-md border-2 pr-1 pl-2"
+        class="border-sand-beige mt-1 h-8 w-full rounded-md border-2 pr-1 pl-2"
         id="winner-name"
         maxlength="16"
         minlength="1"
         placeholder="name"
         type="text"
+        value=""
       />
       <div
-        class="mt-3.5 flex w-full justify-center gap-5"
+        class="self-end text-sm text-red-400"
+      />
+      <div
+        class="mt-1.5 flex w-full justify-center gap-5"
       >
         <button
           class="primary-button px-5 py-0.5"

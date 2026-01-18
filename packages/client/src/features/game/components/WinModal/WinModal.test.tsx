@@ -2,8 +2,8 @@ import type { ReactNode } from 'react';
 import '@testing-library/jest-dom/vitest';
 import userEvent from '@testing-library/user-event';
 import { describe, it, expect, vi } from 'vitest';
-import { WinModal } from '@/features/game/components/WinModal';
 import { render, screen } from '@testing-library/react';
+import { WinModal } from '@/features/game/components/WinModal';
 
 vi.mock('@/shared/components/modal', () => ({
   Modal: ({ children }: { children: ReactNode }) => <dialog>{children}</dialog>,
