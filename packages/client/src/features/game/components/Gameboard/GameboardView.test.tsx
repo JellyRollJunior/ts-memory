@@ -20,7 +20,7 @@ vi.mock('@/features/game/components/LoseModal', () => ({
   ),
 }));
 
-vi.mock('@/features/leaderboard/components/LeaderboardModal', () => ({
+vi.mock('@/features/winners', () => ({
   LeaderboardModal: ({ open }: { open: boolean }) => (
     <dialog open={open}>Leaderboard</dialog>
   ),

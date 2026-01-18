@@ -8,7 +8,7 @@ vi.mock('simplebar-react', () => ({
   default: ({ children }: { children: ReactNode }) => <div>{children}</div>,
 }));
 
-vi.mock('@/features/leaderboard/components/LeaderboardList', () => ({
+vi.mock('@/features/winners/components/LeaderboardList', () => ({
   LeaderboardList: () => <ol>I am a list of winners!</ol>,
 }));
 
