@@ -10,7 +10,7 @@ describe('Game Tile component', () => {
   const GAME_TILE_DATA = {
     id: 'test',
     src: logo,
-    clicked: false,
+    isClicked: false,
   };
 
   it('Renders button with image', () => {
