@@ -1,17 +1,8 @@
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
-import { defineConfig } from 'vitest/config';
-import { resolve } from 'path';
+import { defineConfig } from 'vite';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
-    plugins: [react(), tailwindcss()],
-    test: {
-        environment: 'jsdom',
-        setupFiles: './src/test/setup.ts',
-    },
-    resolve: {
-        alias: {
-            '@': resolve(__dirname, 'src'),
-        },
-    },
+    plugins: [react(), tailwindcss(), tsconfigPaths()],
 });

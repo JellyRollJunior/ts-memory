@@ -5,7 +5,7 @@ import { gameController } from '@/features/game/controller';
 describe('Game controller module', () => {
     const SRC_ARRAY = ['SRC_1', 'SRC_2'];
     let session = gameController.initGame(SRC_ARRAY);
-    const tileOneId = session.board[0].id;
+    const tileOneId = session.board[0]!.id;
 
     it('initializes a new game with correct GameData', () => {
         expect(session.state).toBe('PLAYING');
@@ -36,7 +36,7 @@ describe('Game controller module', () => {
     });
 
     it('verifies win on clicking all tiles once', () => {
-        const tileTwoId = session.board[1].id;
+        const tileTwoId = session.board[1]!.id;
 
         const newSession = gameController.makeMove(
             tileTwoId,
