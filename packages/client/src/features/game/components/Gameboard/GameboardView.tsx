@@ -1,6 +1,5 @@
 import type { GameState, Tile } from '@/features/game/types';
 import { Fragment, useState } from 'react';
-import { gameController } from '@/features/game/controller';
 import { IconButton } from '@/shared/components/IconButton';
 import { RefreshButton } from '@/shared/components/RefreshButton';
 import { GameTile } from '@/features/game/components/GameTile';
@@ -66,7 +65,7 @@ const GameboardView = ({
                   />
                 </Fragment>
               ))
-            : gameController.shuffleArray(gameTiles).map(
+            : gameTiles.map(
                 (data): React.JSX.Element => (
                   <Fragment key={data.id}>
                     <GameTile

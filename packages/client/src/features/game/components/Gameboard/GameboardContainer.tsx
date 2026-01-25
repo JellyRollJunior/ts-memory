@@ -31,7 +31,7 @@ const GameboardContainer = ({ numTiles = 12 }) => {
     if (gameState == 'PLAYING') {
       const gameData = gameController.makeMove(tileId, gameState, gameTiles);
       setGameState(gameData.state);
-      setGameTiles(gameData.board);
+      setGameTiles(gameController.shuffleArray(gameData.board));
 
       // update score
       const newScore = gameController.calculateScore(gameData.board);
