@@ -1,4 +1,4 @@
-import type { winnerDto as ServerWinnerDto} from '@/winners/dto.schema.js';
+import type { WinnerDto as ServerWinnerDto} from '@/winners/dto.schema.js';
 import type { WinnerDto as SharedWinnerDto } from '@sailor-moon-memory/shared/winners';
 import { describe, it, expectTypeOf } from 'vitest';
 

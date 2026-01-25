@@ -132,14 +132,3 @@ const omitId = <T extends { id: unknown }>(input: T): Omit<T, "id"> => {
     return filtered;
 };
 ```
-
-#### TODO
-
--   client
-    -   contract tests to ensure 
-        -   baseError == shared baseError
-        -   validaitonError == shared validationError
-
-    -   hooks error handling
-        -   useGiphy
-        -   useWinners
