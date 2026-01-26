@@ -17,10 +17,10 @@
     "declarationMap": true,
 
     /* Path aliases */
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["*"],
-      "@root/*": ["../*"],
+      "@/*": ["src/*"],
+      "@root/*": ["*"],
     }
   },
   "include": ["src"]
