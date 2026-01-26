@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useRef, type ReactNode } from 'react';
 import logo from '@/assets/pretty-guardian-logo.png';
 
 type modalProps = {
@@ -18,8 +18,15 @@ const Modal = ({
   contentWrapperStyling = '',
   children,
 }: modalProps) => {
+  const ref = useRef<HTMLDialogElement>(null);
+
+  const openModal = () => ref && ref.current && ref.current.showModal();
+  const closeModal = () => ref && ref.current && ref.current.close();
+
+  open ? openModal() : closeModal();
+
   return (
-    <dialog className={`dialog min-w-2xs ${className}`} open={open}>
+    <dialog ref={ref} className={`dialog min-w-2xs ${className}`}>
       <div className="flex flex-col items-center px-5 pt-2 pb-5">
         {showLogo && (
           <img

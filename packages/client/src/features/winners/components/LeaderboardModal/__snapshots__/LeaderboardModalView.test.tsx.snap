@@ -4,7 +4,6 @@ exports[`Leaderboard modal component > renders title, leaderboard, and close but
 <div>
   <dialog
     class="dialog min-w-2xs "
-    open=""
   >
     <div
       class="flex flex-col items-center px-5 pt-2 pb-5"

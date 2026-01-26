@@ -31,7 +31,7 @@
 }
 
 @utility dialog {
-  @apply border-sand-beige mx-auto my-auto rounded-2xl border-3 backdrop:bg-white/40;
+  @apply border-sand-beige mx-auto my-auto rounded-2xl border-3 backdrop-blur-2xl backdrop:bg-white/40;
 }
 
 @utility primary-button {

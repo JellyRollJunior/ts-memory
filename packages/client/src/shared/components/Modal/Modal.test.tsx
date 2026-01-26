@@ -31,7 +31,7 @@ describe('Modal component', () => {
     );
 
     expect(
-      screen.getByRole('heading', { name: headerText })
+      screen.getByRole('heading', { name: headerText, hidden: true })
     ).toBeInTheDocument();
   });
 

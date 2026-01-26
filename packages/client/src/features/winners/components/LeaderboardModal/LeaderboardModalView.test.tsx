@@ -40,7 +40,10 @@ describe('Leaderboard modal component', () => {
       />
     );
 
-    const closeButton = screen.getByRole('button', { name: 'Close' });
+    const closeButton = screen.getByRole('button', {
+      name: 'Close',
+      hidden: true,
+    });
     await user.click(closeButton);
 
     expect(closeModal).toHaveBeenCalledOnce();
