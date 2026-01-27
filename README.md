@@ -27,10 +27,13 @@
     - React, Typescript, Vite
     - React router, Zod, Vitest
     - TailwindCSS, Motion
+    - Hosting client: Netlify
 - Server
     - Express, NodeJS, Typescript
     - PrismaORM
     - CORS, Zod, Vitest, Supertest
+    - Hosting server: Render
+    - Hosting DB: Neon.tech
 - Shared
     - Typescript
 
@@ -142,14 +145,14 @@ Learned A LOT in this project. First time working with TS, ZOD, feature folders,
 
 ## Environment variables
 
-### ./client/.env
+#### ./client/.env
 
 ```bash
 VITE_SERVER_BASE_URL
 VITE_GIPHY_API_KEY
 ```
 
-### ./server/.env
+#### ./server/.env
 
 ```bash
 PORT
