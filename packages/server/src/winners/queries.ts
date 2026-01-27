@@ -1,4 +1,4 @@
-import type { Winner } from "@root/generated/prisma/browser.js";
+import type { Winner } from "@prisma/client";
 import { prisma } from "@/db/prisma.js";
 import { ServerError } from "@/errors/ServerError.js";
 
