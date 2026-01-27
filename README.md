@@ -177,6 +177,17 @@ npm run dev
 ```
 
 ```bash
+# Render build command
+npm run build --workspace=packages/shared && \
+npm install --workspace=packages/server && \
+npm exec prisma generate --workspace=packages/server && \
+npm run build --workspace=packages/server
+
+# Render start command
+npm run start --workspace=packages/server
+```
+
+```bash
 # Start frontend react
 cd packages/client
 npm install
