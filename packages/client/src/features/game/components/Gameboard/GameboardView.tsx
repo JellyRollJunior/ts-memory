@@ -73,7 +73,7 @@ const GameboardView = ({
                       onClick={() => onClickTile(data.id)}
                       isLoading={isLoading}
                       isError={Boolean(error)}
-                      isCheating={true}
+                      isCheating={false}
                     />
                   </Fragment>
                 )
